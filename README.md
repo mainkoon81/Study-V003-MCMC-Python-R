@@ -91,18 +91,50 @@ __Example 2> Bayesian Computation (in R)__
  - p-value is `1 - pnorm(q=3.75) = 8.841729e-05`. We can then look up the upper tail area, the p-value, and see that it is less than 0.001. With a `p-value < 0.05`, we reject the null hypothesis and conclude that the **poll provides evidence that a majority (greater than 50%) of Americans supported the nuclear_arms_reduction**. The 95% CI for `p_obv` would be `0.56 + c(-1,1)*1.96*0.016`. So on AVG, around from 52% to 59% of US people support the nuclear_arms_reduction. 
 
 > Another perspective on this problem(Inferencing on a single proportion as a population parameter) is that of a Bayesian. 
-<img src="https://user-images.githubusercontent.com/31917400/47117618-c2b0f000-d25c-11e8-8c99-41e8f4301fe3.png" />
- - Beta is conjugate to the Binomial distribution. Beta is a conjugate prior for the Binomial likelihood...and the posterior will follow the Beta.  
-   - If the posterior distributions `p(θ|x)` are in the same distribution family as the prior distribution `p(θ)`, the prior and posterior are then called **conjugate distributions**, and the **prior is called a conjugate prior** for the `**likelihood function**`. And the likelihood function is usually well-determined from a statement of the data-generating process.
-   - Beta(1,1) is equivalent to Unif(0,1), this is a non-informative prior. 
+<img src="https://user-images.githubusercontent.com/31917400/47119665-b0868000-d263-11e8-85ce-4c5a17a78e05.png" />
 
- - In Confidence Interval, the true value(population_parameter) is not a random variable. It is a fixed but unknown quantity. In contrast, our estimate is a random variable as it depends on our data x. Thus, we get different estimates each time, repeating our study. 
- - In Credible Intervals, we assume that the true value(population parameter) is a random variable. Thus, we capture the uncertainty about the true parameter value by a **imposing a prior distribution** on the true parameter vector. Using bayes theorem, we construct the posterior distribution for the parameter vector by blending the prior and the data(likelihood) we have, then arrive at **a point estimate** using the posterior distribution(use the mean of the posterior distribution). However, the true parameter vector is a random variable, we also want to know the extent of uncertainty we have in our point estimate. Thus, we construct a 95% credible interval such that the following holds: `P( l(θ)<=θ<=u(θ) ) = 0.95`  
+ - Look, we have a likelihood which is Binomial. 
+ - Beta is conjugate to the Binomial distribution, i.e. Beta is a conjugate prior for the Binomial likelihood. That's why we choose Beta as our prior...then what the posterior will be?  
+ - If the posterior distributions `p(θ|x)` are in the same **distribution family** as the prior distribution `p(θ)`:
+   - the prior and posterior are then called **conjugate distributions**, 
+   - the **prior is called a conjugate prior** for the `**likelihood function**`, 
+   - the `**likelihood function**` is usually well-determined from a statement of the data-generating process.
+ - Let's see our prior. Beta(1,1) is equivalent to Unif(0,1), this is a non-informative prior, which means we don't have any prior information to add to this model???
+   - 
+   
+   
+   
 
 table of conjugate distribution
 <img src="https://user-images.githubusercontent.com/31917400/47116021-53390180-d258-11e8-98c7-fa14a36415fe.png" />
 
+ - find the posterior
+<img src="https://user-images.githubusercontent.com/31917400/47119888-9c8f4e00-d264-11e8-9846-a03b7cb95e4d.png" />
 
+ - the Bayesian Data model is `y|θ ~ Bin(n,θ)` thus `θ ~ Beta(a,b)`
+ - the resulting posterior is then `θ|y ~ Beta(y+a, n-y+b)`. **We can now simulate the posterior distribution**, to choose `θ` !
+ - Did you find the posterior? then build a Credible Interval. 
+   - In Confidence Interval, the true value(population_parameter) is not a random variable. It is a fixed but unknown quantity. In contrast, our estimate is a random variable as it depends on our data x. Thus, we get different estimates each time, repeating our study. 
+   - In Credible Intervals, we assume that the true value(population parameter) is a random variable. Thus, we capture the uncertainty about the true parameter value by a **imposing a prior distribution** on the true parameter vector. Using bayes theorem, we construct the posterior distribution for the parameter vector by blending the prior and the data(likelihood) we have, then arrive at **a point estimate** using the posterior distribution(use the mean of the posterior for example). However, the true parameter vector is a random variable, we also want to know the extent of uncertainty we have in our point estimate. Thus, we construct a 95% credible interval such that the following holds: `P( l(θ)<=θ<=u(θ) ) = 0.95` 
+```
+N = 10^4
+set.seed(123)
+x = rbeta(n = N, shape1 = 576 + 1, shape2 = 1028 - 576 + 1)
+d = density(x)
+hist(x = x, probability = TRUE, main = "Beta Posterior Distribution",
+     xlab = expression(theta), ylab = "Density",
+     ylim = c(0,40), col = "gray", border = "white")
+lines(x = d$x , y = d$y, type = "l", col = 2)
+abline(v = median(x), lty = 3, col = "3")
+
+print("Median: ")
+print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
+```
+<img src="https://user-images.githubusercontent.com/31917400/47120410-7e2a5200-d266-11e8-9613-75a2fe8e6995.png" />
+
+Here is the thing. This example focused on **direct simulation from a posterior distribution**. However, there are some posteriors that will not be as easily identifiable. 
+### Monte-Carlo methods will be helpful for generating samples from difficult to sample target distributions.
+How? by generating random number from target distributions through transformation methods??
 
 
 
