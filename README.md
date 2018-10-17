@@ -23,9 +23,8 @@ Monte-Carlo methods are methods for `generating random variables` directly or in
  - Monte Carlo is not strictly Bayesian nor strictly frequentist(Neyman-Pearson hypothesis testing), but it's **Parametric** sampling or bootstrapping (target distribution part of a family of distributions) as a **statistical simulation**, which helps us understand reality without needing to run multiple experiments or costly calculations.
  - It also helps us understand probabilities of **extreme events**. 
  - The use of Monte-Carlo methods to **calculate p-values** has become popular because:
-   - many test statistics do not have a standard asymptotic distribution
-   - even if a standard asymptotic distribution does exist, it may not be reliable in realistic sample sizes
-   - In contrast, Monte Carlo methods can be used to obtain an **empirical p-value** that approximates the exact p-value without relying on asymptotic distributional theory or exhaustive enumeration. 
+   - Many test statistics do not have a standard asymptotic distribution. Even if a standard asymptotic distribution does exist, it may not be reliable in realistic sample sizes. 
+   - In contrast, Monte-Carlo methods can be used to obtain an **Empirical p-value** that approximates the exact p-value without relying on asymptotic distributional theory or exhaustive enumeration. 
 
 __Example 1> hypothesis testing (in R)__
 > (a)Contingency table with too small sample_size
@@ -42,7 +41,7 @@ study = matrix(data = c(21, 2, 15, 3), nrow = 2, ncol = 2, byrow = TRUE,
      - 2> test for **independence** between different factors(row, col)??
 
  - **A disadvantage of the Chi-squared test** is that it requires a `sufficient sample size` in order for the chi-square approximation to be valid. When `cell_counts` are low (below 5), asymptotic properties do not hold well. Therefore, a simple Chi-squred test may report an **invalid p-value** which would increase a **Type-I, II error** rate. 
- - Monte-Carlo Method can solve this issue. 
+## Here, Monte-Carlo Method can solve this issue. 
    - **Simulating contingency tables**: This function below takes some characteristics of contingency table and generates lots of contingency tables, creating a distribution of those tables. Then we can use it to calculate the Chi-squred statistics. 
    - Here, `r2dtable(n, r, c)` refers **Random 2-way Tables with Given Marginals**  where 
      - `n`: giving the **number of tables** to be drawn.
