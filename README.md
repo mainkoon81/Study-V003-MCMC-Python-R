@@ -76,7 +76,7 @@ ChisqTest <- function(data, Simulations){
     return(out)
 }
 ```
-<img src="https://user-images.githubusercontent.com/31917400/47088166-bc4b5580-d215-11e8-814d-696e17023588.png" />
+<img src="https://user-images.githubusercontent.com/31917400/47089124-fa497900-d217-11e8-9fee-8f89523dfa9a.png" />
 
 
 
