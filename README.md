@@ -84,7 +84,7 @@ ChisqTest <- function(data, Simulations){
  - Using a **Pearson-frequentist perspective**, we might simply do the following:
    - the number of US people supporting nuclear arms follows ~ B(n, p), and follows ~ N(np, npq)
    - the proportion of them follows ~ N(p, pq/n)
-   - 
+<img src="https://user-images.githubusercontent.com/31917400/47097156-b743d180-d228-11e8-975d-36c5e808ec3a.png" />
 
 
 
