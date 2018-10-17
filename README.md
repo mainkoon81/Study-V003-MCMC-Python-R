@@ -26,17 +26,57 @@ Monte-Carlo methods are methods for `generating random variables` directly or in
    - many test statistics do not have a standard asymptotic distribution
    - even if a standard asymptotic distribution does exist, it may not be reliable in realistic sample sizes
    - In contrast, Monte Carlo methods can be used to obtain an **empirical p-value** that approximates the exact p-value without relying on asymptotic distributional theory or exhaustive enumeration. 
- - Example 1> hypothesis testing (in R)
-   - The contingency table below shows results of patients who underwent cancer **treatment** and either saw their cancer **controlled or not**. The two treatments are "surgery" and "radiation". 
-   - The question we are interested in is **"Is there a difference between treatment and controll of cancer?""**
+
+__Example 1> hypothesis testing (in R)__
 ```
 study = matrix(data = c(21, 2, 15, 3), nrow = 2, ncol = 2, byrow = TRUE,
                dimnames = list(c("surgery", "radiation"), c("controlled", "not controlled")))
 ```
 <img src="https://user-images.githubusercontent.com/31917400/47085511-bf8f1300-d20e-11e8-91f8-d8b517cc484a.png" />
 
+ - The contingency table above shows results of patients who underwent cancer **treatment** and either saw their cancer **controlled or not**. The two treatments are "surgery" and "radiation". 
+ - The question we are interested in is **"Is there a difference between treatment and controll of cancer?""**. Of course, a Chi-squared test would usually be used for this type of analyses.
+   - There are two ways that the Chi-squared test is used:
+     - 1> test the **Goodness of fit** of the `theoretical distribution` to the `observations`.
+     - 2> test for **independence** between different factors(row, col)??
 
+ - **A disadvantage of the Chi-squared test** is that it requires a `sufficient sample size` in order for the chi-square approximation to be valid. When `cell_counts` are low (below 5), asymptotic properties do not hold well. Therefore, a simple Chi-squred test may report an **invalid p-value** which would increase a **Type-I, II error** rate. 
+ - Monte-Carlo Method can solve this issue. 
+   - **Simulating contingency tables**: This function below takes some characteristics of contingency table and generates lots of contingency tables, creating a distribution of those tables. Then we can use it to calculate the Chi-squred statistics. 
+   - Here, `r2dtable(n, r, c)` refers **Random 2-way Tables with Given Marginals**  where 
+     - `n`: giving the **number of tables** to be drawn.
+     - `r`: giving the **row totals**, to be coerced to integer. Must sum to the same as c.
+     - `c`: giving the **column totals**, to be coerced to integer.
+```
+simulateChisq <- function(B, E, sr, sc){
+    results = numeric(B)
+    for(i in 1:B){
+        dataa = unlist(r2dtable(1, sr, sc))   
+        M = matrix(dataa, ncol = length(sc), nrow = length(sr))
+        Chi_val = sum(sort( (M - E)^2 / E, decreasing = TRUE))
+        results[i] = Chi_val
+    }
+    return(results)
+}
 
+ChisqTest <- function(data, Simulations){
+    x = data                                           ## data
+    B = Simulations                                    ## number of simulations to generate
+    n <- sum(x)                                        ## total number of observations
+    sr <- rowSums(x)                                   ## sum of rows
+    sc <- colSums(x)                                   ## sum of cols
+    E <- outer(sr, sc, "*")/n                          ## ORDER MATTERS
+    dimnames(E) <- dimnames(study)
+    tmp <- simulateChisq(B, E, sr, sc)                 ## simulated data
+    Stat <- sum(sort((x - E)^2/E, decreasing = TRUE))  ## chi^2 statistic
+    pval <- (1 + sum(tmp >=  Stat))/(B + 1)            ## MC p-value
+    rawPVal = pchisq(q = Stat, df = 2, lower.tail = FALSE)
+    
+    out = list(PearsonStat = Stat, MonteCarloPVal = pval, rawPVal = rawPVal)
+    return(out)
+}
+```
+<img src="https://user-images.githubusercontent.com/31917400/47088166-bc4b5580-d215-11e8-814d-696e17023588.png" />
 
 
 
