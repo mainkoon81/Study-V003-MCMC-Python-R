@@ -28,6 +28,7 @@ Monte-Carlo methods are methods for `generating random variables` directly or in
    - In contrast, Monte Carlo methods can be used to obtain an **empirical p-value** that approximates the exact p-value without relying on asymptotic distributional theory or exhaustive enumeration. 
 
 __Example 1> hypothesis testing (in R)__
+> (a)Contingency table with too small sample_size
 ```
 study = matrix(data = c(21, 2, 15, 3), nrow = 2, ncol = 2, byrow = TRUE,
                dimnames = list(c("surgery", "radiation"), c("controlled", "not controlled")))
@@ -78,6 +79,26 @@ ChisqTest <- function(data, Simulations){
 ```
 <img src="https://user-images.githubusercontent.com/31917400/47089124-fa497900-d217-11e8-9fee-8f89523dfa9a.png" />
 
+ > (b)Inference on a single proportion
+ - A simple random sample of 1,028 US adults in March 2013 found that 56% support nuclear arms reduction. Does this provide **convincing evidence** that a majority of Americans supported nuclear arms reduction at the 5% significance level?
+ - Using a **Pearson-frequentist perspective**, we might simply do the following:
+   - the number of US people supporting nuclear arms follows ~ B(n, p), and follows ~ N(np, npq)
+   - the proportion of them follows ~ N(p, pq/n)
+   - 
+
+
+
+
+
+
+
+
+
+
+
+
+
+__Example 2> Bayesian Computation (in R)__
 
 
 
