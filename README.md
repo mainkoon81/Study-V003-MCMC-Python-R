@@ -92,6 +92,9 @@ ChisqTest <- function(data, Simulations){
  - p-value is `1 - pnorm(q=3.75) = 8.841729e-05`. We can then look up the upper tail area, the p-value, and see that it is less than 0.001. With a `p-value < 0.05`, we reject the null hypothesis and conclude that the **poll provides evidence that a majority (greater than 50%) of Americans supported the nuclear_arms_reduction**. The 95% CI for `p_obv` would be `0.56 + c(-1,1)*1.96*0.016`. So on AVG, around from 52% to 59% of US people support the nuclear_arms_reduction. 
 
 __Example 2> Bayesian Computation (in R)__
+> table of conjugate distribution
+<img src="https://user-images.githubusercontent.com/31917400/47116021-53390180-d258-11e8-98c7-fa14a36415fe.png" />
+
 
 
 
