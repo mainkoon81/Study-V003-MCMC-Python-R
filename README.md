@@ -147,7 +147,14 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
 
 Here is the thing. This example focused on **direct simulation from a posterior distribution**. However, there are some posteriors that will not be as easily identifiable. 
 ### Monte-Carlo methods will be helpful for generating samples from difficult to sample target distributions.
-How? by generating random number from target distributions through transformation methods??
+How? by generating random number from target distributions through **transformation methods**??
+ - Monte Carlo simulation uses random sampling and statistical modeling to mimic the operations of complex systems. 
+   - Monte Carlo models a system as a series of probability density functions.
+   - Monte Carlo repeatedly samples from the PDF.
+   - Monte Carlo computes the statistics of interest.
+
+------------------------------------------------------------------------------------------------------------
+## Generating Random Variables
 
 
 
