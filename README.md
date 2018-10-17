@@ -79,7 +79,7 @@ ChisqTest <- function(data, Simulations){
 
 __Example 2> Bayesian Computation (in R)__
 > This is the traditional way of Inferencing on a single proportion as a population parameter. 
- - Let's say, a simple random sample of 1,028 US adults in March 2013 found that 56% support nuclear arms reduction. Damn + 6% !!! **"Q. Does this provide convincing evidence that a majority of Americans supported nuclear arms reduction at the 5% significance level?"**
+ - Let's say, a simple random sample of 1,028 US adults in March 2013 found that 56% support nuclear arms reduction. Damn + 6% !!! **"Q. Does this provide convincing evidence that a majority of Americans supported nuclear_arms_reduction at the 5% significance level?"**
  - Using a **Pearson-frequentist perspective**, we might simply do the following:
    - the number of US people supporting nuclear_arms_reduction follows ~ Bin(n, p), and follows ~ N(np, npq)
    - the proportion of them follows ~ N(p, pq/n)
@@ -99,11 +99,24 @@ __Example 2> Bayesian Computation (in R)__
    - the prior and posterior are then called **conjugate distributions**, 
    - the **prior is called a conjugate prior** for the `**likelihood function**`, 
    - the `**likelihood function**` is usually well-determined from a statement of the data-generating process.
- - Let's see our prior. Beta(1,1) is equivalent to Unif(0,1), this is a non-informative prior, which means we don't have any prior information to add to this model???
-   - 
-   
-   
-   
+ - Let's see our prior. Prior expresses one's beliefs about this quantity before some evidence is taken into account. Here, the prior could be the probability distribution representing the relative proportions of advocaters who will support nuclear_arms_reduction. 
+   - we chose Beta(1,1) as our prior and this is equivalent to Unif(0,1) and this is a non-informative prior, which means we don't have any prior information to add to this model.
+   - __Non-informative prior__
+     - Non-informative prior expresses vague or general information about a variable.
+     - Uninformative priors can express "objective" information such as "the variable is positive" or "the variable is less than some limit". The simplest and oldest rule for determining a non-informative prior is the principle of indifference, which assigns equal probabilities to all possibilities. In parameter estimation problems, the use of an uninformative prior typically yields results which are not too different from conventional statistical analysis, as the likelihood function often yields more information than the uninformative prior.
+     - However, the non-informative prior can be created to reflect a balance among outcomes when no information is available. 
+     - Or Priors can also be chosen according to some principle, such as symmetry or maximizing entropy given constraints; examples are `Jeffreys' prior` for the Bernoulli random variable. 
+     
+   - __Informative prior__
+     - An informative prior expresses specific, definite information about a variable.
+     - A reasonable approach is to make the prior a `normal distribution` with expected value equal to the given mean value, with variance equal to the given variance. 
+     - pre-existing evidence which has already been taken into account is part of the prior and, as more evidence accumulates, the posterior is determined largely by the evidence rather than any original assumption, provided that the original assumption admitted the possibility of what the evidence is suggesting.
+        
+   - When a family of `conjugate priors` exists, choosing a prior from that family simplifies calculation of the posterior distribution.
+   - `Parameters` of prior distributions are a kind of `hyperparameter`. For example, if one uses `Beta(a,b)` to model the distribution of the parameter `p` of Bernoulli, then:
+     - `p` is a parameter of the underlying system (Bernoulli), and
+     - `a` and `b` are parameters of the prior distribution (Beta); hence hyperparameters
+   - Hyperparameters themselves may have `hyper-prior distributions` expressing beliefs about their values. A Bayesian model with more than one level of prior like this is called a `hierarchical Bayes model`.  
 
 table of conjugate distribution
 <img src="https://user-images.githubusercontent.com/31917400/47116021-53390180-d258-11e8-98c7-fa14a36415fe.png" />
