@@ -80,23 +80,16 @@ ChisqTest <- function(data, Simulations){
 <img src="https://user-images.githubusercontent.com/31917400/47089124-fa497900-d217-11e8-9fee-8f89523dfa9a.png" />
 
  > (b)Inference on a single proportion
- - A simple random sample of 1,028 US adults in March 2013 found that 56% support nuclear arms reduction. Does this provide **convincing evidence** that a majority of Americans supported nuclear arms reduction at the 5% significance level?
+ - A simple random sample of 1,028 US adults in March 2013 found that 56% support nuclear arms reduction. Damn + 6% !!! Does this provide **convincing evidence** that a majority of Americans supported nuclear arms reduction at the 5% significance level?
  - Using a **Pearson-frequentist perspective**, we might simply do the following:
-   - the number of US people supporting nuclear arms follows ~ B(n, p), and follows ~ N(np, npq)
+   - the number of US people supporting nuclear_arms_reduction follows ~ B(n, p), and follows ~ N(np, npq)
    - the proportion of them follows ~ N(p, pq/n)
 <img src="https://user-images.githubusercontent.com/31917400/47097156-b743d180-d228-11e8-975d-36c5e808ec3a.png" />
 
-
-
-
-
-
-
-
-
-
-
-
+ - Under the Null-hypothesis, `p0 = q0`, so `np0 = nq0`, then `1028*0.5 = 514 > 10` which is the **mean** number of people supporting nuclear_arms_reduction.
+ - Based on the normal model, the test statistic can be computed as the Z-score of the point estimate: `Z = (p_obv - p0)/SE`.  
+ - SE can be computed: `SE = sqrt(p0*q0/n)` and the Null-hypothesis `p0 = 0.5` is used again here because this is a hypothesis test for a single proportion `sqrt(0.5*0.5/1028) = 0.016`, so our Z is `(0.56-0.5)/0.016 = 3.75`.
+ - p-value is `1 - pnorm(q=3.75) = 8.841729e-05`. We can then look up the upper tail area, the p-value, and see that it is less than 0.001. With a `p-value < 0.05`, we reject the null hypothesis and conclude that the **poll provides evidence that a majority (greater than 50%) of Americans supported the nuclear_arms_reduction**. The 95% CI for `p_obv` would be `0.56 + c(-1,1)*1.96*0.016`. So on AVG, around from 52% to 59% of US people support the nuclear_arms_reduction. 
 
 __Example 2> Bayesian Computation (in R)__
 
