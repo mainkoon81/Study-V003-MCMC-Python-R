@@ -103,9 +103,9 @@ __Example 2> Bayesian Computation (in R)__
  - Let's see our prior. Prior expresses one's beliefs about this quantity before some evidence is taken into account. Here, the prior could be the probability distribution representing the relative proportions of advocaters who will support nuclear_arms_reduction. 
    - we chose Beta(1,1) as our prior and this is equivalent to Unif(0,1) and this is a non-informative prior, which means we don't have any prior information to add to this model.
    - __Non-informative prior__
-     - Non-informative prior expresses vague or general information about a variable.
+     - Non-informative prior expresses vague or general information about a variable(having no strong prior beliefs or assumptions).
      - Uninformative priors can express "objective" information such as "the variable is positive" or "the variable is less than some limit". The simplest and oldest rule for determining a non-informative prior is the principle of indifference, which assigns equal probabilities to all possibilities. In parameter estimation problems, the use of an uninformative prior typically yields results which are not too different from conventional statistical analysis, as the likelihood function often yields more information than the uninformative prior.
-     - However, the non-informative prior can be created to reflect a balance among outcomes when no information is available. 
+     - However, the non-informative prior can be created to reflect a balance among outcomes when no information is available. Non-informative priors are useful when 'stronger' priors would unjustifiably favor some hypotheses in a way that's inconsistent with your actual (lack of) knowledge/beliefs. 
      - Or Priors can also be chosen according to some principle, such as symmetry or maximizing entropy given constraints; examples are `Jeffreys' prior` for the Bernoulli random variable. 
      
    - __Informative prior__
