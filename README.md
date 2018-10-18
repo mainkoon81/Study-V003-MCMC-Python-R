@@ -80,7 +80,7 @@ ChisqTest <- function(data, Simulations){
 <img src="https://user-images.githubusercontent.com/31917400/47089124-fa497900-d217-11e8-9fee-8f89523dfa9a.png" />
 
 __Example 2> Bayesian Computation (in R)__
-> This is the traditional way of Inferencing on a single proportion as a population parameter. 
+> This is the traditional way of Inferencing on a single proportion as a population parameter without Bayesian.
  - Let's say, a simple random sample of 1,028 US adults in March 2013 found that 56% support nuclear arms reduction. Damn + 6% !!! **"Q. Does this provide convincing evidence that a majority of Americans supported nuclear_arms_reduction at the 5% significance level?"**
  - Using a **Pearson-frequentist perspective**, we might simply do the following:
    - the number of US people supporting nuclear_arms_reduction follows ~ Bin(n, p), and follows ~ N(np, npq)
