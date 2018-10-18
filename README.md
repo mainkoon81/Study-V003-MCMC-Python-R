@@ -1,7 +1,7 @@
 # Study-V003-MCMC-Python-R
 
 > Random_Variable
-<img src="https://user-images.githubusercontent.com/31917400/47053287-20cdcc80-d1a4-11e8-98cb-11d63c2108c6.png" />
+<img src="https://user-images.githubusercontent.com/31917400/47170078-13782580-d2fd-11e8-8c87-16b689aacd98.png" />
 
 > Distribution families
 <img src="https://user-images.githubusercontent.com/31917400/47054048-be76cb00-d1a7-11e8-8fbd-db042248333e.png" />
