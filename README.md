@@ -93,7 +93,7 @@ __Example 2> Bayesian Computation (in R)__
  - p-value is `1 - pnorm(q=3.75) = 8.841729e-05`. We can then look up the upper tail area, the p-value, and see that it is less than 0.001. With a `p-value < 0.05`, we reject the null hypothesis and conclude that the **poll provides evidence that a majority (greater than 50%) of Americans supported the nuclear_arms_reduction**. The 95% CI for `p_obv` would be `0.56 + c(-1,1)*1.96*0.016`. So on AVG, around from 52% to 59% of US people support the nuclear_arms_reduction. 
 
 > Another perspective on this problem(Inferencing on a single proportion as a population parameter) is that of a Bayesian. 
-<img src="https://user-images.githubusercontent.com/31917400/47119665-b0868000-d263-11e8-85ce-4c5a17a78e05.png" />
+<img src="https://user-images.githubusercontent.com/31917400/47188651-d463c780-d330-11e8-85b3-5e5d5d34acc9.png" />
 
  - Look, we have a likelihood which is Binomial. 
  - Beta is conjugate to the Binomial distribution, i.e. Beta is a conjugate prior for the Binomial likelihood. That's why we choose Beta as our prior...then what the posterior will be?  
