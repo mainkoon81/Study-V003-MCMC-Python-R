@@ -83,8 +83,8 @@ __Example 2> Bayesian Computation (in R)__
 > This is the traditional way of Inferencing on a single proportion as a population parameter without Bayesian.
  - Let's say, a simple random sample of 1,028 US adults in March 2013 found that 56% support nuclear arms reduction. Damn + 6% !!! **"Q. Does this provide convincing evidence that a majority of Americans supported nuclear_arms_reduction at the 5% significance level?"**
  - Using a **Pearson-frequentist perspective**, we might simply do the following:
-   - the number of US people supporting nuclear_arms_reduction follows ~ Bin(n, p), and p follows ~ N(np, npq)
-   - the proportion of them follows ~ N(p, pq/n)
+   - the number of US people supporting nuclear_arms_reduction(X) follows ~ Bin(n, p), and when `n` goes to infinity, our X also follows ~ N(np, npq). We call this `Normal Approximation for Binomial Distribution`.  
+   - the proportion 'p' of them (X/n) follows ~ N(p, pq/n)
 <img src="https://user-images.githubusercontent.com/31917400/47097156-b743d180-d228-11e8-975d-36c5e808ec3a.png" />
 
  - Under the Null-hypothesis, `p0 = q0`, so `np0 = nq0`, then `1028*0.5 = 514 > 10` which is the **mean** number of people supporting nuclear_arms_reduction.
