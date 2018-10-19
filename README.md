@@ -158,10 +158,13 @@ How? by generating random number from target distributions through **transformat
    - Monte Carlo computes the statistics of interest.
 
 __Q. Choice of prior?__ how to elicit prior distribution?
- - In practice, we work with a convenient family that's sufficiently flexible such that a member of the family will represent our beliefs in the parameters(of course in general, if one has enough data, the information in the data will overwhelm the invasion of prior). We can also build an external information if available such as previous experiments. Then any reasonable choice of prior will lead to approximately the same posterior. However, there are somethings that can go wrong. In the Bayesian context, events with `P(θ)=0` will have `P(θ|y)=0`. And events with `P(θ)=1` will have `P(θ|y)=1`. Thus a good bayesian will not assign probability of zero or one to any event that has already occurred or already known not to occur. 
- - calibration of predictive interval:  
+ - In practice, we work with a convenient family that's sufficiently flexible such that a member of the family will represent our beliefs in the parameters(of course in general, if one has enough data, the information in the data will overwhelm the invasion of prior). We can also build an external information if available such as previous experiments. **Then any reasonable choice of prior will lead to approximately the same posterior**. However, Notice!! there are somethings that can go wrong. In the Bayesian context, events with `P(θ)=0` will have `P(θ|y)=0`. And events with `P(θ)=1` will have `P(θ|x)=1`. Thus a good bayesian will not assign probability of `0` or `1` to any event that has already occurred or already known not to occur. 
  
-
+ - __Prior predictive distribution:__  
+   - Before observe data points, we compute a predictive interval, which is an interval such that 95% of new observations are expected to fall into it. So it's an interval for the `data` rather than an interval for parameter we've been looking at. 
+   - The prior predictive distribution is this.. as the **marginal:** `f(x) = S f(x|θ)f(θ)dθ = S f(θ,x)dθ`. This is our `prior predictive`, **before we observe any data**. Think about how you might use this distribution to help decide on a prior.  Prior predictive intervals are useful because they reveal the `consequences of the prior` at the data (observation) level. 
+   - 
+ 
 
 ------------------------------------------------------------------------------------------------------------
 ## Generating Random Variables
