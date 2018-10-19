@@ -165,11 +165,11 @@ __Q. Choice of prior?__ how to elicit prior distribution?
      <img src="https://user-images.githubusercontent.com/31917400/47243997-d2127380-d3eb-11e8-87e0-717f9f022b50.png" />
 
    - Because we're interested in X at the end, it's important that we distinguish between a binomial density and a Bernoulli density. So here we just care about the total count rather than the exact ordering which would be Bernoulli's. For most of the analyses we're doing, where we're interested in θ rather than x, the binomial and the Bernoulli are interchangeable because the binomial distribution is the sum of iid Bernoulli random variables and sum of Bernoulli:`θ^x` and sum of binomial:`θ^x(1-θ)^n-x` both depends on θ is the same. But here we care about x for a predicted distribution so we do need to specify that we're looking at a **binomial** because we're looking head counts. 
-   - If we simplyfy this model, first recall that we can write `n! = gamma(n + 1)`, then this model look like a Beta density. 
-     - The gamma function is a generalization of the factorial function and can be used for non-integers. And `Z ~ Beta(a,b)` and Beta is:
+   - If we simplyfy this model, first recall that we can write `n! = gamma(n + 1)`, then this model look like a Beta density. (The gamma function is a generalization of the factorial function and can be used for non-integers) 
+     - `Z ~ Beta(a,b)` and Beta is:
      <img src="https://user-images.githubusercontent.com/31917400/47245353-d725f180-d3f0-11e8-8695-59a63dead938.png" />
    
-   - Because it's a beta density, we know all densities integrate up to 1. Thus we see that if we start with a uniform prior, we then end up with a discrete uniform predictive density for X. If all possible coins or all possible probabilities are equally likely, then all possible X outcomes are equally likely. 
+   - Because it's a Beta density, we know all densities integrate up to 1. Thus we see that if we start with a uniform prior, we then end up with a discrete uniform predictive density for X. If all possible coins or all possible probabilities are equally likely, then all possible X outcomes are equally likely. 
      <img src="https://user-images.githubusercontent.com/31917400/47245743-73042d00-d3f2-11e8-83d4-ccded86edcb5.png" />
 
  - __Posterior predictive distribution__
