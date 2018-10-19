@@ -129,7 +129,9 @@ table of conjugate distribution
  - the resulting posterior is then `θ|y ~ Beta(y+a, n-y+b)`. **We can now simulate the posterior distribution**, to choose `θ` !
  - Did you find the posterior? then build a Credible Interval. 
    - In Confidence Interval, the true value(population_parameter) is not a random variable. It is a fixed but unknown quantity. In contrast, our estimate is a random variable as it depends on our data x. Thus, we get different estimates each time, repeating our study. 
-   - In Credible Intervals, we assume that the true value(population parameter) is a random variable. Thus, we capture the uncertainty about the true parameter value by a **imposing a prior distribution** on the true parameter vector. Using bayes theorem, we construct the posterior distribution for the parameter vector by blending the prior and the data(likelihood) we have, then arrive at **a point estimate** using the posterior distribution(use the mean of the posterior for example). However, the true parameter vector is a random variable, we also want to know the extent of uncertainty we have in our point estimate. Thus, we construct a 95% credible interval such that the following holds: `P( l(θ)<=θ<=u(θ) ) = 0.95` 
+   - In Credible Intervals, we assume that the true value(population parameter θ) is a random variable. Thus, we capture the uncertainty about the true parameter value by a **imposing a prior distribution** on the true parameter vector. Using bayes theorem, we construct the posterior distribution for the parameter vector by blending the prior and the data(likelihood) we have, then arrive at **a point estimate** using the posterior distribution(use the mean of the posterior for example). However, the true parameter vector is a random variable, we also want to know the extent of uncertainty we have in our point estimate. Thus, we construct a 95% credible interval such that the following holds: `P( l(θ)<=θ<=u(θ) ) = 0.95` 
+<img src="https://user-images.githubusercontent.com/31917400/47217441-3e678580-d3a0-11e8-8dee-d8725362bb56.png" />
+
 ```
 N = 10^4
 set.seed(123)
@@ -153,6 +155,12 @@ How? by generating random number from target distributions through **transformat
    - Monte Carlo models a system as a series of probability density functions.
    - Monte Carlo repeatedly samples from the PDF.
    - Monte Carlo computes the statistics of interest.
+
+__Q. Choice of prior?__ how to elicit prior distribution?
+ - In practice, we work with a convenient family that's sufficiently flexible such that a member of the family will represent our beliefs in the parameters(of course in general, if one has enough data, the information in the data will overwhelm the invasion of prior). We can also build an external information if available such as previous experiments. Then any reasonable choice of prior will lead to approximately the same posterior. However, there are somethings that can go wrong. In the Bayesian context, events with `P(θ)=0` will have `P(θ|y)=0`. And events with `P(θ)=1` will have `P(θ|y)=1`. Thus a good bayesian will not assign probability of zero or one to any event that has already occurred or already known not to occur. 
+ - calibration of predictive interval:  
+ 
+
 
 ------------------------------------------------------------------------------------------------------------
 ## Generating Random Variables
