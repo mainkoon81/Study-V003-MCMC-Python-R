@@ -155,7 +155,12 @@ __Q. Choice of prior?__ how to elicit prior distribution?
  - __Prior predictive distribution:__  
    - Before observe data points, we compute a predictive interval, which is an interval such that 95% of new observations are expected to fall into it. So it's an interval for the `data` rather than an interval for parameter we've been looking at. 
    - The prior predictive distribution is this.. as the **marginal:** `f(x) = S f(x|θ)f(θ)dθ = S f(θ,x)dθ`. This is our `prior predictive`, **before we observe any data**. Think about how you might use this distribution to help decide on a prior.  Prior predictive intervals are useful because they reveal the `consequences of the prior` at the data (observation) level. 
-   - 
+ 
+ - Bin(n,θ): 
+   - Flip a coin 'n' times and count the number of heads we see. This, of course, will depend on the coin itself. What's the probability that it shows up heads? So, **we'll need to choose a prior**. 
+   - Let's say, X for the number of heads, as X being the sum of y, and as we go from '1 to n' of y which is each individual coin flip, y_1 through y_n: `X = SUM(Y)`where HEAD: Y=1, TAIL: Y=0
+   - In the begining, if we think that **all possible coins are equally likely**(let's assume), then we can put a prior for θ `f(θ) = 1 where {0 <= θ <= 1}` that's flat over the interval from 0 to 1. 
+   - So now we can ask what's our **predictive distribution** (for the number of heads `X`)? X can take possible values 0, 1, 2,..up to n. The predictive distribution is going to be the integral of the **likelihood** times the **prior**: `f(X) = S f(X|θ)f(θ)dθ = S f(θ, X)dθ` so we have <img src="https://user-images.githubusercontent.com/31917400/47243997-d2127380-d3eb-11e8-87e0-717f9f022b50.png" />
 
 
 
