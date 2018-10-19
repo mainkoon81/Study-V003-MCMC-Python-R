@@ -158,7 +158,7 @@ __Q. Choice of prior?__ how to elicit prior distribution?
  - Play with θ for example, Bin(n,θ): 
    - Flip a coin 'n' times and count the number of 'H' we see. This, of course, will depend on the coin itself. "What's the probability that it shows up 'H's?" which is a `θ` distribution. 
    - `X` for the number of 'H's(success), as `X` being the sum of y: `X = SUM(y...)` and as we go from '1 to n' of y which is each individual coin flip(HEAD: y=1, TAIL: y=0)...but now set this aside for a while.  
-   - Let's start. As for the prior(θ,θ,θ,θ,...), if we first assume that **all possible coins are equally likely**(all same θ), then `f(θ) = 1 where {0 <= θ <= 1}`, which means the probability of θ: `f(θ)` will flat...over the interval from θ=0 to θ=1. 
+   - Let's start. As for the prior(θ,θ,θ,θ,...), if we first assume that **all possible coins are equally likely**(all same θ), then `f(θ) = 1 where {0 <= θ <= 1}`, which means the probability of θ: `f(θ)` will flat...over the interval from θ=0 to θ=1. Is this our **prior predictive distribution?**
    - So now go back to `X` and ask "what's our **predictive distribution of X** (for the number of heads `X`)?" 
      - Of course, `X` can take possible values 0, 1, 2,..up to n. The predictive distribution of `X` is going to be the **marginal**(or evidence) which is the integral of the **likelihood** times the **prior**(sum of joints):
      - `f(X) = S f(X|θ)f(θ)dθ = S f(θ, X)dθ` so if n=10, we have 
