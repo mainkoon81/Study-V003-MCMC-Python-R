@@ -149,14 +149,6 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
 ```
 <img src="https://user-images.githubusercontent.com/31917400/47120410-7e2a5200-d266-11e8-9613-75a2fe8e6995.png" />
 
-Here is the thing. This example focused on **direct simulation from a posterior distribution**. However, there are some posteriors that will not be as easily identifiable. 
-### Monte-Carlo methods will be helpful for generating samples from difficult to sample target distributions.
-How? by generating random number from target distributions through **transformation methods**??
- - Monte Carlo simulation uses random sampling and statistical modeling to mimic the operations of complex systems. 
-   - Monte Carlo models a system as a series of probability density functions.
-   - Monte Carlo repeatedly samples from the PDF.
-   - Monte Carlo computes the statistics of interest.
-
 __Q. Choice of prior?__ how to elicit prior distribution?
  - In practice, we work with a convenient family that's sufficiently flexible such that a member of the family will represent our beliefs in the parameters(of course in general, if one has enough data, the information in the data will overwhelm the invasion of prior). We can also build an external information if available such as previous experiments. **Then any reasonable choice of prior will lead to approximately the same posterior**. However, Notice!! there are somethings that can go wrong. In the Bayesian context, events with `P(θ)=0` will have `P(θ|y)=0`. And events with `P(θ)=1` will have `P(θ|x)=1`. Thus a good bayesian will not assign probability of `0` or `1` to any event that has already occurred or already known not to occur. 
  
@@ -164,6 +156,18 @@ __Q. Choice of prior?__ how to elicit prior distribution?
    - Before observe data points, we compute a predictive interval, which is an interval such that 95% of new observations are expected to fall into it. So it's an interval for the `data` rather than an interval for parameter we've been looking at. 
    - The prior predictive distribution is this.. as the **marginal:** `f(x) = S f(x|θ)f(θ)dθ = S f(θ,x)dθ`. This is our `prior predictive`, **before we observe any data**. Think about how you might use this distribution to help decide on a prior.  Prior predictive intervals are useful because they reveal the `consequences of the prior` at the data (observation) level. 
    - 
+
+
+
+Now, here is the thing. We saw **direct simulation from a posterior distribution**. However, there are some posteriors that will not be as easily identifiable. 
+### Monte-Carlo methods will be helpful for generating samples from difficult to sample target distributions.
+How? by generating random number from target distributions through **transformation methods**??
+ - Monte Carlo simulation uses random sampling and statistical modeling to mimic the operations of complex systems. 
+   - Monte Carlo models a system as a series of probability density functions.
+   - Monte Carlo repeatedly samples from the PDF.
+   - Monte Carlo computes the statistics of interest.
+
+
  
 
 ------------------------------------------------------------------------------------------------------------
