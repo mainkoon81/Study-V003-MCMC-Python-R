@@ -156,7 +156,7 @@ __Q. Choice of prior?__ how to elicit prior distribution?
    - Before observe data points, we compute a predictive interval, which is an interval such that 95% of new observations are expected to fall into it. So it's an interval for the `data` rather than an interval for parameter we've been looking at. 
    - The prior predictive distribution is this.. as the **marginal:** `f(x) = S f(x|θ)f(θ)dθ = S f(θ,x)dθ`. This is our `prior predictive`, **before we observe any data**. Think about how you might use this distribution to help decide on a prior.  Prior predictive intervals are useful because they reveal the `consequences of the prior` at the data (observation) level. 
  
- - Bin(n,θ): 
+ - For example, Bin(n,θ): 
    - Flip a coin 'n' times and count the number of heads we see. This, of course, will depend on the coin itself. What's the probability that it shows up heads? So, **we'll need to choose a prior**. 
    - Let's say, X for the number of heads, as X being the sum of y, and as we go from '1 to n' of y which is each individual coin flip, y_1 through y_n: `X = SUM(Y)`where HEAD: Y=1, TAIL: Y=0
    - In the begining, if we think that **all possible coins are equally likely**(let's assume), then we can put a prior for θ `f(θ) = 1 where {0 <= θ <= 1}` that's flat over the interval from 0 to 1. 
@@ -164,9 +164,25 @@ __Q. Choice of prior?__ how to elicit prior distribution?
      - `f(X) = S f(X|θ)f(θ)dθ = S f(θ, X)dθ` so if n=10, we have 
      <img src="https://user-images.githubusercontent.com/31917400/47243997-d2127380-d3eb-11e8-87e0-717f9f022b50.png" />
 
-   - Note that because we're interested in x at the end, it's important that we distinguish between a binomial density and a Bernoulli density. So here we just care about the total count rather than the exact ordering which would be Bernoulli's. For most of the analyses we're doing, where we're interested in theta rather than x, the binomial and the Bernoulli are interchangeable because the part in here that depends on theta is the same
+   - Because we're interested in X at the end, it's important that we distinguish between a binomial density and a Bernoulli density. So here we just care about the total count rather than the exact ordering which would be Bernoulli's. For most of the analyses we're doing, where we're interested in θ rather than x, the binomial and the Bernoulli are interchangeable because the binomial distribution is the sum of iid Bernoulli random variables and sum of Bernoulli:`θ^x` and sum of binomial:`θ^x(1-θ)^n-x` both depends on θ is the same. But here we care about x for a predicted distribution so we do need to specify that we're looking at a **binomial** because we're looking head counts. 
+   - If we simplyfy this model, first recall that we can write `n! = gamma(n + 1)`, then this model look like a Beta density. 
+     - The gamma function is a generalization of the factorial function and can be used for non-integers. And `Z ~ Beta(a,b)` and Beta is:
+     <img src="https://user-images.githubusercontent.com/31917400/47245353-d725f180-d3f0-11e8-8695-59a63dead938.png" />
+   
+   - Because it's a beta density, we know all densities integrate up to 1. Thus we see that if we start with a uniform prior, we then end up with a discrete uniform predictive density for X. If all possible coins or all possible probabilities are equally likely, then all possible X outcomes are equally likely. 
+     <img src="https://user-images.githubusercontent.com/31917400/47245743-73042d00-d3f2-11e8-83d4-ccded86edcb5.png" />
 
-
+ - __Posterior predictive distribution__
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+   
+---------------------------------------------------------------------------------------------------------   
 Now, here is the thing. We saw **direct simulation from a posterior distribution**. However, there are some posteriors that will not be as easily identifiable. 
 ### Monte-Carlo methods will be helpful for generating samples from difficult to sample target distributions.
 How? by generating random number from target distributions through **transformation methods**??
@@ -174,17 +190,6 @@ How? by generating random number from target distributions through **transformat
    - Monte Carlo models a system as a series of probability density functions.
    - Monte Carlo repeatedly samples from the PDF.
    - Monte Carlo computes the statistics of interest.
-
-
- 
-
-------------------------------------------------------------------------------------------------------------
-## Generating Random Variables
-
-
-
-
-
 
 
 
