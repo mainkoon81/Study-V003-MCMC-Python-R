@@ -120,7 +120,7 @@ __Example 2> Bayesian Computation (in R)__
    - Hyperparameters themselves may have `hyper-prior distributions` expressing beliefs about their values. A Bayesian model with more than one level of prior like this is called a `hierarchical Bayes model`.  
 
 table of conjugate distribution
-<img src="https://user-images.githubusercontent.com/31917400/47116021-53390180-d258-11e8-98c7-fa14a36415fe.png" />
+<img src="https://user-images.githubusercontent.com/31917400/47190665-91a6ed00-d33a-11e8-8f51-c3ab391a4871.png" />
 
  - find the posterior
 <img src="https://user-images.githubusercontent.com/31917400/47119888-9c8f4e00-d264-11e8-9846-a03b7cb95e4d.png" />
