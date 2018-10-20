@@ -179,7 +179,7 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
    - In posterior, the hyper-parameters are transformed: `a + sum(x), b + n - sum(x)` 
    
 # __Don't go with a flat prior! We have some data-point__ with respect to θ: **Posterior Predictive Distribution** for X
-<img src="https://user-images.githubusercontent.com/31917400/47260698-54686980-d4b8-11e8-99b7-5f359920f2cd.png" />
+<img src="https://user-images.githubusercontent.com/31917400/47260902-f2a9fe80-d4bb-11e8-8c80-6944cbcdf2cf.png" />
  
    - What about after we've observed data? Suppose we observe, after one flip, we got a 'H' the first time. We want to ask, what's our **predicted distribution for the second flip(H or T)**, given that we saw a 'H' on the first flip? 
    - `P(y2|y1) = S P(θ|y1, y2)dθ = S P(y2|θ,y1)f(θ|y1)dθ = S f(y2|θ)f(θ|y1)dθ`: using posterior distribution instead of prior, and `'y1 and y2' is independent` so conditional is meaningless..so we take y1 out, then..
