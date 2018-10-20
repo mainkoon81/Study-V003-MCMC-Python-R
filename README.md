@@ -183,9 +183,12 @@ __Q. Choice of prior?__ how to elicit prior distribution?
    - The key difference between prior predictive and posterior predictive distributions is that the prior predictive averages (marginalizes) over θ with respect to the prior while the posterior predictive averages(marginalizes) with respect to the posterior.????
    
  - __Bernoulli or Binomial Likelihood with uniform prior__
-   - When we use a uniform prior for a Bernoulli likelihood(such as `f(θ) = 1`), we get a beta posterior. 
-
+   - When our prior for a Bernoulli likelihood(such as `f(θ) = 1`) is a `uniform`, we get a beta posterior with hyper-parameter:  
+   <img src="https://user-images.githubusercontent.com/31917400/47256574-970b5100-d47a-11e8-8e66-d182c48ac514.png" />
    
+
+ - __Conjugate prior__
+ 
    
 ---------------------------------------------------------------------------------------------------------   
 Now, here is the thing. We saw **direct simulation from a posterior distribution**. However, there are some posteriors that will not be as easily identifiable. 
