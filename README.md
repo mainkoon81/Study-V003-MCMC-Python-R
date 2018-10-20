@@ -167,7 +167,7 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
      - If we `simplify` the pdf of our data points distribution, first recall that we can write `n! = gamma(n + 1)`, then this model look like a Beta density. `Z ~ Beta(a,b)`:
      <img src="https://user-images.githubusercontent.com/31917400/47245353-d725f180-d3f0-11e8-8695-59a63dead938.png" />
      
-     - Because it's a Beta density, we know all densities integrate up to 1. Thus we see that **if we start with a uniform prior, we then end up with a discrete uniform predictive density for X**. If all possible coins or all possible probabilities(θ) are equally likely, then all possible X outcomes are equally likely. 
+     - Because it's a Beta density, we know all densities integrate up to 1. Thus we see that **if we start with a uniform prior, we then end up with a discrete uniform predictive density for X**. If all possible coins or all possible probabilities(θ) are equally likely, then all possible X outcomes are equally likely. That's why when we choose Beta(1,1) as our prior and this is equivalent to Unif(0,1) and this is a non-informative prior. 
      <img src="https://user-images.githubusercontent.com/31917400/47245743-73042d00-d3f2-11e8-83d4-ccded86edcb5.png" />
 
  - __Second, find Posterior__
