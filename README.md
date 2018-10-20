@@ -153,7 +153,7 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
  - Theoretically, a prior(the form of the conjugate prior can generally be determined by) is a **CDF for the parameter θ distribution**. In practice, based on likelihood we have, we choose a conjugate prior from a conjugate family that's sufficiently flexible such that a member of the family will represent our prior beliefs(of course in general, if one has enough data, the information in the data will overwhelm this invasion of prior). And **then any reasonable choice of prior will lead to approximately the same posterior**.
    - However, Notice!! there are somethings that can go wrong. In the Bayesian context, events with `P(θ)=0` will have `P(θ|y)=0`. And events with `P(θ)=1` will have `P(θ|x)=1`. Thus a good bayesian will not assign probability of `0` or `1` to any event that has already occurred or already known not to occur. 
    
- - > __No-data? "Estimate data points"__ with respect to θ : Prior Predictive Distribution for X
+ - > __No-data? "Estimate data points"__ with respect to θ : **Prior Predictive Distribution** for X
  <img src="https://user-images.githubusercontent.com/31917400/47260255-aa84df00-d4af-11e8-9d2c-eee68bd26b2c.png" />
 
    - Before observe data points, we compute a prior predictive interval (such that 95% of new observations are expected to fall into it). It's an interval for the `data points` rather than an interval for parameter we've been looking at. Prior predictive intervals are useful because they reveal the `consequences of the θ` at the data (observation) level. See, our predictive distribution of `data points` is **marginal:** `P(x) = S P(θ,x)dθ = S P(x|θ)P(θ)dθ `. 
@@ -172,13 +172,13 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
      <img src="https://user-images.githubusercontent.com/31917400/47245743-73042d00-d3f2-11e8-83d4-ccded86edcb5.png" />
 ### **Hey! we just found the form of the prior function!! which is `sth x Beta(a,b)` !!! 
 ### Next,
- - > __prior -> posterior__
+ - __prior -> posterior__
    - When our prior for a Bernoulli likelihood(such as `p(θ) = 1`) is a `uniform`, we get a beta posterior with hyper-parameter:  
    <img src="https://user-images.githubusercontent.com/31917400/47256574-970b5100-d47a-11e8-8e66-d182c48ac514.png" />
    - In fact, the uniform distribution is a `Beta(1,1)`, and any beta distribution is conjugate for the Bernoulli distribution.
    - In posterior, the hyper-parameters are transformed: `a + sum(x), b + n - sum(x)` 
    
- - __Don't go with a flat prior! We have some data-point__ with respect to θ: Posterior Predictive Distribution for X
+ - > __Don't go with a flat prior! We have some data-point__ with respect to θ: **Posterior Predictive Distribution** for X
 <img src="https://user-images.githubusercontent.com/31917400/47260607-7365fc00-d4b6-11e8-9e69-5c0db6d53df9.png" />
  
    - What about after we've observed data? Suppose we observe, after one flip, we got a 'H' the first time. We want to ask, what's our **predicted distribution for the second flip(H or T)**, given that we saw a 'H' on the first flip? `f(y2|y1) = S f(y2|θ,y1)f(θ|y1)dθ = S f(y2|θ)f(θ|y1)dθ`: using posterior distribution instead of prior, and 'y1 and y2' is independent so we can take y1 out, then..
