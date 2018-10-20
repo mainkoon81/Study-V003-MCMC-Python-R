@@ -182,7 +182,7 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
 <img src="https://user-images.githubusercontent.com/31917400/47260902-f2a9fe80-d4bb-11e8-8c80-6944cbcdf2cf.png" />
  
    - What about after we've observed data? Suppose we observe, after one flip, we got a 'H' the first time. We want to ask, what's our **predicted distribution for the second flip(H or T)**, given that we saw a 'H' on the first flip? 
-   - `P(y2|y1) = S P(θ|y1, y2)dθ = S P(y2|θ,y1)f(θ|y1)dθ = S f(y2|θ)f(θ|y1)dθ`: using posterior distribution instead of prior, and `'y1 and y2' is independent` so conditional is meaningless..so we take y1 out, then..
+   - `P(y2|y1) = S P(θ|y1, y2)dθ = S P(y2|θ,y1)P(θ|y1)dθ = S P(y2|θ)P(θ|y1)dθ`: using posterior distribution instead of prior, and `'y1 and y2' is independent` so conditional is meaningless..so we take y1 out, then..
    <img src="https://user-images.githubusercontent.com/31917400/47248777-bb2c4b00-d404-11e8-9b5d-2c67ff7f3d24.png" />
    
    - We can see here, that the posterior is a combination of the information in the prior and the information in the data. In this case, our prior is like having two data points, one 'H' and one 'T'. Saying we have a uniform prior for θ, is actually equivalent to saying we have observed one 'H' and one 'T'. And then, when we do go ahead and observe one head, it's like we now have seen two heads and one tail, and so our posterior predictive distribution for the second flip, says, if we have two heads and one tail, then we have a probability of two-thirds of getting another head, and a probability of one-third of getting a tail. 
