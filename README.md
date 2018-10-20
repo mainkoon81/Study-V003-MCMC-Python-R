@@ -180,13 +180,11 @@ __Q. Choice of prior?__ how to elicit prior distribution?
      <img src="https://user-images.githubusercontent.com/31917400/47248777-bb2c4b00-d404-11e8-9b5d-2c67ff7f3d24.png" />
 
    - We can see here, that the posterior is a combination of the information in the prior and the information in the data. In this case, our prior is like having two data points, one 'H' and one 'T'. Saying we have a uniform prior for θ, is actually equivalent to saying we have observed one 'H' and one 'T'. And then, when we do go ahead and observe one head, it's like we now have seen two heads and one tail, and so our posterior predictive distribution for the second flip, says, if we have two heads and one tail, then we have a probability of two-thirds of getting another head, and a probability of one-third of getting a tail. 
-   - The key difference between prior predictive and posterior predictive distributions is that the prior predictive averages (marginalizes) over θ with respect to the prior while the posterior predictive averages with respect to the posterior.
+   - The key difference between prior predictive and posterior predictive distributions is that the prior predictive averages (marginalizes) over θ with respect to the prior while the posterior predictive averages(marginalizes) with respect to the posterior.????
    
- - When we use a uniform prior for a Bernoulli likelihood, we get a beta posterior. 
- 
- 
- 
- 
+ - __Bernoulli or Binomial Likelihood with uniform prior__
+   - When we use a uniform prior for a Bernoulli likelihood(such as `f(θ) = 1`), we get a beta posterior. 
+
    
    
 ---------------------------------------------------------------------------------------------------------   
