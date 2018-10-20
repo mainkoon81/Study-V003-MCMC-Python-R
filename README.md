@@ -156,12 +156,12 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
  - __No-data? "Estimate data points"__ with respect to θ
  <img src="https://user-images.githubusercontent.com/31917400/47259576-dcdc0f80-d4a2-11e8-99b0-f9f9c635d3ab.png" />
 
-   - Before observe data points, we compute a prior predictive interval (such that 95% of new observations are expected to fall into it). It's an interval for the `data points` rather than an interval for parameter we've been looking at. Prior predictive intervals are useful because they reveal the `consequences of the prior` at the data (observation) level. See, our predictive distribution of `data points` is **marginal:** `f(x) = S f(θ,x)dθ = S f(x|θ)f(θ)dθ `. 
+   - Before observe data points, we compute a prior predictive interval (such that 95% of new observations are expected to fall into it). It's an interval for the `data points` rather than an interval for parameter we've been looking at. Prior predictive intervals are useful because they reveal the `consequences of the θ` at the data (observation) level. See, our predictive distribution of `data points` is **marginal:** `P(x) = S f(θ,x)dθ = S f(x|θ)f(θ)dθ `. 
    - To find this data point intervals, we first work with `prior` **before we observe any data**. 
    - For example, Bin(n,θ): 
      - Flip a coin 'n' times and count the number of 'H' we see. This, of course, will depend on the coin itself. "What's the probability that it shows up 'H's?" which is referring a `θ` distribution. `X` for the number of 'H's(success), as `X` being the sum of y: `X = SUM(y...)` and as we go from '1 to n' of y which is each individual coin flip(HEAD: y=1, TAIL: y=0)...but now set this aside for a while.  
-     - Let's start. As for the prior(θ,θ,θ,θ,...), if we first assume that **all possible coins are equally likely**(all same θ), then `f(θ) = 1 where {0 <= θ <= 1}`, which means the probability of θ: `f(θ)` will flat...over the interval from θ=0 to θ=1. We first assume our prior is `f(θ) = 1`. 
-     - So now go back to `X` and ask "what's our **predictive distribution of X** (for the number of 'H'. of course, `X` can take possible values 0, 1, 2,..up to n). The **marginal**: `f(X) = S f(X|θ)f(θ)dθ = S f(θ, X)dθ` so if n=10, we have 
+     - Let's start. As for the prior(θ,θ,θ,θ,...), if we first assume that **all possible coins are equally likely**(all same θ), then `p(θ) = 1 where {0 <= θ <= 1}`, which means the probability of θ: `p(θ)` will flat...over the interval from θ=0 to θ=1. We first assume our prior is `f(θ) = 1`. 
+     - So now go back to `X` and ask "what's our **predictive distribution of X** (for the number of 'H'. of course, `X` can take possible values 0, 1, 2,..up to n). The **marginal**: `P(X) = S f(X|θ)f(θ)dθ = S f(θ, X)dθ` so if n=10, we have 
      <img src="https://user-images.githubusercontent.com/31917400/47243997-d2127380-d3eb-11e8-87e0-717f9f022b50.png" />
 
      - Because we're interested in X now, it's important that we distinguish between a binomial density and a Bernoulli density. So here we just care about the total count rather than the exact ordering which would be Bernoulli's. But **for most of the analyses we're doing, where we're interested in θ rather than x, the binomial and the Bernoulli are interchangeable** because Binomial distribution is a distribution of sum of i.i.d. Bernoulli random variables and their likelihoods are equivalent, thus we will get the same posterior at the end. But here we care about x for a predicted distribution so we do need to specify that we're looking at **binomial** because we're looking H-counts. 
@@ -171,7 +171,7 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
      - Because it's a Beta density, we know all densities integrate up to 1. Thus we see that **if we start with a uniform prior, we then end up with a discrete uniform predictive density for X**. If all possible coins or all possible probabilities(θ) are equally likely, then all possible X outcomes are equally likely. That's why when we choose Beta(1,1) as our prior and this is equivalent to Unif(0,1) and this is a non-informative prior. 
      <img src="https://user-images.githubusercontent.com/31917400/47245743-73042d00-d3f2-11e8-83d4-ccded86edcb5.png" />
  - __Bernoulli or Binomial Likelihood with uniform prior__
-   - When our prior for a Bernoulli likelihood(such as `f(θ) = 1`) is a `uniform`, we get a beta posterior with hyper-parameter:  
+   - When our prior for a Bernoulli likelihood(such as `p(θ) = 1`) is a `uniform`, we get a beta posterior with hyper-parameter:  
    <img src="https://user-images.githubusercontent.com/31917400/47256574-970b5100-d47a-11e8-8e66-d182c48ac514.png" />
    - In fact, the uniform distribution, is a `Beta(1,1)`. And any beta distribution is conjugate for the Bernoulli distribution. Any beta prior, will give a beta posterior.   
    
