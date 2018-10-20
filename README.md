@@ -117,7 +117,7 @@ __Example 2> Bayesian Computation (in R)__
    - `Parameters` of prior distributions are a kind of `hyperparameter`. For example, if one uses `Beta(a,b)` to model the distribution of the parameter `p` of Bernoulli, then:
      - `p` is a parameter of the underlying system (Bernoulli), and
      - `a` and `b` are parameters of the prior distribution (Beta); hence hyperparameters
-   - Hyperparameters themselves may have `hyper-prior distributions` expressing beliefs about their values in the posterior. A Bayesian model with more than one level of prior like this is called a `hierarchical Bayes model`.  
+   - Sometimes hyper-parameters themselves in prior have `hyper distributions` expressing beliefs about their values in the posterior. A Bayesian model with more than one level of prior like this is called a `hierarchical Bayes model`.  
 
 table of conjugate distribution
 <img src="https://user-images.githubusercontent.com/31917400/47190665-91a6ed00-d33a-11e8-8f51-c3ab391a4871.png" />
