@@ -160,7 +160,7 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
    - To find this data point intervals, we first work with `prior` **before we observe any data**. 
    - For example, Bin(n,θ): 
      - Flip a coin 'n' times and count the number of 'H' we see. This, of course, will depend on the coin itself. "What's the probability that it shows up 'H's?" which is referring a `θ` distribution. `X` for the number of 'H's(success), as `X` being the sum of y: `X = SUM(y...)` and as we go from '1 to n' of y which is each individual coin flip(HEAD: y=1, TAIL: y=0)...but now set this aside for a while.  
-     - Let's start. As for the prior(θ,θ,θ,θ,...), if we first assume that **all possible coins are equally likely**(all same θ), then `p(θ) = 1 where {0 <= θ <= 1}`, which means the probability of θ: `p(θ)` will flat...over the interval from θ=0 to θ=1. We first assume our prior is `f(θ) = 1`. 
+     - Let's start. As for the prior(θ,θ,θ,θ,...), if we first assume that **all possible coins are equally likely**(all same θ), then `p(θ) = 1 where {0 <= θ <= 1}`, which means the probability of θ: `p(θ)` will flat...over the interval from θ=0 to θ=1. We first assume our prior is `p(θ) = 1`. 
      - So now go back to `X` and ask "what's our **predictive distribution of X** (for the number of 'H'. of course, `X` can take possible values 0, 1, 2,..up to n). The **marginal**: `P(X) = S P(X|θ)P(θ)dθ = S P(θ,X)dθ` so if n=10, we have 
      <img src="https://user-images.githubusercontent.com/31917400/47243997-d2127380-d3eb-11e8-87e0-717f9f022b50.png" />
 
