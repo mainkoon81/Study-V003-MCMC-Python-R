@@ -154,7 +154,7 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
    - However, Notice!! there are somethings that can go wrong. In the Bayesian context, events with `P(θ)=0` will have `P(θ|y)=0`. And events with `P(θ)=1` will have `P(θ|x)=1`. Thus a good bayesian will not assign probability of `0` or `1` to any event that has already occurred or already known not to occur. 
    
  - __No-data? "Estimate data points"__ with respect to θ
- <img src="https://user-images.githubusercontent.com/31917400/47259377-c2a13200-d4a0-11e8-825c-fd4759267947.png" />
+ <img src="https://user-images.githubusercontent.com/31917400/47259576-dcdc0f80-d4a2-11e8-99b0-f9f9c635d3ab.png" />
 
    - Before observe data points, we compute a prior predictive interval (such that 95% of new observations are expected to fall into it). It's an interval for the `data points` rather than an interval for parameter we've been looking at. Prior predictive intervals are useful because they reveal the `consequences of the prior` at the data (observation) level. See, our predictive distribution of `data points` is **marginal:** `f(x) = S f(θ,x)dθ = S f(x|θ)f(θ)dθ `. 
    - To find this data point intervals, we first work with `prior` **before we observe any data**. 
