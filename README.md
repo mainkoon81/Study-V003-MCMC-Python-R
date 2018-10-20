@@ -181,19 +181,14 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
 # __Don't go with a flat prior! We have some data-point__ with respect to θ: **Posterior Predictive Distribution** for X
 <img src="https://user-images.githubusercontent.com/31917400/47260698-54686980-d4b8-11e8-99b7-5f359920f2cd.png" />
  
-   - What about after we've observed data? Suppose we observe, after one flip, we got a 'H' the first time. We want to ask, what's our **predicted distribution for the second flip(H or T)**, given that we saw a 'H' on the first flip? `f(y2|y1) = S f(y2|θ,y1)f(θ|y1)dθ = S f(y2|θ)f(θ|y1)dθ`: using posterior distribution instead of prior, and 'y1 and y2' is independent so we can take y1 out, then..
-     <img src="https://user-images.githubusercontent.com/31917400/47248777-bb2c4b00-d404-11e8-9b5d-2c67ff7f3d24.png" />
-
-   - What's the posterior predictive distribution? : 
+   - What about after we've observed data? Suppose we observe, after one flip, we got a 'H' the first time. We want to ask, what's our **predicted distribution for the second flip(H or T)**, given that we saw a 'H' on the first flip? 
+   - `P(y2|y1) = S P(θ|y1, y2)dθ = S P(y2|θ,y1)f(θ|y1)dθ = S f(y2|θ)f(θ|y1)dθ`: using posterior distribution instead of prior, and `'y1 and y2' is independent` so conditional is meaningless..so we take y1 out, then..
+   <img src="https://user-images.githubusercontent.com/31917400/47248777-bb2c4b00-d404-11e8-9b5d-2c67ff7f3d24.png" />
    
    - We can see here, that the posterior is a combination of the information in the prior and the information in the data. In this case, our prior is like having two data points, one 'H' and one 'T'. Saying we have a uniform prior for θ, is actually equivalent to saying we have observed one 'H' and one 'T'. And then, when we do go ahead and observe one head, it's like we now have seen two heads and one tail, and so our posterior predictive distribution for the second flip, says, if we have two heads and one tail, then we have a probability of two-thirds of getting another head, and a probability of one-third of getting a tail. 
 
-   - The key difference between prior predictive and posterior predictive distributions is that the prior predictive averages (marginalizes) over θ with respect to the prior while the posterior predictive averages(marginalizes) with respect to the posterior.????
-
-
-
- - __posterior mean & sample size__
- 
+### __posterior mean & sample size__
+ -  
  
  
  
