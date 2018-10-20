@@ -155,7 +155,8 @@ __Q. Choice of prior?__ how to elicit prior distribution?
  - __Prior predictive distribution:__ a tool to find the predictive distribution of data points: "Estimate data points" 
    - Why "predictive distribution of X?" See: `f(θ|x) = f(θ,x)/f(x)`
    - Before observe data points, we compute a predictive interval, which is an interval such that 95% of new observations are expected to fall into it. So it's an interval for the `data points` rather than an interval for parameter we've been looking at. 
-   - To find this data point intervals, we first work with prior **before we observe any data** then our predictive distribution of data points is **marginal:** `f(x) = S f(θ,x)dθ = S f(x|θ)f(θ)dθ `. Prior predictive intervals are useful because they reveal the `consequences of the prior` at the data (observation) level. 
+   - To find this data point intervals, we first work with prior **before we observe any data** then our predictive distribution of data points is **marginal:** `f(x) = S f(θ,x)dθ = S f(x|θ)f(θ)dθ `. 
+   - Prior predictive intervals are useful because they reveal the `consequences of the prior` at the data (observation) level. 
    
  - Play with θ for example, Bin(n,θ): 
    - Flip a coin 'n' times and count the number of 'H' we see. This, of course, will depend on the coin itself. "What's the probability that it shows up 'H's?" which is a `θ` distribution. 
