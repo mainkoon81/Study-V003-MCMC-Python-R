@@ -156,8 +156,8 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
  - __No-data? "Estimate data points"__ 
  <img src="https://user-images.githubusercontent.com/31917400/47259190-f169d900-d49d-11e8-97f4-a0184ab885d8.png" />
 
-   - Before observe data points, we compute a prior predictive interval (such that 95% of new observations are expected to fall into it). It's an interval for the `data points` rather than an interval for parameter we've been looking at. Prior predictive intervals are useful because they reveal the `consequences of the prior` at the data (observation) level. To find this data point intervals, we first work with `prior` **before we observe any data**. 
-   - But How? See, our predictive distribution of `data points` is **marginal:** `f(x) = S f(θ,x)dθ = S f(x|θ)f(θ)dθ `. 
+   - Before observe data points, we compute a prior predictive interval (such that 95% of new observations are expected to fall into it). It's an interval for the `data points` rather than an interval for parameter we've been looking at. Prior predictive intervals are useful because they reveal the `consequences of the prior` at the data (observation) level. See, our predictive distribution of `data points` is **marginal:** `f(x) = S f(θ,x)dθ = S f(x|θ)f(θ)dθ `. 
+   - To find this data point intervals, we first work with `prior` **before we observe any data**. 
    - For example, Bin(n,θ): 
      - Flip a coin 'n' times and count the number of 'H' we see. This, of course, will depend on the coin itself. "What's the probability that it shows up 'H's?" which is referring a `θ` distribution. `X` for the number of 'H's(success), as `X` being the sum of y: `X = SUM(y...)` and as we go from '1 to n' of y which is each individual coin flip(HEAD: y=1, TAIL: y=0)...but now set this aside for a while.  
      - Let's start. As for the prior(θ,θ,θ,θ,...), if we first assume that **all possible coins are equally likely**(all same θ), then `f(θ) = 1 where {0 <= θ <= 1}`, which means the probability of θ: `f(θ)` will flat...over the interval from θ=0 to θ=1. We first assume our prior is `f(θ) = 1`. 
