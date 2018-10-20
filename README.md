@@ -167,7 +167,7 @@ __Q. Choice of prior?__ how to elicit prior distribution?
      - `f(X) = S f(X|θ)f(θ)dθ = S f(θ, X)dθ` so if n=10, we have 
      <img src="https://user-images.githubusercontent.com/31917400/47243997-d2127380-d3eb-11e8-87e0-717f9f022b50.png" />
 
-     - Because we're interested in X at the end, it's important that we distinguish between a binomial density and a Bernoulli density. So here we just care about the total count rather than the exact ordering which would be Bernoulli's. **For most of the analyses we're doing, where we're interested in θ rather than x, the binomial and the Bernoulli are interchangeable** because the binomial distribution is the sum of iid Bernoulli random variables and sum of Bernoulli:`θ^x` and sum of binomial:`θ^x(1-θ)^n-x` both depends on θ is the same. But here we care about x for a predicted distribution so we do need to specify that we're looking at **binomial** because we're looking H-counts. 
+     - Because we're interested in X at the end, it's important that we distinguish between a binomial density and a Bernoulli density. So here we just care about the total count rather than the exact ordering which would be Bernoulli's. **For most of the analyses we're doing, where we're interested in θ rather than x, the binomial and the Bernoulli are interchangeable** because the binomial distribution is the sum of iid Bernoulli random variables and sum of Bernoulli:`θ^x` and sum of binomial:`θ^x(1-θ)^n-x` both depends on θ is the same, so we will get the same posterior at the end. But here we care about x for a predicted distribution so we do need to specify that we're looking at **binomial** because we're looking H-counts. 
    - If we simplify this model, first recall that we can write `n! = gamma(n + 1)`, then this model look like a Beta density. (The gamma function is a generalization of the factorial function and can be used for non-integers) 
      - `Z ~ Beta(a,b)` and Beta is:
      <img src="https://user-images.githubusercontent.com/31917400/47245353-d725f180-d3f0-11e8-8695-59a63dead938.png" />
@@ -185,9 +185,9 @@ __Q. Choice of prior?__ how to elicit prior distribution?
  - __Bernoulli or Binomial Likelihood with uniform prior__
    - When our prior for a Bernoulli likelihood(such as `f(θ) = 1`) is a `uniform`, we get a beta posterior with hyper-parameter:  
    <img src="https://user-images.githubusercontent.com/31917400/47256574-970b5100-d47a-11e8-8e66-d182c48ac514.png" />
+   - In fact, the uniform distribution, is a `Beta(1,1)`. And any beta distribution is conjugate for the Bernoulli distribution. Any beta prior, will give a beta posterior.    
    
-
- - __Conjugate prior__
+ - __posterior mean & sample size__
  
    
 ---------------------------------------------------------------------------------------------------------   
