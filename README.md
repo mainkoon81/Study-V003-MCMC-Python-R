@@ -155,6 +155,7 @@ __Q. Choice of prior?__ how to elicit prior distribution?
  - __Prior predictive distribution:__ a tool to find the predictive distribution of data points: "Estimate data points" 
    - Before observe data points, we compute a predictive interval, which is an interval such that 95% of new observations are expected to fall into it. So it's an interval for the `data points` rather than an interval for parameter we've been looking at. 
    - The prior predictive distribution **before we observe any data** is this.. as the **marginal:** `f(x) = S f(θ,x)dθ = S f(x|θ)f(θ)dθ `. See? `θ` is our main variable to play with. Prior predictive intervals are useful because they reveal the `consequences of the prior` at the data (observation) level. 
+   
  - Play with θ for example, Bin(n,θ): 
    - Flip a coin 'n' times and count the number of 'H' we see. This, of course, will depend on the coin itself. "What's the probability that it shows up 'H's?" which is a `θ` distribution. 
    - `X` for the number of 'H's(success), as `X` being the sum of y: `X = SUM(y...)` and as we go from '1 to n' of y which is each individual coin flip(HEAD: y=1, TAIL: y=0)...but now set this aside for a while.  
@@ -173,8 +174,11 @@ __Q. Choice of prior?__ how to elicit prior distribution?
      <img src="https://user-images.githubusercontent.com/31917400/47245743-73042d00-d3f2-11e8-83d4-ccded86edcb5.png" />
 
  - __Posterior predictive distribution__
- 
- 
+   - What about after we've observed data? What's our posterior predictive distribution? Suppose we observe, after one flip, we got a 'H' the first time. We want to ask, what's our **predicted distribution for the second flip**, given that we saw a 'H' on the first flip? `f(y2|y1) = S f(y2|θ,y1)f(θ|y1)dθ = S f(y2|θ)f(θ|y1)dθ`: using posterior distribution instead of prior, and 'y1 and y2' is independent so we can take y1 out, then..
+     <img src="https://user-images.githubusercontent.com/31917400/47248777-bb2c4b00-d404-11e8-9b5d-2c67ff7f3d24.png" />
+
+   - We can see here, that the posterior is a combination of the information in the prior and the information in the data. In this case, our prior is like having two data points, one 'H' and one 'T'. Saying we have a uniform prior for θ, is actually equivalent to saying we have observed one 'H' and one 'T'. And then, when we do go ahead and observe one head, it's like we now have seen two heads and one tail, and so our posterior predictive distribution for the second flip, says, if we have two heads and one tail, then we have a probability of two-thirds of getting another head, and a probability of one-third of getting a tail. 
+   - The key difference between prior predictive and posterior predictive distributions is that the prior predictive averages (marginalizes) over θ with respect to the prior while the posterior predictive averages with respect to the posterior.
  
  
  
