@@ -153,7 +153,7 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
  - Theoretically, a prior(the form of the conjugate prior can generally be determined by) is a CDF for the parameter distribution. In practice, based on likelihood we have, we work with a conjugate family that's sufficiently flexible such that a member of the family will represent our prior beliefs in the parameters(of course in general, if one has enough data, the information in the data will overwhelm this invasion of prior). **Then any reasonable choice of prior will lead to approximately the same posterior**.
    - However, Notice!! there are somethings that can go wrong. In the Bayesian context, events with `P(θ)=0` will have `P(θ|y)=0`. And events with `P(θ)=1` will have `P(θ|x)=1`. Thus a good bayesian will not assign probability of `0` or `1` to any event that has already occurred or already known not to occur. 
    
- - __First, "Estimate data points"__ 
+ - __No-data? "Estimate data points"__ 
    - Why "predictive distribution of X?" `p(θ|x) ~ f(x|θ)p(θ)` Do we already know likelihood???? WTF???? Just calm and look at the likelihood again. 
    - Before observe data points, we compute a predictive interval (such that 95% of new observations are expected to fall into it). It's an interval for the `data points` rather than an interval for parameter we've been looking at. To find this data point intervals, we first work with `prior` **before we observe any data**. Prior predictive intervals are useful because they reveal the `consequences of the prior` at the data (observation) level. 
    - But How? See, our predictive distribution of `data points` is **marginal:** `f(x) = S f(θ,x)dθ = S f(x|θ)f(θ)dθ `. 
@@ -170,7 +170,7 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
      - Because it's a Beta density, we know all densities integrate up to 1. Thus we see that **if we start with a uniform prior, we then end up with a discrete uniform predictive density for X**. If all possible coins or all possible probabilities(θ) are equally likely, then all possible X outcomes are equally likely. That's why when we choose Beta(1,1) as our prior and this is equivalent to Unif(0,1) and this is a non-informative prior. 
      <img src="https://user-images.githubusercontent.com/31917400/47245743-73042d00-d3f2-11e8-83d4-ccded86edcb5.png" />
 
- - __Second, find Posterior__
+ - __Don't go with a flat prior! We now have some data point__
    - What about after we've observed data? What's our posterior predictive distribution? Suppose we observe, after one flip, we got a 'H' the first time. We want to ask, what's our **predicted distribution for the second flip**, given that we saw a 'H' on the first flip? `f(y2|y1) = S f(y2|θ,y1)f(θ|y1)dθ = S f(y2|θ)f(θ|y1)dθ`: using posterior distribution instead of prior, and 'y1 and y2' is independent so we can take y1 out, then..
      <img src="https://user-images.githubusercontent.com/31917400/47248777-bb2c4b00-d404-11e8-9b5d-2c67ff7f3d24.png" />
 
