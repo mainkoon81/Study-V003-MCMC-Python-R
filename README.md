@@ -96,7 +96,7 @@ __Example 2> Bayesian Computation (in R)__
 <img src="https://user-images.githubusercontent.com/31917400/47188651-d463c780-d330-11e8-85b3-5e5d5d34acc9.png" />
 
  - Look, we have a likelihood which is Binomial. 
- - Beta is conjugate to the Binomial distribution, i.e. `Beta` is a conjugate prior for the `Binomial` likelihood. That's why we choose Beta as our prior...then what the posterior will be?  
+ - `Beta` is a conjugate prior for the `Binomial` likelihood. That's why we choose Beta as our prior...then what the posterior will be? 
  - If the posterior distributions `p(θ|x)` are in the same **distribution family** as the prior distribution `p(θ)`:
    - the prior and posterior are then called **conjugate distributions**, 
    - the `**likelihood function**` is usually well-determined from a statement of the data-generating process.
