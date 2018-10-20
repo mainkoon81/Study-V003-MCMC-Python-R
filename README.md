@@ -150,7 +150,7 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
 <img src="https://user-images.githubusercontent.com/31917400/47120410-7e2a5200-d266-11e8-9613-75a2fe8e6995.png" />
 
 __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit prior distribution?
- - Theoretically, a prior(the form of the conjugate prior can generally be determined by) is a CDF for the parameter distribution. In practice, based on likelihood we have, we work with a conjugate family that's sufficiently flexible such that a member of the family will represent our prior beliefs in the parameters(of course in general, if one has enough data, the information in the data will overwhelm this invasion of prior). **Then any reasonable choice of prior will lead to approximately the same posterior**.
+ - Theoretically, a prior(the form of the conjugate prior can generally be determined by) is a **CDF for the parameter θ distribution**. In practice, based on likelihood we have, we work with a conjugate family that's sufficiently flexible such that a member of the family will represent our prior beliefs in the parameters(of course in general, if one has enough data, the information in the data will overwhelm this invasion of prior). **Then any reasonable choice of prior will lead to approximately the same posterior**.
    - However, Notice!! there are somethings that can go wrong. In the Bayesian context, events with `P(θ)=0` will have `P(θ|y)=0`. And events with `P(θ)=1` will have `P(θ|x)=1`. Thus a good bayesian will not assign probability of `0` or `1` to any event that has already occurred or already known not to occur. 
    
  - __No-data? "Estimate data points"__ with respect to θ
