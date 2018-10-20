@@ -170,12 +170,12 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
      
      - Because it's a Beta density, we know all densities integrate up to 1. Thus we see that **if we start with a uniform prior, we then end up with a discrete uniform predictive density for X**. If all possible coins or all possible probabilities(θ) are equally likely, then all possible X outcomes are equally likely. That's why when we choose Beta(1,1) as our prior and this is equivalent to Unif(0,1) and this is a non-informative prior. 
      <img src="https://user-images.githubusercontent.com/31917400/47245743-73042d00-d3f2-11e8-83d4-ccded86edcb5.png" />
-
-### Hey! we just found the form of the prior function!! which is `Beta(a,b)` !!! 
- - __Bernoulli or Binomial Likelihood with uniform prior__
+### **Hey! we just found the form of the prior function!! which is `Beta(a,b)` !!! 
+ - __prior -> posterior__
    - When our prior for a Bernoulli likelihood(such as `p(θ) = 1`) is a `uniform`, we get a beta posterior with hyper-parameter:  
    <img src="https://user-images.githubusercontent.com/31917400/47256574-970b5100-d47a-11e8-8e66-d182c48ac514.png" />
-   - In fact, the uniform distribution, is a `Beta(1,1)`. And any beta distribution is conjugate for the Bernoulli distribution. Any beta prior, will give a beta posterior.   
+   - In fact, the uniform distribution is a `Beta(1,1)`, and any beta distribution is conjugate for the Bernoulli distribution.
+   - In posterior, the hyper-parameters are transformed: `a + sum(x), b + n - sum(x)` 
    
  - __Don't go with a flat prior! We now have some data point__
    - What about after we've observed data? What's our posterior predictive distribution? Suppose we observe, after one flip, we got a 'H' the first time. We want to ask, what's our **predicted distribution for the second flip**, given that we saw a 'H' on the first flip? `f(y2|y1) = S f(y2|θ,y1)f(θ|y1)dθ = S f(y2|θ)f(θ|y1)dθ`: using posterior distribution instead of prior, and 'y1 and y2' is independent so we can take y1 out, then..
