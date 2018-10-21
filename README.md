@@ -171,6 +171,11 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
      - Because it's a Beta density, we know all densities integrate up to 1. Thus we see that **if we start with a uniform prior, we then end up with a discrete uniform predictive density for X**. If all possible coins or all possible probabilities(θ) are equally likely, then all possible X outcomes are equally likely. That's why when we choose Beta(1,1) as our prior and this is equivalent to Unif(0,1) and this is a non-informative prior. 
      <img src="https://user-images.githubusercontent.com/31917400/47245743-73042d00-d3f2-11e8-83d4-ccded86edcb5.png" />
 ### **Hey! we just found the form of the prior function!! which is `sth x Beta(a,b)` !!! 
+
+> Note: Beta(α,β) can be understood as representing a distribution of probabilities(so Random Variable is probability values?) that is, it represents all the possible values of a probability. 
+ - Imagine we have a baseball player, and we predict what his season-long batting average `θ` will be. You might say we can just use his batting average so far- but this will be a very poor measure at the start of a season! Given our batting average problem, which can be represented with a `binomial(X: Sum of successes)`, the best way to represent these prior expectations is with the `Beta(X: probability)` - it's saying, before we've seen the player take his first swing, what we roughly expect his batting average to be. The domain of the Beta distribution is [0, 1], because X value is a probability. We may expect that the player's season-long batting average will be most likely around `0.27`, but that it could reasonably range from `0.21 to 0.35`. This can be represented with a Beta with parameters `α=81` and `β=219`(where α=No.success, β=No.failure and the mean of Beta is `α/(α+β)=0.27`) 
+<img src="https://user-images.githubusercontent.com/31917400/47266266-efe6f200-d52b-11e8-96e4-3ad67d0d988d.png" />
+ 
 ### Next,
  - __prior -> posterior__
    - When our prior for a Bernoulli likelihood(such as `p(θ) = 1`) is a `uniform`, we get a beta posterior with hyper-parameter:  
@@ -193,6 +198,7 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
  <img src="https://user-images.githubusercontent.com/31917400/47261034-aca26a00-d4be-11e8-897a-a9270ac5d2cb.png" />
  <img src="https://user-images.githubusercontent.com/31917400/47261080-c09a9b80-d4bf-11e8-84ef-0f8910747894.png" />
 
+### 
 
  
    
