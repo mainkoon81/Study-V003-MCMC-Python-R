@@ -214,7 +214,13 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
      - Choosing a uniform prior depends upon the particular parameterization. For example, thinking about normal distribution. Suppose 
      <img src="https://user-images.githubusercontent.com/31917400/47270910-5e4aa500-d56a-11e8-8831-e8c25df1f9ca.png" />
      
-     - ss
+       - Say, I use a prior which is uniform `σ^2*f(σ^2)=1`. Suppose somebody just want to put a uniform prior on `σ^2` itself `f(σ^2)=1`. These are both uniform on certain parameterizations, but they are different priors. And so when we compute the posteriors, we will get different posteriors. The key thing is that **uniform priors are not invariant with respect to transformation**. 
+     - One attempt to round to this is the Jeffreys prior. Jeffreys prior is to find this `prior` proportional to the `sqrt(fisher information)`. In most cases, this will be an improper prior. 
+     - For the example of normal data, `σ^2*f(σ^2) ∝ 1` and `f(μ) ∝ 1`
+     - For the example of Bernoulli data, `Beta(0.5,0.5)`
+     - Jeffreys’ prior is locally uniform and hence noninformative . It provides an automated scheme for finding a noninformative prior for any parametric model. 
+     - Jeffreys’ prior is invariant with respect to one-to-one transformations.
+     - Jeffreys’ prior has some shortcomings: the prior is improper for many models, which leads to improper posterior.
 
 
    
