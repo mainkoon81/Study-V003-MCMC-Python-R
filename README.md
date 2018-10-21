@@ -227,6 +227,12 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
  - Bayesian Model Components(hierarchical form of the model)
  <img src="https://user-images.githubusercontent.com/31917400/47272952-c4442600-d584-11e8-947b-0c128e83f9d8.png" />
  
+ - The hierarchical representations above show how you could hypothetically simulate data from this model. 
+   - You start with the variables that don't have any dependence on any other variables. You would simulate those
+   - And then given those draws, you would simulate from the distributions for these other variables further down the chain.
+   - This is also how you might simulate from a **prior predictive distribution** for X. 
+ - The posterior distribution will be derived from the components of the hierarchical structure.
+ 
  
  
  
