@@ -223,17 +223,23 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
      - Jeffreys’ prior has some shortcomings: the prior is improper for many models, which leads to improper posterior.
      
 ---------------------------------------------------------------------------------------------------------   
-### Before saying Monte-Carlo
- - Bayesian Model Components(hierarchical form of the model)
- <img src="https://user-images.githubusercontent.com/31917400/47272952-c4442600-d584-11e8-947b-0c128e83f9d8.png" />
+## Before saying Monte-Carlo
+### Hierarchical form of the Conjugate model
+<img src="https://user-images.githubusercontent.com/31917400/47272952-c4442600-d584-11e8-947b-0c128e83f9d8.png" />
  
  - The hierarchical representations above show how you could hypothetically simulate data from this model. 
    - You start with the variables that don't have any dependence on any other variables. You would simulate those
    - And then given those draws, you would simulate from the distributions for these other variables further down the chain.
    - This is also how you might simulate from a **prior predictive distribution** for X. 
  - The posterior distribution will be derived from the components of the hierarchical structure.
- 
- 
+ - If we add more layers, then surprisingly...
+<img src="https://user-images.githubusercontent.com/31917400/47273357-040e0c00-d58b-11e8-9a23-e64b9826f64a.png" />
+
+ - If we can recognize this standard form as being proportional to a common distribution, then our work is done, and we know what our posterior distribution is. However, if we do not use conjugate priors or if the models are more complicated, then the posterior distribution will not have a standard form that we can recognize.
+
+### Non-Conjugate model
+
+
  
  
  
