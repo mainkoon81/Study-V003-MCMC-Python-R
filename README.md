@@ -189,20 +189,34 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
 ```
 <img src="https://user-images.githubusercontent.com/31917400/47120410-7e2a5200-d266-11e8-9613-75a2fe8e6995.png" />
 
-### Another way to choose prior
-So far, we've seen examples of choosing priors that contain a significant amount of information. You've also seen some examples of choosing priors where we're attempting to not put too much information and keep them vague. 
-   
-   
- - __Non-informative prior__
-   - Non-informative prior expresses vague or general information about a variable(having no strong prior beliefs or assumptions).
-   - Uninformative priors can express "objective" information such as "the variable is positive" or "the variable is less than some limit". The simplest and oldest rule for determining a non-informative prior is the principle of indifference, which assigns equal probabilities to all possibilities. In parameter estimation problems, the use of an uninformative prior typically yields results which are not too different from conventional statistical analysis, as the likelihood function often yields more information than the uninformative prior.
-   - However, the non-informative prior can be created to reflect a balance among outcomes when no information is available. Non-informative priors are useful when 'stronger' priors would unjustifiably favor some hypotheses in a way that's inconsistent with your actual (lack of) knowledge/beliefs. 
-   - Or Priors can also be chosen according to some principle, such as symmetry or maximizing entropy given constraints; examples are `Jeffreys' prior` for the Bernoulli random variable. 
-     
+### other prior
+ - __Normal__
+   - If you are collecting normal data to make inferences about `μ`, but you don't know the true `σ^2` of the data, three options available to you are:
+     - 1. Fix σ^2 at your best guess.
+     - 2. Estimate σ^2 from the data and fix it at this value.
+     - 3. Specify a prior for σ^2 and μ to estimate them jointly
+   - Options 1 and 2 allow you to use the methods "pretending you know the true value of σ^2 and this leads to a simpler posterior calculation for μ.
+   - Option 3 allows you to more honestly reflect your uncertainty in σ^2, thereby protecting against overly confident inferences. 
+ 
+
+### Two catagories of prior
  - __Informative prior__
-   - An informative prior expresses specific, definite information about a variable.
+   - An informative prior is a prior that is not dominated by the likelihood and that has an impact on the posterior distribution. If a prior distribution dominates the likelihood, it is clearly an informative prior.
    - A reasonable approach is to make the prior a `normal distribution` with expected value equal to the given mean value, with variance equal to the given variance. 
    - pre-existing evidence which has already been taken into account is part of the prior and, as more evidence accumulates, the posterior is determined largely by the evidence rather than any original assumption, provided that the original assumption admitted the possibility of what the evidence is suggesting.
+   
+ - __Non-informative prior__
+   - Roughly speaking, a prior distribution is non-informative if the prior is "flat". 
+   - Non-informative priors can express "objective" information such as "the variable is positive" or "the variable is less than some limit". The simplest rule for determining a non-informative prior is the principle of indifference, which assigns equal probabilities to all possibilities, thus the use of an uninformative prior typically yields results which are not too different from conventional statistical analysis.
+   - However, Non-informative priors are useful when 'stronger' priors would unjustifiably favor some hypotheses in a way that's inconsistent with your actual (lack of) knowledge/beliefs. 
+   - Or Priors can also be chosen according to some principle, such as symmetry or maximizing entropy given constraints; examples are `Jeffreys' prior` for the Bernoulli random variable.
+   - Jeffreys prior
+     - Choosing a uniform prior depends upon the particular parameterization. For example, thinking about normal distribution. Suppose 
+     <img src="https://user-images.githubusercontent.com/31917400/47270910-5e4aa500-d56a-11e8-8831-e8c25df1f9ca.png" />
+     
+     - ss
+
+
    
    
    
