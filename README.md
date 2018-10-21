@@ -107,7 +107,7 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
  - Theoretically, a prior(the form of the conjugate prior can generally be determined by) is a **CDF for the parameter θ distribution**. In practice, based on likelihood we have, we choose a conjugate prior from a conjugate family that's sufficiently flexible such that a member of the family will represent our prior beliefs(of course in general, if one has enough data, the information in the data will overwhelm this invasion of prior). And **then any reasonable choice of prior will lead to approximately the same posterior**.
    - However, Notice!! there are somethings that can go wrong. In the Bayesian context, events with `P(θ)=0` will have `P(θ|y)=0`. And events with `P(θ)=1` will have `P(θ|x)=1`. Thus a good bayesian will not assign probability of `0` or `1` to any event that has already occurred or already known not to occur. 
    
-# No-data? "Estimate data points" (with respect to θ : **Prior Predictive Distribution** for X)
+# Scenario_01. No-data? "Estimate data points" (with respect to θ : **Prior Predictive Distribution** for X)
 <img src="https://user-images.githubusercontent.com/31917400/47260255-aa84df00-d4af-11e8-9d2c-eee68bd26b2c.png" />
 
    - Before observe data points, we compute a prior predictive interval (such that 95% of new observations are expected to fall into it). It's an interval for the `data points` rather than an interval for parameter we've been looking at. Prior predictive intervals are useful because they reveal the `consequences of the θ` at the data (observation) level. See, our predictive distribution of `data points` is **marginal:** `P(x) = S P(θ,x)dθ = S P(x|θ)P(θ)dθ `. 
@@ -137,7 +137,7 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
    - In fact, the uniform distribution is a `Beta(1,1)`, and any beta distribution is conjugate for the Bernoulli distribution.
    - In posterior, the hyper-parameters are transformed: `a + sum(x), b + n - sum(x)` 
    
-# Don't go with a flat prior! We have some data-point (with respect to θ: **Posterior Predictive Distribution** for X)
+# Scenario_02. Don't go with a flat prior! We have some data-point (with respect to θ: **Posterior Predictive Distribution** for X)
 <img src="https://user-images.githubusercontent.com/31917400/47260902-f2a9fe80-d4bb-11e8-8c80-6944cbcdf2cf.png" />
  
    - What about after we've observed data? Suppose we observe, after one flip, we got a 'H' the first time. We want to ask, what's our **predicted distribution for the second flip(H or T)**, given that we saw a 'H' on the first flip? 
@@ -152,21 +152,6 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
  <img src="https://user-images.githubusercontent.com/31917400/47261034-aca26a00-d4be-11e8-897a-a9270ac5d2cb.png" />
  <img src="https://user-images.githubusercontent.com/31917400/47261080-c09a9b80-d4bf-11e8-84ef-0f8910747894.png" />
 
-### Another way to choose prior
-So far, we've seen examples of choosing priors that contain a significant amount of information. You've also seen some examples of choosing priors where we're attempting to not put too much information and keep them vague. 
-   
-   
- - __Non-informative prior__
-   - Non-informative prior expresses vague or general information about a variable(having no strong prior beliefs or assumptions).
-   - Uninformative priors can express "objective" information such as "the variable is positive" or "the variable is less than some limit". The simplest and oldest rule for determining a non-informative prior is the principle of indifference, which assigns equal probabilities to all possibilities. In parameter estimation problems, the use of an uninformative prior typically yields results which are not too different from conventional statistical analysis, as the likelihood function often yields more information than the uninformative prior.
-   - However, the non-informative prior can be created to reflect a balance among outcomes when no information is available. Non-informative priors are useful when 'stronger' priors would unjustifiably favor some hypotheses in a way that's inconsistent with your actual (lack of) knowledge/beliefs. 
-   - Or Priors can also be chosen according to some principle, such as symmetry or maximizing entropy given constraints; examples are `Jeffreys' prior` for the Bernoulli random variable. 
-     
- - __Informative prior__
-   - An informative prior expresses specific, definite information about a variable.
-   - A reasonable approach is to make the prior a `normal distribution` with expected value equal to the given mean value, with variance equal to the given variance. 
-   - pre-existing evidence which has already been taken into account is part of the prior and, as more evidence accumulates, the posterior is determined largely by the evidence rather than any original assumption, provided that the original assumption admitted the possibility of what the evidence is suggesting.
- 
 ### Find posterior
  - When a family of `conjugate priors` exists, choosing a prior from that family simplifies calculation of the posterior distribution.
  - `Parameters` of prior distributions are a kind of `hyperparameter`. For example, if one uses `Beta(a,b)` to model the distribution of the parameter `p` of Bernoulli, then:
@@ -196,7 +181,7 @@ d = density(x)
 hist(x = x, probability = TRUE, main = "Beta Posterior Distribution",
      xlab = expression(theta), ylab = "Density",
      ylim = c(0,40), col = "gray", border = "white")
-lines(x = d$x , y = d$y, type = "l", col = 2)
+lines(x = d$x , y = d$y, type = "l", col = 2) # add chart
 abline(v = median(x), lty = 3, col = "3")
 
 print("Median: ")
@@ -204,7 +189,34 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
 ```
 <img src="https://user-images.githubusercontent.com/31917400/47120410-7e2a5200-d266-11e8-9613-75a2fe8e6995.png" />
 
-
+### Another way to choose prior
+So far, we've seen examples of choosing priors that contain a significant amount of information. You've also seen some examples of choosing priors where we're attempting to not put too much information and keep them vague. 
+   
+   
+ - __Non-informative prior__
+   - Non-informative prior expresses vague or general information about a variable(having no strong prior beliefs or assumptions).
+   - Uninformative priors can express "objective" information such as "the variable is positive" or "the variable is less than some limit". The simplest and oldest rule for determining a non-informative prior is the principle of indifference, which assigns equal probabilities to all possibilities. In parameter estimation problems, the use of an uninformative prior typically yields results which are not too different from conventional statistical analysis, as the likelihood function often yields more information than the uninformative prior.
+   - However, the non-informative prior can be created to reflect a balance among outcomes when no information is available. Non-informative priors are useful when 'stronger' priors would unjustifiably favor some hypotheses in a way that's inconsistent with your actual (lack of) knowledge/beliefs. 
+   - Or Priors can also be chosen according to some principle, such as symmetry or maximizing entropy given constraints; examples are `Jeffreys' prior` for the Bernoulli random variable. 
+     
+ - __Informative prior__
+   - An informative prior expresses specific, definite information about a variable.
+   - A reasonable approach is to make the prior a `normal distribution` with expected value equal to the given mean value, with variance equal to the given variance. 
+   - pre-existing evidence which has already been taken into account is part of the prior and, as more evidence accumulates, the posterior is determined largely by the evidence rather than any original assumption, provided that the original assumption admitted the possibility of what the evidence is suggesting.
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
 ---------------------------------------------------------------------------------------------------------   
 Now, here is the thing. We saw **direct simulation from a posterior distribution**. However, there are some posteriors that will not be as easily identifiable. 
 ### Monte-Carlo methods will be helpful for generating samples from difficult to sample target distributions.
