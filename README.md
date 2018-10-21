@@ -232,28 +232,15 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
    - And then given those draws, you would simulate from the distributions for these other variables further down the chain.
    - This is also how you might simulate from a **prior predictive distribution** for X. 
  - The posterior distribution will be derived from the components of the hierarchical structure.
- - If we add more layers, then surprisingly...
-<img src="https://user-images.githubusercontent.com/31917400/47273357-040e0c00-d58b-11e8-9a23-e64b9826f64a.png" />
+ - If we add more layers, then surprisingly...(Here `μ is unknown`, and `σ^2 is known`, then the `conjugate prior from μ` would be a `normal distribution`)
+<img src="https://user-images.githubusercontent.com/31917400/47273757-fe67f480-d591-11e8-8731-9e273af547c2.png" />
 
- - If we can recognize this standard form as being proportional to a common distribution, then our work is done, and we know what our posterior distribution is. However, if we do not use conjugate priors or if the models are more complicated, then the posterior distribution will not have a standard form that we can recognize.
+ - If we can recognize this standard form as being proportional to a common distribution, then our work is done, and we know what our posterior distribution is and we can do **direct simulation from a posterior distribution**. However, if we do not use conjugate priors or if the models are more complicated, then the posterior distribution will not have a standard form that we can recognize.
 
 ### Non-Conjugate model
+ - Suppose we're now going to estimate `μ` and `σ^2`, because they're both `unknown` (If sigma squared were known, the conjugate prior from `μ` would be a `normal distribution`. And if `μ` were known, the conjugate prior we could choose for `σ^2` would be an `inverse gamma`). 
+ - In the more general case that we have here(both unknown), the posterior distribution does not appear as a distribution that we can simulate or integrate. We are unable to integrate it to obtain important quantities, such as the posterior mean or probability intervals. However, the **computational methods** invented in the 1950's revolutionized this field. We do have the ability to simulate from this challenging posterior distributions 
 
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
-Now, here is the thing. We saw **direct simulation from a posterior distribution**. However, there are some posteriors that will not be as easily identifiable. 
 ### Monte-Carlo methods will be helpful for generating samples from difficult to sample target distributions.
 How? by generating random number from target distributions through **transformation methods**??
  - Monte Carlo simulation uses random sampling and statistical modeling to mimic the operations of complex systems. 
