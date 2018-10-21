@@ -17,7 +17,7 @@
 
 > In bayesian approach, prediction is a `weighted AVG of output` of our model for all possible values of parameters while in frequentist approach, prediction is finding the best-fitted values of `parameters`. 
 
-## Intro to Monte-Carlo
+# Intro to Monte-Carlo
 Monte-Carlo methods are methods for `generating random variables` directly or indirectly from a target distribution. 
  - **Applications**: 
    - 1> hypothesis testing 
@@ -223,6 +223,24 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
      - Jeffreys’ prior has some shortcomings: the prior is improper for many models, which leads to improper posterior.
      
 ---------------------------------------------------------------------------------------------------------   
+### Before saying Monte-Carlo
+ - Bayesian Model Components(hierarchical form of the model)
+ <img src="https://user-images.githubusercontent.com/31917400/47272952-c4442600-d584-11e8-947b-0c128e83f9d8.png" />
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
 Now, here is the thing. We saw **direct simulation from a posterior distribution**. However, there are some posteriors that will not be as easily identifiable. 
 ### Monte-Carlo methods will be helpful for generating samples from difficult to sample target distributions.
 How? by generating random number from target distributions through **transformation methods**??
