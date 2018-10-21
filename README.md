@@ -221,22 +221,7 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
      - Jeffreys’ prior is locally uniform and hence noninformative . It provides an automated scheme for finding a noninformative prior for any parametric model. 
      - Jeffreys’ prior is invariant with respect to one-to-one transformations or the change of scale.
      - Jeffreys’ prior has some shortcomings: the prior is improper for many models, which leads to improper posterior.
-
-
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+     
 ---------------------------------------------------------------------------------------------------------   
 Now, here is the thing. We saw **direct simulation from a posterior distribution**. However, there are some posteriors that will not be as easily identifiable. 
 ### Monte-Carlo methods will be helpful for generating samples from difficult to sample target distributions.
