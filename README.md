@@ -101,53 +101,7 @@ __Example 2> Bayesian Computation (in R)__
    - the prior and posterior are then called **conjugate distributions**, 
    - the `**likelihood function**` is usually well-determined from a statement of the data-generating process.
  - Let's see our prior. Prior expresses one's beliefs about this quantity before some evidence is taken into account. Here, the prior could be the probability distribution representing the relative proportions of advocaters who will support nuclear_arms_reduction. 
-   - we chose Beta(1,1) as our prior and this is equivalent to Unif(0,1) and this is a non-informative prior, which means we don't have any prior information to add to this model.
-   - __Non-informative prior__
-     - Non-informative prior expresses vague or general information about a variable(having no strong prior beliefs or assumptions).
-     - Uninformative priors can express "objective" information such as "the variable is positive" or "the variable is less than some limit". The simplest and oldest rule for determining a non-informative prior is the principle of indifference, which assigns equal probabilities to all possibilities. In parameter estimation problems, the use of an uninformative prior typically yields results which are not too different from conventional statistical analysis, as the likelihood function often yields more information than the uninformative prior.
-     - However, the non-informative prior can be created to reflect a balance among outcomes when no information is available. Non-informative priors are useful when 'stronger' priors would unjustifiably favor some hypotheses in a way that's inconsistent with your actual (lack of) knowledge/beliefs. 
-     - Or Priors can also be chosen according to some principle, such as symmetry or maximizing entropy given constraints; examples are `Jeffreys' prior` for the Bernoulli random variable. 
-     
-   - __Informative prior__
-     - An informative prior expresses specific, definite information about a variable.
-     - A reasonable approach is to make the prior a `normal distribution` with expected value equal to the given mean value, with variance equal to the given variance. 
-     - pre-existing evidence which has already been taken into account is part of the prior and, as more evidence accumulates, the posterior is determined largely by the evidence rather than any original assumption, provided that the original assumption admitted the possibility of what the evidence is suggesting.
-        
-   - When a family of `conjugate priors` exists, choosing a prior from that family simplifies calculation of the posterior distribution.
-   - `Parameters` of prior distributions are a kind of `hyperparameter`. For example, if one uses `Beta(a,b)` to model the distribution of the parameter `p` of Bernoulli, then:
-     - `p` is a parameter of the underlying system (Bernoulli), and
-     - `a` and `b` are parameters of the prior distribution (Beta); hence hyperparameters
-   - Sometimes hyper-parameters themselves in prior have `hyper distributions` expressing beliefs about their values in the posterior. A Bayesian model with more than one level of prior like this is called a `hierarchical Bayes model`.  
-
-table of conjugate distribution
-<img src="https://user-images.githubusercontent.com/31917400/47190665-91a6ed00-d33a-11e8-8f51-c3ab391a4871.png" />
-
- - find the posterior
-<img src="https://user-images.githubusercontent.com/31917400/47119888-9c8f4e00-d264-11e8-9846-a03b7cb95e4d.png" />
-
- - the Bayesian Data model is `y|θ ~ Bin(n,θ)` thus `θ ~ Beta(a,b)`
- - the resulting posterior is then `θ|y ~ Beta(y+a, n-y+b)`. **We can now simulate the posterior distribution**, to choose `θ` !
- - Did you find the posterior? then build a Credible Interval. 
-   - In Confidence Interval, the true value(population_parameter) is not a random variable. It is a fixed but unknown quantity. In contrast, our estimate is a random variable as it depends on our data x. Thus, we get different estimates each time, repeating our study. 
-   - In Credible Intervals, we assume that the true value(population parameter θ) is a random variable. Thus, we capture the uncertainty about the true parameter value by a **imposing a prior distribution** on the true parameter vector. <img src="https://user-images.githubusercontent.com/31917400/47217688-0ad92b00-d3a1-11e8-9e2e-9efd544efc06.png" />
-
-   - Using bayes theorem, we construct the posterior distribution for the parameter vector by blending the prior and the data(likelihood) we have, then arrive at **a point estimate** using the posterior distribution(use the mean of the posterior for example). However, the true parameter vector is a random variable, we also want to know the extent of uncertainty we have in our point estimate. Thus, we construct a 95% credible interval such that the following holds: `P( l(θ)<=θ<=u(θ) ) = 0.95` 
-
-```
-N = 10^4
-set.seed(123)
-x = rbeta(n = N, shape1 = 576 + 1, shape2 = 1028 - 576 + 1)
-d = density(x)
-hist(x = x, probability = TRUE, main = "Beta Posterior Distribution",
-     xlab = expression(theta), ylab = "Density",
-     ylim = c(0,40), col = "gray", border = "white")
-lines(x = d$x , y = d$y, type = "l", col = 2)
-abline(v = median(x), lty = 3, col = "3")
-
-print("Median: ")
-print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
-```
-<img src="https://user-images.githubusercontent.com/31917400/47120410-7e2a5200-d266-11e8-9613-75a2fe8e6995.png" />
+   - we chose Beta(1,1) as our prior and this is equivalent to Unif(0,1) and this is a non-informative prior, which means we don't have any prior information to add to this model. 
 
 __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit prior distribution?
  - Theoretically, a prior(the form of the conjugate prior can generally be determined by) is a **CDF for the parameter θ distribution**. In practice, based on likelihood we have, we choose a conjugate prior from a conjugate family that's sufficiently flexible such that a member of the family will represent our prior beliefs(of course in general, if one has enough data, the information in the data will overwhelm this invasion of prior). And **then any reasonable choice of prior will lead to approximately the same posterior**.
@@ -198,10 +152,59 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
  <img src="https://user-images.githubusercontent.com/31917400/47261034-aca26a00-d4be-11e8-897a-a9270ac5d2cb.png" />
  <img src="https://user-images.githubusercontent.com/31917400/47261080-c09a9b80-d4bf-11e8-84ef-0f8910747894.png" />
 
-### 
-
- 
+### Another way to choose prior
+So far, we've seen examples of choosing priors that contain a significant amount of information. You've also seen some examples of choosing priors where we're attempting to not put too much information and keep them vague. 
    
+   
+ - __Non-informative prior__
+   - Non-informative prior expresses vague or general information about a variable(having no strong prior beliefs or assumptions).
+   - Uninformative priors can express "objective" information such as "the variable is positive" or "the variable is less than some limit". The simplest and oldest rule for determining a non-informative prior is the principle of indifference, which assigns equal probabilities to all possibilities. In parameter estimation problems, the use of an uninformative prior typically yields results which are not too different from conventional statistical analysis, as the likelihood function often yields more information than the uninformative prior.
+   - However, the non-informative prior can be created to reflect a balance among outcomes when no information is available. Non-informative priors are useful when 'stronger' priors would unjustifiably favor some hypotheses in a way that's inconsistent with your actual (lack of) knowledge/beliefs. 
+   - Or Priors can also be chosen according to some principle, such as symmetry or maximizing entropy given constraints; examples are `Jeffreys' prior` for the Bernoulli random variable. 
+     
+ - __Informative prior__
+   - An informative prior expresses specific, definite information about a variable.
+   - A reasonable approach is to make the prior a `normal distribution` with expected value equal to the given mean value, with variance equal to the given variance. 
+   - pre-existing evidence which has already been taken into account is part of the prior and, as more evidence accumulates, the posterior is determined largely by the evidence rather than any original assumption, provided that the original assumption admitted the possibility of what the evidence is suggesting.
+ 
+### Find posterior
+ - When a family of `conjugate priors` exists, choosing a prior from that family simplifies calculation of the posterior distribution.
+ - `Parameters` of prior distributions are a kind of `hyperparameter`. For example, if one uses `Beta(a,b)` to model the distribution of the parameter `p` of Bernoulli, then:
+   - `p` is a parameter of the underlying system (Bernoulli), and
+   - `a` and `b` are parameters of the prior distribution (Beta); hence hyperparameters
+ - Sometimes hyper-parameters themselves in prior have `hyper distributions` expressing beliefs about their values in the posterior. A Bayesian model with more than one level of prior like this is called a `hierarchical Bayes model`.  
+
+table of conjugate distribution
+<img src="https://user-images.githubusercontent.com/31917400/47190665-91a6ed00-d33a-11e8-8f51-c3ab391a4871.png" />
+
+ - find the posterior
+<img src="https://user-images.githubusercontent.com/31917400/47119888-9c8f4e00-d264-11e8-9846-a03b7cb95e4d.png" />
+
+ - the Bayesian Data model is `y|θ ~ Bin(n,θ)` thus `θ ~ Beta(a,b)`
+ - the resulting posterior is then `θ|y ~ Beta(y+a, n-y+b)`. **We can now simulate the posterior distribution**, to choose `θ` !
+ - Did you find the posterior? then build a Credible Interval. 
+   - In Confidence Interval, the true value(population_parameter) is not a random variable. It is a fixed but unknown quantity. In contrast, our estimate is a random variable as it depends on our data x. Thus, we get different estimates each time, repeating our study. 
+   - In Credible Intervals, we assume that the true value(population parameter θ) is a random variable. Thus, we capture the uncertainty about the true parameter value by a **imposing a prior distribution** on the true parameter vector. <img src="https://user-images.githubusercontent.com/31917400/47217688-0ad92b00-d3a1-11e8-9e2e-9efd544efc06.png" />
+
+   - Using bayes theorem, we construct the posterior distribution for the parameter vector by blending the prior and the data(likelihood) we have, then arrive at **a point estimate** using the posterior distribution(use the mean of the posterior for example). However, the true parameter vector is a random variable, we also want to know the extent of uncertainty we have in our point estimate. Thus, we construct a 95% credible interval such that the following holds: `P( l(θ)<=θ<=u(θ) ) = 0.95` 
+
+```
+N = 10^4
+set.seed(123)
+x = rbeta(n = N, shape1 = 576 + 1, shape2 = 1028 - 576 + 1)
+d = density(x)
+hist(x = x, probability = TRUE, main = "Beta Posterior Distribution",
+     xlab = expression(theta), ylab = "Density",
+     ylim = c(0,40), col = "gray", border = "white")
+lines(x = d$x , y = d$y, type = "l", col = 2)
+abline(v = median(x), lty = 3, col = "3")
+
+print("Median: ")
+print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
+```
+<img src="https://user-images.githubusercontent.com/31917400/47120410-7e2a5200-d266-11e8-9613-75a2fe8e6995.png" />
+
+
 ---------------------------------------------------------------------------------------------------------   
 Now, here is the thing. We saw **direct simulation from a posterior distribution**. However, there are some posteriors that will not be as easily identifiable. 
 ### Monte-Carlo methods will be helpful for generating samples from difficult to sample target distributions.
