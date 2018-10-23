@@ -244,10 +244,12 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
 ### Monte-Carlo methods will be helpful for generating samples from difficult to sample target distributions.
 How? by generating random number from target distributions through **transformation methods**??
  - Monte Carlo simulation uses random sampling and statistical modeling to mimic the operations of complex systems. 
-   - Monte Carlo models a system as a series of probability density functions.
+   - Monte Carlo models a system as a series of PDF.
    - Monte Carlo repeatedly samples from the PDF.
    - Monte Carlo computes the statistics of interest.
-
+__Integration__
+ - Monte Carlo estimation refers to **simulating hypothetical draws** from a probability distribution in order to calculate important quantities such as mean, variance, the probability of some event, etc(all of these calculations involve `integration`, which can be very difficult to compute analytically). So we find the area of the swimming pool by throwing balls. 
+<img src="https://user-images.githubusercontent.com/31917400/47396542-28045580-d723-11e8-8f2e-a573076f09f3.png" />
 
 
 
