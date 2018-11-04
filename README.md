@@ -92,7 +92,7 @@ __Example 2> Bayesian Computation (in R)__
  - Based on the normal model, the test statistic can be computed as the Z-score of the point estimate: `Z = (p_obv - p0)/SE`.  
  - SE can be computed: `SE = sqrt(p0*q0/n)` and the Null-hypothesis `p0 = 0.5` is used again here because this is a hypothesis test for a single proportion `sqrt(0.5*0.5/1028) = 0.016`, so our Z is `(0.56-0.5)/0.016 = 3.75`.
  - p-value is `1 - pnorm(q=3.75) = 8.841729e-05`. We can then look up the upper tail area, the p-value, and see that it is less than 0.001. With a `p-value < 0.05`, we reject the null hypothesis and conclude that the **poll provides evidence that a majority (greater than 50%) of Americans supported the nuclear_arms_reduction**. The 95% CI for `p_obv` would be `0.56 + c(-1,1)*1.96*0.016`. So on AVG, around from 52% to 59% of US people support the nuclear_arms_reduction. 
-<img src="https://user-images.githubusercontent.com/31917400/47958941-17c76280-dfce-11e8-8b90-af2c596dfc78.jpg" />
+<img src="https://user-images.githubusercontent.com/31917400/47958986-c0c28d00-dfcf-11e8-8708-13315760a4c7.jpg" />
 
 ### With Bayesian
 > Another perspective on this problem(Inferencing on a single proportion as a population parameter) is that of a Bayesian. 
