@@ -80,6 +80,7 @@ ChisqTest <- function(data, Simulations){
 <img src="https://user-images.githubusercontent.com/31917400/47089124-fa497900-d217-11e8-9fee-8f89523dfa9a.png" />
 
 __Example 2> Bayesian Computation (in R)__
+### Without Bayesian
 > This is the traditional way of Inferencing on a single proportion as a population parameter without Bayesian.
  - Let's say, a simple random sample of 1,028 US adults in March 2013 found that 56% support nuclear arms reduction. Damn + 6% !!! **"Q. Does this provide convincing evidence that a majority of Americans supported nuclear_arms_reduction at the 5% significance level?"**
  - Using a **Pearson-frequentist perspective**, we might simply do the following:
@@ -93,6 +94,7 @@ __Example 2> Bayesian Computation (in R)__
  - p-value is `1 - pnorm(q=3.75) = 8.841729e-05`. We can then look up the upper tail area, the p-value, and see that it is less than 0.001. With a `p-value < 0.05`, we reject the null hypothesis and conclude that the **poll provides evidence that a majority (greater than 50%) of Americans supported the nuclear_arms_reduction**. The 95% CI for `p_obv` would be `0.56 + c(-1,1)*1.96*0.016`. So on AVG, around from 52% to 59% of US people support the nuclear_arms_reduction. 
 <img src="https://user-images.githubusercontent.com/31917400/47958880-c9fe2a80-dfcc-11e8-8fd1-5b8edabc4f57.jpg" />
 
+### With Bayesian
 > Another perspective on this problem(Inferencing on a single proportion as a population parameter) is that of a Bayesian. 
 <img src="https://user-images.githubusercontent.com/31917400/47188651-d463c780-d330-11e8-85b3-5e5d5d34acc9.png" />
 
