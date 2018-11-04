@@ -256,7 +256,8 @@ __Integration & Error__
  - But how good is an approximation by Monte-Carlo sampling? Again, we can turn to the central limit theorem, which tells us that the variance of our estimate is controlled in part by our sample size. Increase the number of samples simulated. 
 <img src="https://user-images.githubusercontent.com/31917400/47397900-600e9700-d729-11e8-93e9-ada0d603129b.png" />
 
-
+---------------------------------------------------------------------------------------------------------------
+# Markov chain Monte Carlo (MCMC)
 
 
 
