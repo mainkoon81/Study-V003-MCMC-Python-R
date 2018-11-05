@@ -275,12 +275,37 @@ __Integration & Error__
    - Now for each time step, your secret number will change by:
      - Assume that the coin is fair, so that with each flip, the probability of `H` and `T` are both `0.5`.
      - Flip a coin.
-     - If the coin turns up `H`, then increase your secret number by one. for example...`3->4`, `4->5`, `5->1`
-     - If the coin turns up `T`, then decrease your secret number by one. so...`3->2`, `2->1`, `1->5`
+     - If the coin turns up `H`, then increase(+) your secret number by one. for example...`3->4`, `4->5`, `5->1`
+     - If the coin turns up `T`, then decrease(-) your secret number by one. so...`3->2`, `2->1`, `1->5`
      - Repeat n times, and record the evolving history of your secret number.
    - Before the experiment, we can think of the sequence of secret numbers as a sequence of random variables, each taking on a value in {`1`, `2`, `3`, `4`, `5`}.
    - Suppose your secret number is **currently `4`** and that the history of your secret numbers is `(2, 1, 2, 3)`. What is the probability that on the next step, your secret number will be 5? 
    - What about the other four possibilities? Because of the rules of this game, the probability of the next transition will depend only on the fact that your **current number is `4`**. `The numbers further back in your history are irrelevant`, so this is a Markov chain.
+   - If we assume that transition probabilities do not change with time, then there are a total of 5^2=25 potential transition probabilities. Potential transition probabilities would be from State 1 to State 2, or from State 1 to State 3,... and so forth. These **transition probabilities** can be arranged into a matrix. 
+<img src="https://user-images.githubusercontent.com/31917400/47991109-1d619d00-e0e1-11e8-9a62-d4346ff60abb.jpg" />
+```
+Q = matrix(c(0.0, 0.5, 0.0, 0.0, 0.5,  #for state_1
+             0.5, 0.0, 0.5, 0.0, 0.0,  #for state_2
+             0.0, 0.5, 0.0, 0.5, 0.0,  #for state_3
+             0.0, 0.0, 0.5, 0.0, 0.5,  #for state_4
+             0.5, 0.0, 0.0, 0.5, 0.0), #for state_5
+           nrow=5, byrow=TRUE)
+           
+Q %*% Q
+
+(Q %*% Q)[1,3]
+```
+<img src="https://user-images.githubusercontent.com/31917400/47990508-94963180-e0df-11e8-9da3-a0837dadfe79.jpg" />
+Therefore, if your secret number is currently 1, the probability that the number will be 3 two steps from now is `0.25`.
+
+
+
+
+
+
+
+
+
  - __Continuous Markov Chain__
 <img src="https://user-images.githubusercontent.com/31917400/47972178-9933f900-e091-11e8-9b5d-8654b21cea47.jpg" /> That is, the probability distribution for the next state is **Normal** with **variance 1** and **mean = the current state**. This is often referred to as a “random walk.” Clearly, it is a Markov chain because the transition to the next state Xt+1 only depends on the current state Xt.
    ```
