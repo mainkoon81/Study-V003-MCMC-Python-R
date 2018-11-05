@@ -283,6 +283,7 @@ __Integration & Error__
    - What about the other four possibilities? Because of the rules of this game, the probability of the next transition will depend only on the fact that your **current number is `4`**. `The numbers further back in your history are irrelevant`, so this is a Markov chain.
    - If we assume that transition probabilities do not change with time, then there are a total of 5^2=25 potential transition probabilities. Potential transition probabilities would be from State 1 to State 2, or from State 1 to State 3,... and so forth. These **transition probabilities** can be arranged into a matrix. 
 <img src="https://user-images.githubusercontent.com/31917400/47991109-1d619d00-e0e1-11e8-9a62-d4346ff60abb.jpg" />
+
 ```
 Q = matrix(c(0.0, 0.5, 0.0, 0.0, 0.5,  #for state_1
              0.5, 0.0, 0.5, 0.0, 0.0,  #for state_2
@@ -295,6 +296,7 @@ Q %*% Q
 
 (Q %*% Q)[1,3]
 ```
+
 <img src="https://user-images.githubusercontent.com/31917400/47990508-94963180-e0df-11e8-9da3-a0837dadfe79.jpg" />
 Therefore, if your secret number is currently 1, the probability that the number will be 3 two steps from now is `0.25`.
 
