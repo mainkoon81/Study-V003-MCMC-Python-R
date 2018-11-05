@@ -371,7 +371,13 @@ plot.ts(x)
 ```
 <img src="https://user-images.githubusercontent.com/31917400/48024547-ddc69f80-e138-11e8-90c8-9c97906bb35b.jpg" />
 
-The theoretical stationary distribution for this chain is normal with mean 0 and variance 1/(1−ϕ2), which in our example approximately equals 1.562. Let’s look at a histogram of our chain and compare that with the theoretical stationary distribution.
+The theoretical stationary distribution for this chain is normal with mean `0` and variance `1/(1−ϕ^2)`, which in our example approximately equals `1.562`. Let’s look at a histogram of our chain and compare that with the theoretical stationary distribution.
+```
+hist(x, freq=FALSE)
+curve(dnorm(x, mean=0.0, sd=sqrt(1.0/(1.0-phi^2))), col="red", add=TRUE)
+legend("topright", legend="theoretical stationary\ndistribution", col="red", lty=1, bty="n")
+```
+<img src="https://user-images.githubusercontent.com/31917400/48024783-680f0380-e139-11e8-86d9-ff224089c34e.jpg" /> It appears that the chain has reached the stationary distribution. Therefore, we could treat this simulation from the chain like a Monte Carlo sample from the stationary distribution, a normal with mean `0` and variance `1.562`. Because most posterior distributions we will look at are continuous, our Monte Carlo simulations with Markov chains will be similar to this example.
 
 
 
