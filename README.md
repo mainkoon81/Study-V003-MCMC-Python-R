@@ -342,7 +342,6 @@ As we have just seen, if you simulate a Markov chain for many iterations, the sa
 ### > Continuous Markov Chain
 <img src="https://user-images.githubusercontent.com/31917400/47972178-9933f900-e091-11e8-9b5d-8654b21cea47.jpg" /> That is, the probability distribution for the next state is **Normal** with **variance 1** and **mean = the current state**. This is often referred to as a “random walk.” Clearly, it is a Markov chain because the transition to the next state Xt+1 only depends on the current state Xt.
    ```
-   set.seed(34)
    n = 100
    x = numeric(n)
    
@@ -360,10 +359,19 @@ The continuous "random walk" example we gave earlier does not have a stationary 
 
  - Let’s simulate this chain for ϕ=−0.6.
 ```
+n = 1500
+x = numeric(n)
+phi = -0.6
 
+for (i in 2:n) {
+  x[i] = rnorm(1, mean=phi*x[i-1], sd=1.0)
+}
+
+plot.ts(x)
 ```
+<img src="https://user-images.githubusercontent.com/31917400/48024547-ddc69f80-e138-11e8-90c8-9c97906bb35b.jpg" />
 
-
+The theoretical stationary distribution for this chain is normal with mean 0 and variance 1/(1−ϕ2), which in our example approximately equals 1.562. Let’s look at a histogram of our chain and compare that with the theoretical stationary distribution.
 
 
 
