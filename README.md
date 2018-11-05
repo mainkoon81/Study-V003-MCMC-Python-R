@@ -335,7 +335,7 @@ Therefore, if your secret number is currently 1, the probability that the number
    
    table(x) / n
    ```
-   - it will give `0.1996 0.2020 0.1980 0.1994 0.2010`. The overall distribution of the visits to the states is approximately equal to the stationary distribution. 
+   - it will give `1: 0.1996, 2: 0.2020, 3: 0.1980, 4: 0.1994, 5: 0.2010`. The overall distribution of the visits to the states is approximately equal to the stationary distribution. 
 
 As we have just seen, if you simulate a Markov chain for many iterations, the samples can be used as a Monte Carlo sample from the stationary distribution. This is exactly how we are going to use Markov chains for Bayesian inference. In order to simulate from a complicated posterior distribution, we will set up and run a Markov chain whose stationary distribution is the posterior distribution. It is important to note that the stationary distribution doesn’t always exist for any given Markov chain. The Markov chain must have certain properties, which we won’t discuss here. However, the Markov chain algorithms we’ll use in future lessons for Monte Carlo estimation are guaranteed to produce stationary distributions.
 
