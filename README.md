@@ -377,10 +377,10 @@ legend("topright", legend="theoretical stationary\ndistribution", col="red", lty
 ```
 <img src="https://user-images.githubusercontent.com/31917400/48024783-680f0380-e139-11e8-86d9-ff224089c34e.jpg" /> It appears that the chain has reached the stationary distribution. Therefore, we could treat this simulation from the chain like a Monte Carlo sample from the stationary distribution, a normal with mean `0` and variance `1.562`. Because most posterior distributions we will look at are continuous, our Monte Carlo simulations with Markov chains will be similar to this example.
 
-
-
-
-
+# Metropolis Hastings
+This algorithm allows us to sample from a **generic probability distribution**(target distribution), even if we don't know the `normalizing constant`. 
+ - To do this, we construct and sample from a Markov chain whose **stationary distribution** is the target distribution that we're looking for. 
+ - It consists of picking an arbitrary starting value and then iteratively accepting or rejecting candidate samples drawn from another distribution, one that is easy to sample. 
 
 
 
