@@ -260,13 +260,13 @@ __Integration & Error__
 # Markov chain Monte Carlo (MCMC)
 > Markov Chain
  - Let's say we can use a chain rule to calculate the probability of the entire sequence. 
- <img src="https://user-images.githubusercontent.com/31917400/47971561-b7e2c180-e08a-11e8-95bf-574a258c9da0.jpg" />
+ <img src="https://user-images.githubusercontent.com/31917400/47972179-99cc8f80-e091-11e8-9044-9561f334188b.jpg" />
 
  - Markov Chain simplifies this expression by using `Markov_assumption`. In this assumption, given the entire past history, *the probability distribution for the RandomVariable at the next time step only depends on the **current variable**. 
- <img src="https://user-images.githubusercontent.com/31917400/47971658-8d453880-e08b-11e8-9e5c-773e817d999b.jpg" />
+ <img src="https://user-images.githubusercontent.com/31917400/47972176-9933f900-e091-11e8-99c5-505818e9e11c.jpg" />
 
  - For all `t = 2, 3,..., n`. Under this assumption, the first expression can be rewrite as:
- <img src="https://user-images.githubusercontent.com/31917400/47971723-f331c000-e08b-11e8-9b8b-9fb0ed72463b.jpg" />
+ <img src="https://user-images.githubusercontent.com/31917400/47972177-9933f900-e091-11e8-9f64-c6f0488f64df.jpg" />
 
  - which is much simpler than the original. It consists of an initial distribution for the first variable `p(X1)` and and n−1 other transition probabilities. We usually make one more assumption: that *these transition probabilities do not change with time*. Hence, the transition from time `t` to time `t+1` depends only on the value of Xt. 
 
@@ -282,7 +282,7 @@ __Integration & Error__
    - Suppose your secret number is **currently `4`** and that the history of your secret numbers is `(2, 1, 2, 3)`. What is the probability that on the next step, your secret number will be 5? 
    - What about the other four possibilities? Because of the rules of this game, the probability of the next transition will depend only on the fact that your **current number is `4`**. `The numbers further back in your history are irrelevant`, so this is a Markov chain.
  - __Continuous Markov Chain__
-   <img src="https://user-images.githubusercontent.com/31917400/47972155-46f2d800-e091-11e8-939a-d93d185f3229.jpg" />
+   <img src="https://user-images.githubusercontent.com/31917400/47972178-9933f900-e091-11e8-9b5d-8654b21cea47.jpg" />
 
 
 
