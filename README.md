@@ -291,16 +291,14 @@ Q = matrix(c(0.0, 0.5, 0.0, 0.0, 0.5,  #for state_1
              0.0, 0.0, 0.5, 0.0, 0.5,  #for state_4
              0.5, 0.0, 0.0, 0.5, 0.0), #for state_5
            nrow=5, byrow=TRUE)
-           
 Q %*% Q
-
 (Q %*% Q)[1,3]
 ```
 
 <img src="https://user-images.githubusercontent.com/31917400/47990508-94963180-e0df-11e8-9da3-a0837dadfe79.jpg" />
 Therefore, if your secret number is currently 1, the probability that the number will be 3 two steps from now is `0.25`.
 
- - **stationary distribution** of the Markov chain (discrete)
+ - > **stationary distribution** of the Markov chain (discrete)
    - Suppose we want to know the probability distribution of the your secret number in the **distant future**. 
    <img src="https://user-images.githubusercontent.com/31917400/47998647-05e1de80-e0f8-11e8-83b6-f8ac0e74869e.jpg" />
    
