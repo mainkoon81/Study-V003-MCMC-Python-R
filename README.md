@@ -355,7 +355,7 @@ As we have just seen, if you simulate a Markov chain for many iterations, the sa
 <img src="https://user-images.githubusercontent.com/31917400/47972356-52df9980-e093-11e8-8732-e94ba0e2a862.jpg" />
 
 ### > Stationary Distribution of the Markov chain (continous)
-
+The continuous "random walk" example we gave earlier does not have a stationary distribution. However, we can modify it so that it does have a stationary distribution. Let the transition distribution be <img src="https://user-images.githubusercontent.com/31917400/48024145-bae7bb80-e137-11e8-8286-379299ba9c1a.jpg" />
 
 
 
