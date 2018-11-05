@@ -300,9 +300,17 @@ Q %*% Q
 <img src="https://user-images.githubusercontent.com/31917400/47990508-94963180-e0df-11e8-9da3-a0837dadfe79.jpg" />
 Therefore, if your secret number is currently 1, the probability that the number will be 3 two steps from now is `0.25`.
 
-
-
-
+ - **stationary distribution** of the Markov chain (discrete)
+   - Suppose we want to know the probability distribution of the your secret number in the **distant future**. 
+   <img src="https://user-images.githubusercontent.com/31917400/47990508-94963180-e0df-11e8-9da3-a0837dadfe79.jpg" />
+   
+   - Let’s calculate this for a few different values of h
+   ```
+   Q5 = Q %*% Q %*% Q %*% Q %*% Q # h=5 steps in the future
+   round(Q5, 3)
+   ```
+   
+  
 
 
 
