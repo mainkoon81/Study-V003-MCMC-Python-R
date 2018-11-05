@@ -302,7 +302,7 @@ Therefore, if your secret number is currently 1, the probability that the number
 
  - **stationary distribution** of the Markov chain (discrete)
    - Suppose we want to know the probability distribution of the your secret number in the **distant future**. 
-   <img src="https://user-images.githubusercontent.com/31917400/47998499-6c1a3180-e0f7-11e8-964a-5eea0f8475ac.jpg" />
+   <img src="https://user-images.githubusercontent.com/31917400/47998647-05e1de80-e0f8-11e8-83b6-f8ac0e74869e.jpg" />
    
    - Let’s calculate this for a few different values of h
    ```
