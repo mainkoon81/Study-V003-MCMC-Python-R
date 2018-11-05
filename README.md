@@ -298,8 +298,7 @@ Q %*% Q
 <img src="https://user-images.githubusercontent.com/31917400/47990508-94963180-e0df-11e8-9da3-a0837dadfe79.jpg" />
 Therefore, if your secret number is currently 1, the probability that the number will be 3 two steps from now is `0.25`.
 
-
- - > **stationary distribution** of the Markov chain (discrete)
+### > stationary distribution of the Markov chain (discrete)
    - Suppose we want to know the probability distribution of the your secret number in the **distant future**. 
    <img src="https://user-images.githubusercontent.com/31917400/47998647-05e1de80-e0f8-11e8-83b6-f8ac0e74869e.jpg" />
    
@@ -339,10 +338,6 @@ Therefore, if your secret number is currently 1, the probability that the number
    - it will give `0.1996 0.2020 0.1980 0.1994 0.2010`. The overall distribution of the visits to the states is approximately equal to the stationary distribution. 
 
 As we have just seen, if you simulate a Markov chain for many iterations, the samples can be used as a Monte Carlo sample from the stationary distribution. This is exactly how we are going to use Markov chains for Bayesian inference. In order to simulate from a complicated posterior distribution, we will set up and run a Markov chain whose stationary distribution is the posterior distribution. It is important to note that the stationary distribution doesn’t always exist for any given Markov chain. The Markov chain must have certain properties, which we won’t discuss here. However, the Markov chain algorithms we’ll use in future lessons for Monte Carlo estimation are guaranteed to produce stationary distributions.
-
-
-
-
 
  - __Continuous Markov Chain__
 <img src="https://user-images.githubusercontent.com/31917400/47972178-9933f900-e091-11e8-9b5d-8654b21cea47.jpg" /> That is, the probability distribution for the next state is **Normal** with **variance 1** and **mean = the current state**. This is often referred to as a “random walk.” Clearly, it is a Markov chain because the transition to the next state Xt+1 only depends on the current state Xt.
