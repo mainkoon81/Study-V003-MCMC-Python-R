@@ -281,7 +281,7 @@ __Integration & Error__
    - Before the experiment, we can think of the sequence of secret numbers as a sequence of random variables, each taking on a value in {`1`, `2`, `3`, `4`, `5`}.
    - Suppose your secret number is **currently `4`** and that the history of your secret numbers is `(2, 1, 2, 3)`. What is the probability that on the next step, your secret number will be 5? 
    - What about the other four possibilities? Because of the rules of this game, the probability of the next transition will depend only on the fact that your **current number is `4`**. `The numbers further back in your history are irrelevant`, so this is a Markov chain.
-   - If we assume that transition probabilities do not change with time, then there are a total of 5^2=25 potential transition probabilities. Potential transition probabilities would be from State 1 to State 2, or from State 1 to State 3,... and so forth. These **transition probabilities** can be arranged into a matrix. 
+   - If we assume that transition probabilities `0.5` do not change with time, then there are a total of 5^2=25 potential transition probabilities. Potential transition probabilities would be from State 1 to State 2, or from State 1 to State 3,... and so forth. These **transition probabilities** can be arranged into a matrix. 
 <img src="https://user-images.githubusercontent.com/31917400/47991109-1d619d00-e0e1-11e8-9a62-d4346ff60abb.jpg" />
 
 ```
