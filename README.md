@@ -298,17 +298,47 @@ Q %*% Q
 <img src="https://user-images.githubusercontent.com/31917400/47990508-94963180-e0df-11e8-9da3-a0837dadfe79.jpg" />
 Therefore, if your secret number is currently 1, the probability that the number will be 3 two steps from now is `0.25`.
 
+
  - > **stationary distribution** of the Markov chain (discrete)
    - Suppose we want to know the probability distribution of the your secret number in the **distant future**. 
    <img src="https://user-images.githubusercontent.com/31917400/47998647-05e1de80-e0f8-11e8-83b6-f8ac0e74869e.jpg" />
    
    - Let’s calculate this for a few different values of h
    ```
-   Q5 = Q %*% Q %*% Q %*% Q %*% Q # h=5 steps in the future
-   round(Q5, 3)
-   ```
+   Q5 = Q %*% Q %*% Q %*% Q %*% Q   # h=5 steps in the future
    
-  
+   Q10 = Q %*% Q %*% Q %*% Q %*% Q %*% Q %*% Q %*% Q %*% Q %*% Q   # h=10 steps in the future
+   
+   Q30 = Q
+   for (i in 2:30) {
+     Q30 = Q30 %*% Q
+   }                  # h=30 steps in the future
+
+   ```
+   <img src="https://user-images.githubusercontent.com/31917400/47999841-a4bc0a00-e0fb-11e8-90bb-bebb89e6287d.jpg" />
+   
+   - Notice that as the future horizon gets more distant, the transition distributions appear to `converge`. 
+     - The state you are currently in becomes less important in determining the more distant future. 
+     - If we let `h` get really large, and take it to the limit, all the rows of the long-range transition matrix will become equal to `(0.2, 0.2, 0.2, 0.2, 0.2)`. That is, if you run the Markov chain for a very long time, the probability that you will end up in any particular state is `1/5 = 0.2` for each of the five states. These long-range probabilities are equal to what is called the **stationary distribution** of the Markov chain. The stationary distribution of a chain is the `initial state distribution` for which **performing a transition will not change the probability of ending up in any given state**. 
+     ```
+     c(0.2, 0.2, 0.2, 0.2, 0.2) %*% Q
+     ```
+     - will give `[1,] 0.2  0.2  0.2  0.2  0.2`. One consequence of this property is that once a chain reaches its stationary distribution, the stationary distribution will remain the distribution of the states thereafter.
+   - Let's demonstrate the stationary distribution by simulating a long chain from this example.
+   ```
+   n = 5000
+   x = numeric(n)
+   x[1] = 1 # fix the state as 1 for time 1
+   for (i in 2:n) {
+     x[i] = sample.int(5, size=1, prob=Q[x[i-1],]) 
+     # draw the next state from the intergers 1 to 5 with probabilities from the transition matrix Q, based on the previous value of X.
+   }
+   
+   table(x) / n
+   ```
+   - it will give `0.1996 0.2020 0.1980 0.1994 0.2010`. The overall distribution of the visits to the states is approximately equal to the stationary distribution. 
+
+As we have just seen, if you simulate a Markov chain for many iterations, the samples can be used as a Monte Carlo sample from the stationary distribution. This is exactly how we are going to use Markov chains for Bayesian inference. In order to simulate from a complicated posterior distribution, we will set up and run a Markov chain whose stationary distribution is the posterior distribution. It is important to note that the stationary distribution doesn’t always exist for any given Markov chain. The Markov chain must have certain properties, which we won’t discuss here. However, the Markov chain algorithms we’ll use in future lessons for Monte Carlo estimation are guaranteed to produce stationary distributions.
 
 
 
