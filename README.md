@@ -268,11 +268,21 @@ __Integration & Error__
  - For all `t = 2, 3,..., n`. Under this assumption, the first expression can be rewrite as:
  <img src="https://user-images.githubusercontent.com/31917400/47971723-f331c000-e08b-11e8-9b8b-9fb0ed72463b.jpg" />
 
- - which is much simpler than the original. It consists of an initial distribution for the first variable `p(X1)` and and n−1 other transition probabilities. We usually make one more assumption: that *these transition probabilities do not change with time*. Hence, the transition from time t to time t+1 depends only on the value of Xt. 
+ - which is much simpler than the original. It consists of an initial distribution for the first variable `p(X1)` and and n−1 other transition probabilities. We usually make one more assumption: that *these transition probabilities do not change with time*. Hence, the transition from time `t` to time `t+1` depends only on the value of Xt. 
 
-
-
-
+ - __Discrete Markov Chain__
+   - Suppose you have a secret number between {`1`, `2`, `3`, `4`, `5`}. We will call it your **initial number** at step 1. 
+   - Now for each time step, your secret number will change by:
+     - Assume that the coin is fair, so that with each flip, the probability of `H` and `T` are both `0.5`.
+     - Flip a coin.
+     - If the coin turns up `H`, then increase your secret number by one. for example...`3->4`, `4->5`, `5->1`
+     - If the coin turns up `T`, then decrease your secret number by one. so...`3->2`, `2->1`, `1->5`
+     - Repeat n times, and record the evolving history of your secret number.
+   - Before the experiment, we can think of the sequence of secret numbers as a sequence of random variables, each taking on a value in {`1`, `2`, `3`, `4`, `5`}.
+   - Suppose your secret number is currently `4` and that the history of your secret numbers is `(2, 1, 2, 3)`. What is the probability that on the next step, your secret number will be `5`? 
+   - What about the other four possibilities? Because of the rules of this game, the probability of the next transition will depend only on the fact that your current number is `4`. The numbers further back in your history are irrelevant, so this is a Markov chain.
+ - __Continuous Markov Chain__
+   - 
 
 
 
