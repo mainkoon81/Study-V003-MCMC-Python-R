@@ -279,10 +279,10 @@ __Integration & Error__
      - If the coin turns up `T`, then decrease your secret number by one. so...`3->2`, `2->1`, `1->5`
      - Repeat n times, and record the evolving history of your secret number.
    - Before the experiment, we can think of the sequence of secret numbers as a sequence of random variables, each taking on a value in {`1`, `2`, `3`, `4`, `5`}.
-   - Suppose your secret number is currently `4` and that the history of your secret numbers is `(2, 1, 2, 3)`. What is the probability that on the next step, your secret number will be `5`? 
-   - What about the other four possibilities? Because of the rules of this game, the probability of the next transition will depend only on the fact that your current number is `4`. The numbers further back in your history are irrelevant, so this is a Markov chain.
+   - Suppose your secret number is **currently `4`** and that the history of your secret numbers is `(2, 1, 2, 3)`. What is the probability that on the next step, your secret number will be 5? 
+   - What about the other four possibilities? Because of the rules of this game, the probability of the next transition will depend only on the fact that your **current number is `4`**. `The numbers further back in your history are irrelevant`, so this is a Markov chain.
  - __Continuous Markov Chain__
-   - 
+   <img src="https://user-images.githubusercontent.com/31917400/47972155-46f2d800-e091-11e8-939a-d93d185f3229.jpg" />
 
 
 
