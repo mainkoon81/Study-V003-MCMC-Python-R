@@ -282,7 +282,21 @@ __Integration & Error__
    - Suppose your secret number is **currently `4`** and that the history of your secret numbers is `(2, 1, 2, 3)`. What is the probability that on the next step, your secret number will be 5? 
    - What about the other four possibilities? Because of the rules of this game, the probability of the next transition will depend only on the fact that your **current number is `4`**. `The numbers further back in your history are irrelevant`, so this is a Markov chain.
  - __Continuous Markov Chain__
-   <img src="https://user-images.githubusercontent.com/31917400/47972178-9933f900-e091-11e8-9b5d-8654b21cea47.jpg" />
+ <img src="https://user-images.githubusercontent.com/31917400/47972178-9933f900-e091-11e8-9b5d-8654b21cea47.jpg" />
+
+   - That is, the probability distribution for the next state is **Normal** with **variance 1** and **mean = the current state**. This is often referred to as a “random walk.” Clearly, it is a Markov chain because the transition to the next state Xt+1 only depends on the current state Xt.
+   ```
+   set.seed(34)
+   n = 100
+   x = numeric(n)
+   
+   for (i in 2:n) {
+     x[i] = rnorm(1, mean=x[i-1], sd=1.0)
+   }
+   
+   plot.ts(x)
+   ```
+
 
 
 
