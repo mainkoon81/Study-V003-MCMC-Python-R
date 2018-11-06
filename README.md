@@ -353,7 +353,7 @@ As we have just seen, if you simulate a Markov chain for many iterations, the sa
    ```
 <img src="https://user-images.githubusercontent.com/31917400/47972356-52df9980-e093-11e8-8732-e94ba0e2a862.jpg" />
 
-### > Stationary Distribution of the Markov chain (continous)
+### > Stationary Distribution of the Markov chain (continuous)
 The continuous "random walk" example we gave earlier does not have a stationary distribution. However, we can modify it so that it does have a stationary distribution. Let the transition distribution be
 <img src="https://user-images.githubusercontent.com/31917400/48024145-bae7bb80-e137-11e8-8286-379299ba9c1a.jpg" /> That is, the probability distribution for the next state is Normal with variance 1 and mean equal to `ϕ * the current state`. As long as ϕ is between −1 and 1, then the **stationary distribution** will exist for this model. 
 
@@ -388,7 +388,7 @@ This algorithm allows us to sample from a **generic probability distribution**(t
    - A high acceptance rate for random walk Metropolis-Hastings samplers is not a good thing. If the random walk is taking too small of steps, it will accept candidates often, but will take a very long time to fully explore the posterior distribution. 
    - If the random walk is taking too large of steps, many of its proposals will have low probability and the acceptance rate will be low. That will cause us to waste many of the draws. 
    - Ideally, a random walk sampler should accept somewhere between `23% to 50%` of the candidates proposed. 
-### Example for Matropolis Hastings sampling
+### Example for Metropolis Hastings (discrete)
  - Let's estimate a posterior probability in the case where you don't know if the coin is fair or loaded. You flipped the coin 5 times and got H,T,H,T,T. Given this result, what's the posterior probability `P(θ|x)` you got messed(you were flipping a loaded coin)?  
 <img src="https://user-images.githubusercontent.com/31917400/48072702-0d2aea00-e1d5-11e8-9f7e-d7b9acca60c1.JPG" />
 
@@ -398,6 +398,8 @@ This algorithm allows us to sample from a **generic probability distribution**(t
    - Consider a Markov chain with two states: `θ=fair` and `θ=loaded`. And we'll allow the chain to move between those two states, with certain **transition probabilities**. 
  - We set this up using the Metropolis–Hastings algorithm.
 <img src="https://user-images.githubusercontent.com/31917400/48071730-df44a600-e1d2-11e8-876b-10e45ba364e1.JPG" />
+
+### Example for Metropolis Hastings (continuous)
 
 
 
