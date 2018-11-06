@@ -387,7 +387,7 @@ This algorithm allows us to sample from a **generic probability distribution**(t
  - However, you still may want to have `q( )` have a larger variance than `P( )`, and see some rejection of candidates to be as an assurance that `q( )` is covering the space well. 
    - A high acceptance rate for random walk Metropolis-Hastings samplers is not a good thing. If the random walk is taking too small of steps, it will accept candidates often, but will take a very long time to fully explore the posterior distribution. 
    - If the random walk is taking too large of steps, many of its proposals will have low probability and the acceptance rate will be low. That will cause us to waste many of the draws. 
-   - Ideally, a random walk sampler should accept somewhere between `23 and 50%` of the candidates proposed. 
+   - Ideally, a random walk sampler should accept somewhere between `23% to 50%` of the candidates proposed. 
 
 
 
