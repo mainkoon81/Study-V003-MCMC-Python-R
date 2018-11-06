@@ -392,7 +392,13 @@ This algorithm allows us to sample from a **generic probability distribution**(t
  - Let's estimate a posterior probability in the case where you don't know if the coin is fair or loaded. You flipped the coin 5 times and got H,T,H,T,T. Given this result, what's the posterior probability `P(θ|x)` you got messed(you were flipping a loaded coin)?  
 <img src="https://user-images.githubusercontent.com/31917400/48066743-5162be00-e1c6-11e8-97ed-5af820595fa4.JPG" />
 
- - Let's use Metropolis Hastings
+ - Above is a simple example. What if we had a more complicated problem, where we couldn't work this all out in closed form? We'll know the likelihood and the prior, but we may not be able to get this `normalizing constant`. Can we instead do this by simulation? 
+ - Let's use Metropolis Hastings in MCMC. 
+   - Set up a Markov chain whose `equilibrium distribution` has this posterior distribution.
+   - Consider a Markov chain with two states: `θ=fair` and `θ=loaded`. And we'll allow the chain to move between those two states, with certain **transition probabilities**. 
+ - We set this up using the Metropolis–Hastings algorithm.
+<img src="https://user-images.githubusercontent.com/31917400/48071730-df44a600-e1d2-11e8-876b-10e45ba364e1.JPG" />
+
 
 
 
