@@ -390,7 +390,7 @@ This algorithm allows us to sample from a **generic probability distribution**(t
    - Ideally, a random walk sampler should accept somewhere between `23% to 50%` of the candidates proposed. 
 ### Example for Matropolis Hastings sampling
  - Let's estimate a posterior probability in the case where you don't know if the coin is fair or loaded. You flipped the coin 5 times and got H,T,H,T,T. Given this result, what's the posterior probability `P(θ|x)` you got messed(you were flipping a loaded coin)?  
-<img src="https://user-images.githubusercontent.com/31917400/48066743-5162be00-e1c6-11e8-97ed-5af820595fa4.JPG" />
+<img src="https://user-images.githubusercontent.com/31917400/48072702-0d2aea00-e1d5-11e8-9f7e-d7b9acca60c1.JPG" />
 
  - Above is a simple example. What if we had a more complicated problem, where we couldn't work this all out in closed form? We'll know the likelihood and the prior, but we may not be able to get this `normalizing constant`. Can we instead do this by simulation? 
  - Let's use Metropolis Hastings in MCMC. 
