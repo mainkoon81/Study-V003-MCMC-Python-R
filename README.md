@@ -388,9 +388,11 @@ This algorithm allows us to sample from a **generic probability distribution**(t
    - A high acceptance rate for random walk Metropolis-Hastings samplers is not a good thing. If the random walk is taking too small of steps, it will accept candidates often, but will take a very long time to fully explore the posterior distribution. 
    - If the random walk is taking too large of steps, many of its proposals will have low probability and the acceptance rate will be low. That will cause us to waste many of the draws. 
    - Ideally, a random walk sampler should accept somewhere between `23% to 50%` of the candidates proposed. 
+### Example for Matropolis Hastings sampling
+ - Let's estimate a posterior probability in the case where you don't know if the coin is fair or loaded. You flipped the coin 5 times and got H,T,H,T,T. Given this result, what's the posterior probability `P(θ|x)` you got messed(you were flipping a loaded coin)?  
+<img src="https://user-images.githubusercontent.com/31917400/48066743-5162be00-e1c6-11e8-97ed-5af820595fa4.JPG" />
 
-
-
+ - Let's use Metropolis Hastings
 
 
 
