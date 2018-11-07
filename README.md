@@ -407,7 +407,7 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
 ### Example for Metropolis Hastings (continuous MarkovChain)
  - Let's say the data are the percent change in total personnel from last year to this year for `n=10` companies. We used a **normal likelihood** with `known variance` and t-distribution for the prior on the `unknown mean`.
 <img src="https://user-images.githubusercontent.com/31917400/48146640-5c444e00-e2ad-11e8-9ab9-f338ed3c17ee.jpg" /> Because this model is not conjugate, the posterior distribution does not have a standard form that we can easily sample. 
-
+ - To get posterior samples, we're going to need to setup a `Markov chain`, who's stationary distribution is the posterior distribution we want. <img src="https://user-images.githubusercontent.com/31917400/48151892-6caef580-e2ba-11e8-8cee-3566487bcc61.jpg" />
 
 
 
