@@ -394,7 +394,7 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
    - If the random walk is taking too large of steps, many of its proposals will have low probability and the acceptance rate will be low. That will cause us to waste many of the draws. 
    - Ideally, a random walk sampler should accept somewhere between `23% to 50%` of the candidates proposed. 
 ### Example for Metropolis Hastings (discrete MarkovChain)
- - Let's estimate a posterior probability in the case where you are given a single coin, but don't know if the coin is fair(0.5, 0.5) or loaded(0.7, 0.3). People said, you'll get a loaded coin with a probability of 60%. You flipped the coin 5 times and got H,T,H,T,T. Given this result, what's the posterior probability `P(θ|x)` you got messed(you were flipping a loaded coin)?  
+ - You are given a single coin, but don't know if the coin is fair(0.5, 0.5) or loaded(0.7, 0.3). People said, 6 out of 10 get a loaded coin. You flipped the coin 5 times and got H,T,H,T,T. Given this result, what's the posterior probability `P(θ|x)` you got messed(you were flipping a loaded coin)?  
 <img src="https://user-images.githubusercontent.com/31917400/48072702-0d2aea00-e1d5-11e8-9f7e-d7b9acca60c1.JPG" />
 
  - Above is a simple example. What if we had a more complicated problem, where we couldn't work this all out in closed form? We'll know the likelihood and the prior, but we may not be able to get this `normalizing constant`. Can we instead do this by simulation? 
@@ -405,10 +405,8 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
 <img src="https://user-images.githubusercontent.com/31917400/48143888-b3dfbb00-e2a7-11e8-88c1-d0950b84f3fa.JPG" />
 
 ### Example for Metropolis Hastings (continuous MarkovChain)
-
-
-
-
+ - Let's say the data are the percent change in total personnel from last year to this year for `n=10` companies. We used a **normal likelihood** with `known variance` and t-distribution for the prior on the `unknown mean`.
+<img src="https://user-images.githubusercontent.com/31917400/48146640-5c444e00-e2ad-11e8-9ab9-f338ed3c17ee.jpg" /> Because this model is not conjugate, the posterior distribution does not have a standard form that we can easily sample. 
 
 
 
