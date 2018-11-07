@@ -373,7 +373,7 @@ plot.ts(x)
 ```
 <img src="https://user-images.githubusercontent.com/31917400/48024547-ddc69f80-e138-11e8-90c8-9c97906bb35b.jpg" /> The theoretical stationary distribution for this chain is normal with **mean** `0` and **variance** `1 / (1 − ϕ^2)`, which in our example approximately equals `1.562`. Let’s look at a histogram of our chain and compare that with the theoretical stationary distribution. Oh, my..they are in sync!
 ```
-hist(x, freq=FALSE)  # 'mean': ϕ * current_mean, 'var': 1.. values in x converge to 0 ? 
+hist(x, freq=FALSE)  # 'mean': ϕ * current_mean, 'var': 1
 curve(dnorm(x, mean=0.0, sd=sqrt(1.0/(1.0-phi^2))), col="red", add=TRUE) # 'mean': 0, 'var': 1/(1-ϕ^2)
 legend("topright", legend="theoretical stationary\ndistribution", col="red", lty=1, bty="n")
 ```
