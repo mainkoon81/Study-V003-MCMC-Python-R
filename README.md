@@ -318,11 +318,10 @@ Therefore, if your secret number is currently 1, the probability that the number
    
    - Notice that as the future horizon gets more distant, the transition distributions appear to `converge`. 
      - The state you are currently in becomes less important in determining the more distant future. 
-     - If we let `h` get really large, and take it to the limit, all the rows of the long-range transition matrix will become equal to `(0.2, 0.2, 0.2, 0.2, 0.2)`. That is, if you run the Markov chain for a very long time, the probability that you will end up in any particular state is `1/5 = 0.2` for each of the five states. These long-range probabilities are equal to what is called the **stationary distribution** of the Markov chain. The stationary distribution of a chain is the `initial state distribution` for which **performing a transition will not change the probability of ending up in any given state**. 
-     ```
-     c(0.2, 0.2, 0.2, 0.2, 0.2) %*% Q
-     ```
-     - will give `[1,] 0.2  0.2  0.2  0.2  0.2`. One consequence of this property is that once a chain reaches its stationary distribution, the stationary distribution will remain the distribution of the states thereafter.
+     - If we let `h` get really large, and take it to the limit, all the rows of the long-range transition matrix will become equal to `(0.2, 0.2, 0.2, 0.2, 0.2)`. That is, if you run the Markov chain for a very long time, the probability that you will end up in any particular state becomes **the same** for each of the states. This is what is called the **stationary distribution** of the Markov chain.
+     - The stationary distribution of a chain is the `initial state distribution` for which **performing a transition will not change the probability of ending up in any given state**. 
+     - `π*p = π` stationary*transition=stationary
+     - `c(0.2, 0.2, 0.2, 0.2, 0.2) %*% Q` will give `[1,] 0.2  0.2  0.2  0.2  0.2`. One consequence of this property is that once a chain reaches its stationary distribution, the stationary distribution will remain the **distribution of the states**(transition matrix) thereafter.
    - Let's demonstrate the stationary distribution by simulating a long chain from this example.
    ```
    n = 5000
@@ -337,7 +336,7 @@ Therefore, if your secret number is currently 1, the probability that the number
    ```
    - it will give `1: 0.1996, 2: 0.2020, 3: 0.1980, 4: 0.1994, 5: 0.2010`. The overall distribution of the visits to the states is approximately equal to the stationary distribution. 
 
-As we have just seen, if you simulate a Markov chain for many iterations, the samples can be used as a Monte Carlo sample from the stationary distribution. This is exactly how we are going to use Markov chains for Bayesian inference. In order to simulate from a complicated posterior distribution, we will set up and run a Markov chain **whose stationary distribution is the posterior distribution.** It is important to note that the stationary distribution doesn’t always exist for any given Markov chain. The Markov chain must have certain properties, which we won’t discuss here. However, the Markov chain algorithms we’ll use in future lessons for Monte Carlo estimation are guaranteed to produce stationary distributions.
+> As we have just seen, if you simulate a Markov chain for many iterations, the samples can be used as a Monte Carlo sample **from the stationary distribution**. This is exactly how we are going to `use Markov chains for Bayesian inference`. In order to simulate from a complicated posterior distribution, we will set up and run a Markov chain **whose stationary distribution is the posterior distribution.** It is important to note that the stationary distribution doesn’t always exist for any given Markov chain. The Markov chain must have certain properties, which we won’t discuss here. However, the Markov chain algorithms we’ll use in future lessons for Monte Carlo estimation are guaranteed to produce stationary distributions.
 
 ### > Continuous Markov Chain
 <img src="https://user-images.githubusercontent.com/31917400/47972178-9933f900-e091-11e8-9b5d-8654b21cea47.jpg" /> That is, the probability distribution for the next state is **Normal** with **variance = 1** and **mean = the current state**. This is often referred to as a “random walk.” Clearly, it is a Markov chain because the transition to the next state Xt+1 only depends on the current state Xt.
