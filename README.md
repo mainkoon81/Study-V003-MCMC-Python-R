@@ -386,7 +386,7 @@ It appears that the chain has reached the stationary distribution. Therefore, we
 ## 2. Metropolis Hastings
 Metropolis_Hastings algorithm allows us to sample from a **generic probability distribution**(target distribution), even if we don't know the `normalizing constant`(the bottom marginal stuff -the data-probability distribution- in Bayes theorem) because perhaps it is difficult to integrate. To do this, we construct and sample from a `Markov chain` whose **stationary distribution** is the target distribution that we're looking for. 
  - It consists of picking an arbitrary starting value and then iteratively accepting or rejecting candidate samples drawn from another distribution, one that is easy to sample. 
- - Let's say we want to produce samples from a target distribution. We're going to call it `P(θ)`, but we only know it up to a `normalizing constant`(denominator) or `proportionality`(nominator) so what we have is `P(θ) ∝ g(θ)`.
+ - Let's say we want to produce samples from a target distribution called `P(θ)`, but we only know it up to a `normalizing constant`(denominator) or `proportionality`(nominator) so what we have is `P(θ) ∝ g(θ)`.
  <img src="https://user-images.githubusercontent.com/31917400/48061890-4dc83a80-e1b8-11e8-9d8d-0e7359918875.jpg" />
 
  - However, you still may want to have `q( )` have a larger variance than `P( )`, and see some rejection of candidates to be as an assurance that `q( )` is covering the space well. 
