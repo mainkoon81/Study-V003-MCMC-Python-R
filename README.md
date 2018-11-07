@@ -425,7 +425,7 @@ Let's talk about a models that don't have nice, clean posterior distributions.
   n * (ybar * mu - mu2 / 2.0) - log(1.0 + mu2) }
  ```
  - 'random walk' Metropolis-Hasting sampler is:
- <img src="https://user-images.githubusercontent.com/31917400/48162442-07b4c900-e2d5-11e8-9cec-f51fda1edb00.jpg" />
+ <img src="https://user-images.githubusercontent.com/31917400/48163207-fec4f700-e2d6-11e8-9d04-91a9143e0c5b.jpg" />
 
 
 
