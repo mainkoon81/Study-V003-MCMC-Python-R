@@ -240,7 +240,7 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
 
  - If we can recognize this standard form as being proportional to a common distribution, then our work is done, and we know what our posterior distribution is and we can do **direct simulation from a posterior distribution**. However, if we do not use conjugate priors or if the models are more complicated, then the posterior distribution will not have a standard form that we can recognize.
 
-### Non-Conjugate model
+### Non-Conjugate model !!!!!!!!!!!!!!!!!!!!!!
  - Suppose we're now going to estimate `μ` and `σ^2`, because they're both `unknown` (If sigma squared were known, the conjugate prior from `μ` would be a `normal distribution`. And if `μ` were known, the conjugate prior we could choose for `σ^2` would be an `inverse gamma`). 
  - In the more general case that we have here(both unknown), the posterior distribution does not appear as a distribution that we can simulate or integrate. We are unable to integrate it to obtain important quantities, such as the posterior mean or probability intervals. However, the **computational methods** invented in the 1950's revolutionized this field. We do have the ability to simulate from this challenging posterior distributions 
 
@@ -405,8 +405,14 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
 <img src="https://user-images.githubusercontent.com/31917400/48143888-b3dfbb00-e2a7-11e8-88c1-d0950b84f3fa.JPG" />
 
 ### Example for Metropolis Hastings (continuous MarkovChain)
- - Let's say the data are the percent change in total personnel from last year to this year for `n=10` companies. We used a **normal likelihood** with `known variance` and t-distribution for the prior on the `unknown mean`.
-<img src="https://user-images.githubusercontent.com/31917400/48146640-5c444e00-e2ad-11e8-9ab9-f338ed3c17ee.jpg" /> Because this model is not conjugate, the posterior distribution does not have a standard form that we can easily sample. 
+Let's talk about a models that don't have nice, clean posterior distributions. 
+ - Example of a one parameter model that is not conjugate:
+   - Suppose we have values(data) that represent the percentage `μ` change in total personnel from last year to this year for, we'll say, ten companies `n=10` coming from a particular industry. We're going to assume for now, that these are independent measurements from a **normal** with a known `variance = 1`, but an unknown mean `μ`. In this case, the unknown mean could represent growth for this particular industry. It's the average of the growth of all the different companies. The **small variance** between the `companies and **percentage growth**` might be appropriate if the industry is stable. 
+   - Suppose we decide that our prior believes about `μ` are better reflected using a **standard t-distribution** with `df=1`. This particular prior distribution(`t(0,1,1)`: Cauchy Distribution) has heavier(fatter) tails than the conjugate normal distribution, which can better accommodate the possibility of extreme values for `μ`. It is centered on `0` so that in our prior, there is a 50% chance that the growth is positive and a 50% chance that the growth is negative.  
+   - We used a **normal-distribution likelihood** with `known variance` and **t-distribution prior** on the `unknown mean`.
+<img src="https://user-images.githubusercontent.com/31917400/48153863-26a86080-e2bf-11e8-9f95-33e80fc867e2.jpg" />
+
+### Because this model is not conjugate, the posterior distribution does not have a standard form that we can easily sample. 
  - To get posterior samples, we're going to need to setup a `Markov chain`, who's stationary distribution is the posterior distribution we want. <img src="https://user-images.githubusercontent.com/31917400/48151892-6caef580-e2ba-11e8-8cee-3566487bcc61.jpg" />
 
 
