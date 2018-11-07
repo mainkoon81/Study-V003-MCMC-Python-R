@@ -353,8 +353,10 @@ Therefore, if your secret number is currently 1, the probability that the number
    ```
 <img src="https://user-images.githubusercontent.com/31917400/47972356-52df9980-e093-11e8-8732-e94ba0e2a862.jpg" />
 
+The continuous "random walk" example here does not have a stationary distribution.
+
 ### > Stationary Distribution of the Markov chain (continuous)
-The continuous "random walk" example we gave earlier does not have a stationary distribution. However, we can modify it so that it does have a stationary distribution. Let the transition distribution be
+However, we can modify it so that it does have a stationary distribution. Let the transition distribution be
 <img src="https://user-images.githubusercontent.com/31917400/48024145-bae7bb80-e137-11e8-8286-379299ba9c1a.jpg" /> That is, the probability distribution for the next state is Normal with variance 1 and mean equal to `ϕ * the current state`. As long as ϕ is between −1 and 1, then the **stationary distribution** will exist for this model. 
 
  - Let’s simulate this chain for ϕ=−0.6.
