@@ -404,9 +404,9 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
  - We set this up using the Metropolis–Hastings algorithm.
 <img src="https://user-images.githubusercontent.com/31917400/48143888-b3dfbb00-e2a7-11e8-88c1-d0950b84f3fa.JPG" />
 
-### Example for Metropolis Hastings (continuous MarkovChain)
-Let's talk about a models that don't have nice, clean posterior distributions. 
- - Example of a one parameter model that is not conjugate:
+#### Let's talk about a models that don't have nice, clean posterior distributions. 
+### Example for Metropolis Hastings I.(continuous MarkovChain - single parameter)
+ - I have a model that is not conjugate. What should I do?
    - Suppose we have values(data) that represent the percentage change:`y(company_i)` in total personnel from last year to this year for, we'll say, 10 companies `n=10` coming from a particular industry. We're going to assume for now, that these are independent measurements from a **normal** with a known `variance = 1`, but an unknown mean `μ`. 
      - The **unknown mean** could represent the average of the growth of all the different companies. 
      - The **small variance** between companies in the percentage growth might be appropriate if the industry is stable. 
@@ -427,8 +427,9 @@ Let's talk about a models that don't have nice, clean posterior distributions.
  - 'random walk' Metropolis-Hasting sampler is:
  <img src="https://user-images.githubusercontent.com/31917400/48163348-5cf1da00-e2d7-11e8-89b8-db1c27b9826d.jpg" />
 
-
-
+### Example for Metropolis Hastings II.(continuous MarkovChain - multiple parameters)
+ - I have a model that is not conjugate. What should I do?
+ 
 
 
 
