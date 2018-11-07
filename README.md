@@ -416,8 +416,9 @@ Let's talk about a models that don't have nice, clean posterior distributions.
 
 ### Because this model is not conjugate, the posterior distribution does not have a standard form that we can easily sample. 
  - To get posterior samples, we're going to need to setup a `Markov chain`, who's stationary distribution is the posterior distribution we want. <img src="https://user-images.githubusercontent.com/31917400/48151892-6caef580-e2ba-11e8-8cee-3566487bcc61.jpg" />
-
-
+ 
+ - In computation, because our `g(μ)` distribution includes likelihoods, which are the product of many numbers that are potentially small, our `g(μ)` might evaluate to such a small number that the computer treats it effectively as a zero. To avoid this problem, we're going to work on the **logarithmic scale** which will be more numerically stable. 
+ - 
 
 
 
