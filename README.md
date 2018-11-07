@@ -402,7 +402,7 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
    - Set up a Markov chain whose `equilibrium distribution` has this posterior distribution.
    - Consider a Markov chain with two states: `θ=fair` and `θ=loaded`. And we'll allow the chain to move between those two states, with certain **transition probabilities**. 
  - We set this up using the Metropolis–Hastings algorithm.
-<img src="https://user-images.githubusercontent.com/31917400/48071730-df44a600-e1d2-11e8-876b-10e45ba364e1.JPG" />
+<img src="https://user-images.githubusercontent.com/31917400/48143888-b3dfbb00-e2a7-11e8-88c1-d0950b84f3fa.JPG" />
 
 ### Example for Metropolis Hastings (continuous MarkovChain)
 
