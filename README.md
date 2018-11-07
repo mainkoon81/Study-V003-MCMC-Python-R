@@ -357,7 +357,7 @@ The continuous "random walk" example here does not have a stationary distributio
 
 ### > Stationary Distribution of the Markov chain (continuous)
 However, we can modify it so that it does have a stationary distribution. Let the transition distribution be
-<img src="https://user-images.githubusercontent.com/31917400/48024145-bae7bb80-e137-11e8-8286-379299ba9c1a.jpg" /> That is, the probability distribution for the next state is Normal with variance 1 and mean equal to `ϕ * the current state`. As long as ϕ is between −1 and 1, then the **stationary distribution** will exist for this model. 
+<img src="https://user-images.githubusercontent.com/31917400/48024145-bae7bb80-e137-11e8-8286-379299ba9c1a.jpg" /> That is, the probability distribution for the next state is Normal with **variance** `1` and **mean** equal to `ϕ * current_mean`. As long as ϕ is between −1 and 1, then the **stationary distribution** will exist for this model. 
 
  - Let’s simulate this chain for ϕ=−0.6.
 ```
@@ -371,7 +371,7 @@ for (i in 2:n) {
 
 plot.ts(x)
 ```
-<img src="https://user-images.githubusercontent.com/31917400/48024547-ddc69f80-e138-11e8-90c8-9c97906bb35b.jpg" /> The theoretical stationary distribution for this chain is normal with mean `0` and variance `1/(1−ϕ^2)`, which in our example approximately equals `1.562`. Let’s look at a histogram of our chain and compare that with the theoretical stationary distribution. Oh, my..they are in sync!
+<img src="https://user-images.githubusercontent.com/31917400/48024547-ddc69f80-e138-11e8-90c8-9c97906bb35b.jpg" /> The theoretical stationary distribution for this chain is normal with **mean** `0` and **variance** `1 / (1 − ϕ^2)`, which in our example approximately equals `1.562`. Let’s look at a histogram of our chain and compare that with the theoretical stationary distribution. Oh, my..they are in sync!
 ```
 hist(x, freq=FALSE)  # Hey! in our x, values seem to converge to 0 ? 
 curve(dnorm(x, mean=0.0, sd=sqrt(1.0/(1.0-phi^2))), col="red", add=TRUE)
