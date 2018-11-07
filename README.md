@@ -394,7 +394,7 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
    - If the random walk is taking too large of steps, many of its proposals will have low probability and the acceptance rate will be low. That will cause us to waste many of the draws. 
    - Ideally, a random walk sampler should accept somewhere between `23% to 50%` of the candidates proposed. 
 ### Example for Metropolis Hastings (discrete MarkovChain)
- - Let's estimate a posterior probability in the case where you don't know if the coin is fair or loaded. You flipped the coin 5 times and got H,T,H,T,T. Given this result, what's the posterior probability `P(θ|x)` you got messed(you were flipping a loaded coin)?  
+ - Let's estimate a posterior probability in the case where you are given a single coin, but don't know if the coin is fair or loaded. You flipped the coin 5 times and got H,T,H,T,T. Given this result, what's the posterior probability `P(θ|x)` you got messed(you were flipping a loaded coin)?  
 <img src="https://user-images.githubusercontent.com/31917400/48072702-0d2aea00-e1d5-11e8-9f7e-d7b9acca60c1.JPG" />
 
  - Above is a simple example. What if we had a more complicated problem, where we couldn't work this all out in closed form? We'll know the likelihood and the prior, but we may not be able to get this `normalizing constant`. Can we instead do this by simulation? 
