@@ -418,7 +418,38 @@ Let's talk about a models that don't have nice, clean posterior distributions.
  - To get posterior samples, we're going to need to setup a `Markov chain`, who's stationary distribution is the posterior distribution we want. <img src="https://user-images.githubusercontent.com/31917400/48151892-6caef580-e2ba-11e8-8cee-3566487bcc61.jpg" />
  
  - In computation, because our `g(μ)` distribution includes likelihoods, which are the product of many numbers that are potentially small, our `g(μ)` might evaluate to such a small number that the computer treats it effectively as a zero. To avoid this problem, we're going to work on the **logarithmic scale** which will be more numerically stable. 
- - 
+ - log(`g(μ)`) is:
+ ```
+ lg = function(mu, n, ybar) {
+  mu2 = mu^2
+  n * (ybar * mu - mu2 / 2.0) - log(1.0 + mu2) }
+ ```
+ - 'random walk' Metropolis-Hasting sampler is:
+ ```
+ mh = function(n, ybar, n_iter, mu_init, cand_sd) {
+  mu_out = numeric(n_iter)
+  accpt = 0
+  mu_now = mu_init
+  lg_now = lg(mu=mu_now, n=n, ybar=ybar)
+  
+  for (i in 1:n_iter) {
+    mu_cand = rnorm(n=1, mean=mu_now, sd=cand_sd) # draw a candidate
+    lg_cand = lg(mu=mu_cand, n=n, ybar=ybar)      # evaluate log of g with the candidate
+    lalpha = lg_cand - lg_now                     # log of acceptance ratio
+    alpha = exp(lalpha)
+    u = runif(1)                                 # draw a uniform variable which will be less than alpha with probability min(1, alpha)
+    if (u < alpha) {                             # then accept the candidate
+      mu_now = mu_cand
+      accpt = accpt + 1                          # to keep track of acceptance
+      lg_now = lg_cand
+    }
+    
+    mu_out[i] = mu_now                           # save this iteration's value of mu
+  }
+  
+  list(mu=mu_out, accpt=accpt/n_iter)
+}
+ ```
 
 
 
