@@ -425,31 +425,7 @@ Let's talk about a models that don't have nice, clean posterior distributions.
   n * (ybar * mu - mu2 / 2.0) - log(1.0 + mu2) }
  ```
  - 'random walk' Metropolis-Hasting sampler is:
- ```
- mh = function(n, ybar, n_iter, mu_init, cand_sd) {
-  mu_out = numeric(n_iter)
-  accpt = 0
-  mu_now = mu_init
-  lg_now = lg(mu=mu_now, n=n, ybar=ybar)
-  
-  for (i in 1:n_iter) {
-    mu_cand = rnorm(n=1, mean=mu_now, sd=cand_sd) # draw a candidate
-    lg_cand = lg(mu=mu_cand, n=n, ybar=ybar)      # evaluate log of g with the candidate
-    lalpha = lg_cand - lg_now                     # log of acceptance ratio
-    alpha = exp(lalpha)
-    u = runif(1)                                 # draw a uniform variable which will be less than alpha with probability min(1, alpha)
-    if (u < alpha) {                             # then accept the candidate
-      mu_now = mu_cand
-      accpt = accpt + 1                          # to keep track of acceptance
-      lg_now = lg_cand
-    }
-    
-    mu_out[i] = mu_now                           # save this iteration's value of mu
-  }
-  
-  list(mu=mu_out, accpt=accpt/n_iter)
-}
- ```
+ <img src="https://user-images.githubusercontent.com/31917400/48162442-07b4c900-e2d5-11e8-9cec-f51fda1edb00.jpg" />
 
 
 
