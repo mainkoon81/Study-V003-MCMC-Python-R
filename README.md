@@ -258,7 +258,7 @@ __Integration & Error__
 
 ---------------------------------------------------------------------------------------------------------------
 # Markov chain Monte Carlo (MCMC)
-> Markov Chain
+## 1. Markov Chain
  - Let's say we can use a chain rule to calculate the probability of the entire sequence. 
  <img src="https://user-images.githubusercontent.com/31917400/47972179-99cc8f80-e091-11e8-9044-9561f334188b.jpg" />
 
@@ -383,7 +383,7 @@ legend("topright", legend="theoretical stationary\ndistribution", col="red", lty
  
 It appears that the chain has reached the stationary distribution. Therefore, we could treat this simulation from the chain like a Monte Carlo sample from the stationary distribution, a normal with mean `0` and variance `1.562`. Because most posterior distributions we will look at are continuous, our Monte Carlo simulations with Markov chains will be similar to this example.
 
-# Metropolis Hastings
+## 2. Metropolis Hastings
 This algorithm allows us to sample from a **generic probability distribution**(target distribution), even if we don't know the `normalizing constant`(the bottom marginal stuff -the data-probability distribution- in Bayes theorem) because perhaps it is difficult to integrate. 
  - To do this, we construct and sample from a Markov chain whose **stationary distribution** is the target distribution that we're looking for. 
  - It consists of picking an arbitrary starting value and then iteratively accepting or rejecting candidate samples drawn from another distribution, one that is easy to sample. 
