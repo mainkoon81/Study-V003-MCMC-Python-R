@@ -433,7 +433,7 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
    <img src="https://user-images.githubusercontent.com/31917400/48196181-a549e000-e349-11e8-82f6-e2ebdabefce2.jpg" />
    
  - Anyway, our 'random walk' Metropolis-Hasting sampler is:
- <img src="https://user-images.githubusercontent.com/31917400/48198136-cad9e800-e34f-11e8-8068-8f8b52ba2b1e.jpg" />
+ <img src="https://user-images.githubusercontent.com/31917400/48199870-5a35ca00-e355-11e8-99f8-15b6aa4ae895.jpg" />
 
 
 
