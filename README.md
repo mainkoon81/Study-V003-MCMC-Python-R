@@ -427,8 +427,12 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
   mu2 = mu^2
   n * (ybar * mu - mu2 / 2.0) - log(1.0 + mu2) }
  ```
- - 'random walk' Metropolis-Hasting sampler is:
-   - here, our **proposal distribution `q( )`** would be Normal..
+ - Now we want to know how to choose our **proposal distribution**.
+   - here, our **proposal distribution `q( )`** would be Normal due to ease of use..Always..coz it's a Metropolis Algorithm.
+   - But one might want to use other proposal distributions for the following reasons:
+   <img src="https://user-images.githubusercontent.com/31917400/48195606-02dd2d00-e348-11e8-922f-9f92bb65a3be.jpg" />
+
+ - Anyway, our 'random walk' Metropolis-Hasting sampler is:
  <img src="https://user-images.githubusercontent.com/31917400/48163348-5cf1da00-e2d7-11e8-89b8-db1c27b9826d.jpg" />
 
 
