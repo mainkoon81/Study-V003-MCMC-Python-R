@@ -257,7 +257,7 @@ __Integration & Error__
 <img src="https://user-images.githubusercontent.com/31917400/47397900-600e9700-d729-11e8-93e9-ada0d603129b.png" />
 
 ---------------------------------------------------------------------------------------------------------------
-# Markov chain Monte Carlo (MCMC)
+# [Markov chain Monte Carlo (MCMC)]
 ## 1. Markov Chain
  - Let's say we can use a chain rule to calculate the probability of the entire sequence. 
  <img src="https://user-images.githubusercontent.com/31917400/47972179-99cc8f80-e091-11e8-9044-9561f334188b.jpg" />
