@@ -460,7 +460,7 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
  post = MH(n, ybar, 1e3, mu_init = 0, cand_sd = 3.0)
  str(post)
  library("coda")
- traceplot(as.mcmc(post$mu))
+ traceplot(as.mcmc(post$mu))   # we should convert our list into "MCMC_object" to pass in the `traceplot()` 
  ```
  <img src="https://user-images.githubusercontent.com/31917400/48202122-ea770d80-e35b-11e8-8a36-913c8d99e931.jpg" />
  - This list is containing 1,000 iterations of our new variable and tells us our acceptance rate. Which in our case, for this run, was about 10%. Well...we want..23% to 50%. The **trace plot** shows the history of the chain and provides basic feedback about whether the chain has reached its stationary distribution. It appears our proposal step size was too large (acceptance rate below 10%).
@@ -481,12 +481,12 @@ post$mu_keep = post$mu[-c(1:100)] # discard the first 200 samples
 # plot density estimate of the posterior
 plot(density(post$mu_keep, adjust=2.0), main="", xlim=c(-1.0, 3.0), xlab=expression(mu))
 # prior for mu
-curve(dt(x=x, df=1), lty=2, add=TRUE) 
+curve(dt(x, df=1), lty=2, add=TRUE) 
 # sample mean
 points(ybar, 0, pch=19) 
 
 # approximation to the true posterior in blue
-curve(0.017*exp(lg(mu=x, n=n, ybar=ybar)), from=-1.0, to=3.0, add=TRUE, col="blue") 
+curve(0.017*exp(lg(x, n, ybar)), from=-1.0, to=3.0, add=TRUE, col="blue") 
 ```
 <img src="https://user-images.githubusercontent.com/31917400/48203213-cb2daf80-e35e-11e8-8d0a-bfb7c6ddd669.jpg" />
  - These results are encouraging, but they are preliminary. We still need to investigate more formally whether our Markov chain has converged to the stationary distribution. Obtaining posterior samples using the Metropolis-Hastings algorithm can be time-consuming and require some fine-tuning, as we’ve just seen. The good news is that we can rely on software to do most of the work for us.
