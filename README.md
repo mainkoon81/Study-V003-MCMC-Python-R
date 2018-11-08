@@ -432,7 +432,6 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
    - But one might want to use other proposal distributions for the following reasons:
    <img src="https://user-images.githubusercontent.com/31917400/48196181-a549e000-e349-11e8-82f6-e2ebdabefce2.jpg" />
    
-   - you can use a Uniform distribution as long as the support for the uniform distribution is bounded (since if the support is unbounded the Uniform distribution is improper as it integrates to ∞)
  - Anyway, our 'random walk' Metropolis-Hasting sampler is:
  <img src="https://user-images.githubusercontent.com/31917400/48163348-5cf1da00-e2d7-11e8-89b8-db1c27b9826d.jpg" />
 
