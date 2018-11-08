@@ -454,17 +454,44 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
  - As you can see, there's a little bit of a discrepancy between our prior belief for μ, and what the data says μ should be..
    - The prior has most of its probability mass in this region here, near 0. However, the data suggest that the mean is up here near 1. We expect that the posterior `distribution from μ` will have a mean as a **compromise somewhere between 0 and 1**. 
 
- - Then let's do posterior sampling. We have the data. We have y bar and we have n.
+ - Then let's do posterior sampling. We have the data. We have `ybar` and we have `n`.
  ```
  set.seed(43)
- post = MH(n, ybar, 1e3, 0, 3)
+ post = MH(n, ybar, 1e3, mu_init = 0, cand_sd = 3.0)
  str(post)
+ library("coda")
+ traceplot(as.mcmc(post$mu))
  ```
- <img src="https://user-images.githubusercontent.com/31917400/48200509-4b501700-e357-11e8-96b2-b44bb044f6d5.jpg" />
+ <img src="https://user-images.githubusercontent.com/31917400/48202122-ea770d80-e35b-11e8-8a36-913c8d99e931.jpg" />
+ - This list is containing 1,000 iterations of our new variable and tells us our acceptance rate. Which in our case, for this run, was about 10%. Well...we want..23% to 50%. The **trace plot** shows the history of the chain and provides basic feedback about whether the chain has reached its stationary distribution. It appears our proposal step size was too large (acceptance rate below 10%).
+ - Let's try `cand_sd = 0.05`
+ <img src="https://user-images.githubusercontent.com/31917400/48202622-5443e700-e35d-11e8-8a81-d914903f456b.jpg" />
+ - Oops, the acceptance rate is too high (above 50%). Let’s try something in between.
+ - Let's try `cand_sd = 0.9`
+ <img src="https://user-images.githubusercontent.com/31917400/48202629-560daa80-e35d-11e8-9817-b60149b2e224.jpg" />
+ - satisfied....
+ - Just for fun, let’s see what happens if we initialize the chain at some far-off value, such as..`mu_init = 30`. 
+ <img src="https://user-images.githubusercontent.com/31917400/48202892-08de0880-e35e-11e8-87fa-a9519dd02693.jpg" />
+ - It took awhile to find the stationary distribution, but it looks like we succeeded! If we discard the first 100 or so values, it appears like the rest of the samples come from the stationary distribution, **our posterior distribution**! 
 
+### Let’s plot the posterior density against the prior to see how the data updated our belief about μ
+```
+post$mu_keep = post$mu[-c(1:100)] # discard the first 200 samples
 
+# plot density estimate of the posterior
+plot(density(post$mu_keep, adjust=2.0), main="", xlim=c(-1.0, 3.0), xlab=expression(mu))
+# prior for mu
+curve(dt(x=x, df=1), lty=2, add=TRUE) 
+# sample mean
+points(ybar, 0, pch=19) 
 
+# approximation to the true posterior in blue
+curve(0.017*exp(lg(mu=x, n=n, ybar=ybar)), from=-1.0, to=3.0, add=TRUE, col="blue") 
+```
+<img src="https://user-images.githubusercontent.com/31917400/48203213-cb2daf80-e35e-11e8-8d0a-bfb7c6ddd669.jpg" />
+ - These results are encouraging, but they are preliminary. We still need to investigate more formally whether our Markov chain has converged to the stationary distribution. Obtaining posterior samples using the Metropolis-Hastings algorithm can be time-consuming and require some fine-tuning, as we’ve just seen. The good news is that we can rely on software to do most of the work for us.
 
+# JAGS.....
 
 
 ### (B) Example for Metropolis Hastings II.(continuous MarkovChain - multiple parameters)
