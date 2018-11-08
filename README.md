@@ -393,6 +393,8 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
    - A high acceptance rate for random walk Metropolis-Hastings samplers is not a good thing. If the random walk is taking too small of steps, it will accept candidates often, but will take a very long time to fully explore the posterior distribution. 
    - If the random walk is taking too large of steps, many of its proposals will have low probability and the acceptance rate will be low. That will cause us to waste many of the draws. 
    - Ideally, a random walk sampler should accept somewhere between `23% to 50%` of the candidates proposed. 
+   <img src="https://user-images.githubusercontent.com/31917400/48194191-37e78080-e344-11e8-8555-ae09baabcdd4.jpg" />
+
 ### Example for Metropolis Hastings (discrete MarkovChain)
  - You are given a single coin, but don't know if the coin is fair(0.5, 0.5) or loaded(0.7, 0.3). People said, 6 out of 10 get a loaded coin. You flipped the coin 5 times and got H,T,H,T,T. Given this result, what's the posterior probability `P(θ|x)` you got messed(you were flipping a loaded coin)?  
 <img src="https://user-images.githubusercontent.com/31917400/48072702-0d2aea00-e1d5-11e8-9f7e-d7b9acca60c1.JPG" />
@@ -405,7 +407,6 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
 <img src="https://user-images.githubusercontent.com/31917400/48143888-b3dfbb00-e2a7-11e8-88c1-d0950b84f3fa.JPG" />
 
 #### Let's talk about a models that don't have nice, clean posterior distributions. 
-<img src="https://user-images.githubusercontent.com/31917400/48194191-37e78080-e344-11e8-8555-ae09baabcdd4.jpg" />
 
 ### (A) Example for Metropolis Hastings I.(continuous MarkovChain - single parameter)
  - I have a model that is not conjugate. What should I do?
