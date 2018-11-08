@@ -425,6 +425,7 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
   n * (ybar * mu - mu2 / 2.0) - log(1.0 + mu2) }
  ```
  - 'random walk' Metropolis-Hasting sampler is:
+   - here, our proposal distribution `q( )` would be Normal..
  <img src="https://user-images.githubusercontent.com/31917400/48163348-5cf1da00-e2d7-11e8-89b8-db1c27b9826d.jpg" />
 
 
