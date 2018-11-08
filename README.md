@@ -434,10 +434,33 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
    
  - Anyway, our 'random walk' Metropolis-Hasting sampler is:
  <img src="https://user-images.githubusercontent.com/31917400/48199870-5a35ca00-e355-11e8-99f8-15b6aa4ae895.jpg" />
+ 
+ - Next, we execute this. Here is our data.
+ ```
+ y = c(1.2, 1.4, -0.5, 0.3, 0.9, 2.3, 1.0, 0.1, 1.3, 1.9)
+ ybar = mean(y)
+ n = length(y)
+ hist(y, freq = F, xlim = c(-1, 3))
 
+ # add individual data point!!(let them show up on x axis..) so..in Y-axis: rep(0,n)
+ points(y, rep(0, n))     # samples
+ points(ybar, 0, pch=19)  # sample mean
 
+ # let's plot our prior distribution of the mean 
+ curve(dt(x, df=1), lty=2, add=T)
+ ```
+ <img src="https://user-images.githubusercontent.com/31917400/48200273-8867d980-e356-11e8-824a-50d60904f6cb.jpg" />
 
+ - As you can see, there's a little bit of a discrepancy between our prior belief for μ, and what the data says μ should be..
+   - The prior has most of its probability mass in this region here, near 0. However, the data suggest that the mean is up here near 1. We expect that the posterior `distribution from μ` will have a mean as a **compromise somewhere between 0 and 1**. 
 
+ - Then let's do posterior sampling. We have the data. We have y bar and we have n.
+ ```
+ set.seed(43)
+ post = MH(n, ybar, 1e3, 0, 3)
+ str(post)
+ ```
+ <img src="https://user-images.githubusercontent.com/31917400/48200509-4b501700-e357-11e8-96b2-b44bb044f6d5.jpg" />
 
 
 
