@@ -464,7 +464,7 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
  ```
  <img src="https://user-images.githubusercontent.com/31917400/48202122-ea770d80-e35b-11e8-8a36-913c8d99e931.jpg" />
  
- - This list is containing 1,000 iterations of our new variable and tells us our acceptance rate. Which in our case, for this run, was about 10%. Well...we want..23% to 50%(We want to increase the acceptance rate...To change the acceptance rate, we need to rerun the sampler with a different candidate standard deviation. Usually, if we increase the variability in the distribution that creates the candidates, that will decrease the acceptance rate.) The **trace plot** shows the history of the chain and provides basic feedback about whether the chain has reached its stationary distribution. It appears our proposal step size was too large (acceptance rate below 10%).
+ - This list is containing 1,000 iterations of our new variable and tells us our acceptance rate. Which in our case, for this run, was about 10%. Well...we want..23% to 50%(We want to increase the acceptance rate...To change the acceptance rate, we need to rerun the sampler with a different candidate standard deviation. Usually, if we increase the variability in the distribution that creates the candidates, that will decrease the acceptance rate.`cand_var = step_size`) The **trace plot** shows the history of the chain and provides basic feedback about whether the chain has reached its stationary distribution. It appears our proposal step size was too large (acceptance rate below 10%).
  - Let's try `cand_sd = 0.05`
  <img src="https://user-images.githubusercontent.com/31917400/48202622-5443e700-e35d-11e8-8a81-d914903f456b.jpg" />
  
