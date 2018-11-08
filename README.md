@@ -405,6 +405,8 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
 <img src="https://user-images.githubusercontent.com/31917400/48143888-b3dfbb00-e2a7-11e8-88c1-d0950b84f3fa.JPG" />
 
 #### Let's talk about a models that don't have nice, clean posterior distributions. 
+<img src="https://user-images.githubusercontent.com/31917400/48194191-37e78080-e344-11e8-8555-ae09baabcdd4.jpg" />
+
 ### (A) Example for Metropolis Hastings I.(continuous MarkovChain - single parameter)
  - I have a model that is not conjugate. What should I do?
    - Suppose we have values(data) that represent the percentage change:`y(company_i)` in total personnel from last year to this year for, we'll say, 10 companies `n=10` coming from a particular industry. We're going to assume for now, that these are independent measurements from a **normal** with a known `variance = 1`, but an unknown mean `μ`. 
@@ -425,8 +427,13 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
   n * (ybar * mu - mu2 / 2.0) - log(1.0 + mu2) }
  ```
  - 'random walk' Metropolis-Hasting sampler is:
-   - here, our proposal distribution `q( )` would be Normal..
+   - here, our **proposal distribution `q( )`** would be Normal..
  <img src="https://user-images.githubusercontent.com/31917400/48163348-5cf1da00-e2d7-11e8-89b8-db1c27b9826d.jpg" />
+
+
+
+
+
 
 
 
