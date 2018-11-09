@@ -17,7 +17,7 @@
 
 > In bayesian approach, prediction is a `weighted AVG of output` of our model for all possible values of parameters while in frequentist approach, prediction is finding the best-fitted values of `parameters`. 
 
-# Intro to Monte-Carlo
+# [Intro to Monte-Carlo]
 Monte-Carlo methods are methods for `generating random variables` directly or indirectly from a target distribution. 
  - **Applications**: 
    - 1> hypothesis testing 
