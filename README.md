@@ -377,7 +377,7 @@ curve(dnorm(x, mean=0.0, sd=sqrt(1.0/(1.0-phi^2))), col="red", add=TRUE) # 'mean
 legend("topright", legend="theoretical stationary\ndistribution", col="red", lty=1, bty="n")
 ```
 <img src="https://user-images.githubusercontent.com/31917400/48024783-680f0380-e139-11e8-86d9-ff224089c34e.jpg" /> Can you see that? 
- - Our MC chain(histogram): Normal with **variance** `1`, **mean** `ϕ * current_mean` (current_mean always change..)
+ - Our MC chain(histogram): Normal with **mean** `ϕ * current_mean` (current_mean always change..), **var** `1`
  - perhaps posterior(target distribution): Normal with **mean** `0`, **var** `1 / (1 - ϕ^2)`
  
 It appears that the chain has reached the stationary distribution. Therefore, we could treat this simulation from the chain like a Monte Carlo sample from the stationary distribution, a normal with mean `0` and variance `1.562`. Because most posterior distributions we will look at are continuous, our Monte Carlo simulations with Markov chains will be similar to this example.
