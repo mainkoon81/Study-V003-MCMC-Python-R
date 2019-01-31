@@ -279,15 +279,16 @@ __Integration & Error__
      - If the coin turns up `T`, then decrease(-) your secret number by one. so...`3->2`, `2->1`, `1->5`
      - Repeat n times, and record the evolving history of your secret number.
    - Before the experiment, we can think of the sequence of secret numbers as a sequence of random variables, each taking on a value in {`1`, `2`, `3`, `4`, `5`}. Suppose your secret number is **currently `4`** and that the history of your secret numbers is `(2, 1, 2, 3)`. What is the probability that on the next step, your secret number will be 5? What about the other four possibilities? Because of the rules of this game, the probability of the next transition will depend only on the fact that your **`current number` is `4`**. `The numbers further back in your history are irrelevant, so forget the past.`, this is a Markov property.
-   - If we assume that transition probabilities `0.5` do not change with time, then there are a total of 5^2=25 potential transition probabilities. Potential transition probabilities would be from State 1 to State 2, or from State 1 to State 3,... and so forth. These **transition probabilities** can be arranged into a matrix. 
+   - If we assume that transition probabilities `0.5` do not change with time, then there are a total of (`nπr`: 5^2=25) potential transition probabilities. Potential transition probabilities would be from State 1 to State 2, or from State 1 to State 5,... and so forth. These **transition probabilities** can be arranged into a matrix called `transition matrix`. 
 <img src="https://user-images.githubusercontent.com/31917400/47991109-1d619d00-e0e1-11e8-9a62-d4346ff60abb.jpg" />
 
 ```
-Q = matrix(c(0.0, 0.5, 0.0, 0.0, 0.5,  #for state_1
-             0.5, 0.0, 0.5, 0.0, 0.0,  #for state_2
-             0.0, 0.5, 0.0, 0.5, 0.0,  #for state_3
-             0.0, 0.0, 0.5, 0.0, 0.5,  #for state_4
-             0.5, 0.0, 0.0, 0.5, 0.0), #for state_5
+          to "S1" "S2" "S3" "S4" "S5"
+Q = matrix(c(0.0, 0.5, 0.0, 0.0, 0.5,  # from "S1"
+             0.5, 0.0, 0.5, 0.0, 0.0,  # from "S2"
+             0.0, 0.5, 0.0, 0.5, 0.0,  # from "S3"
+             0.0, 0.0, 0.5, 0.0, 0.5,  # from "S4"
+             0.5, 0.0, 0.0, 0.5, 0.0), # from "S5"
            nrow=5, byrow=TRUE)
 Q %*% Q
 (Q %*% Q)[1,3]
@@ -337,7 +338,7 @@ Therefore, if your secret number is currently 1, the probability that the number
 > As we have just seen, if you simulate a Markov chain for many iterations, the samples can be used as a Monte Carlo sample **from the stationary distribution**(each state -sample- has the same probability - iid?). This is exactly how we are going to `use Markov chains for Bayesian inference`. In order to simulate from a complicated posterior distribution, we will set up and run a Markov chain **whose stationary distribution is the posterior distribution**(each state -sample- follows the same probability distribution). 
 - It is important to note that the stationary distribution doesn’t always exist for any given Markov chain. The Markov chain must have certain properties, which we won’t discuss here. However, the Markov chain algorithms we’ll use in future lessons for Monte Carlo estimation are guaranteed to produce stationary distributions.
 
-### > Continuous Markov Chain
+### > Continuous Markov Process
 <img src="https://user-images.githubusercontent.com/31917400/47972178-9933f900-e091-11e8-9b5d-8654b21cea47.jpg" /> That is, the probability distribution for the next state is **Normal** with **variance = 1** and **mean = the current state**. This is often referred to as a “random walk.” Clearly, it is a Markov chain because the transition to the next state Xt+1 only depends on the current state Xt.
    ```
    n = 100
@@ -353,7 +354,7 @@ Therefore, if your secret number is currently 1, the probability that the number
 
 The continuous "random walk" example here does not have a stationary distribution.
 
-### > Stationary Distribution of the Markov chain (continuous)
+### > Stationary Distribution of the Markov process (continuous)
 However, we can modify it so that it does have a stationary distribution. Let the transition distribution be
 <img src="https://user-images.githubusercontent.com/31917400/48024145-bae7bb80-e137-11e8-8286-379299ba9c1a.jpg" /> That is, the probability distribution for the next state is Normal with **variance** `1` and **mean** equal to `ϕ * current_mean`. As long as ϕ is between −1 and 1, then the **stationary distribution** will exist for this model. 
 
