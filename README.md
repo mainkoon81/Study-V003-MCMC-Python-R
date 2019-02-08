@@ -297,7 +297,7 @@ Q %*% Q
 <img src="https://user-images.githubusercontent.com/31917400/47990508-94963180-e0df-11e8-9da3-a0837dadfe79.jpg" />
 Therefore, if your secret number is currently 1, the probability that the number will be 3 two steps from now is `0.25`.
 
-### > Stationary Distribution of the Markov chain (discrete)
+### > Stationary Distribution (discrete)
    - Suppose we want to know the probability distribution of the your secret number in the **distant future**. 
    <img src="https://user-images.githubusercontent.com/31917400/47998647-05e1de80-e0f8-11e8-83b6-f8ac0e74869e.jpg" />
    
@@ -354,7 +354,7 @@ Therefore, if your secret number is currently 1, the probability that the number
 
 The continuous "random walk" example here does not have a stationary distribution.
 
-### > Stationary Distribution of the Markov process (continuous)
+### > Stationary Distribution (continuous)
 However, we can modify it so that it does have a stationary distribution. Let the transition distribution be
 <img src="https://user-images.githubusercontent.com/31917400/48024145-bae7bb80-e137-11e8-8286-379299ba9c1a.jpg" /> That is, the probability distribution for the next state is Normal with **variance** `1` and **mean** equal to `ϕ * current_mean`. As long as ϕ is between −1 and 1, then the **stationary distribution** will exist for this model. 
 
