@@ -15,8 +15,6 @@
 > Estimating Maximum Likelihood 
 <img src="https://user-images.githubusercontent.com/31917400/47054860-3d6e0280-d1ac-11e8-948e-da71c188bb54.png" />
 
-> In bayesian approach, prediction is a `weighted AVG of output` of our model for all possible values of parameters while in frequentist approach, prediction is finding the best-fitted values of `parameters`. 
-
 # [Intro to Monte-Carlo]
 Monte-Carlo methods are methods for `generating random variables` directly or indirectly from a target distribution. 
  - **Applications**: 
