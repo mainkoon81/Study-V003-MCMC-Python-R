@@ -250,8 +250,8 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
  - Suppose we're now going to estimate `μ` and `σ^2`, because they're both `unknown` (If sigma squared were known, the conjugate prior from `μ` would be a `normal distribution`. And if `μ` were known, the conjugate prior we could choose for `σ^2` would be an `inverse gamma`). 
  - In the more general case that we have here(both unknown), the posterior distribution does not appear as a distribution that we can simulate or integrate. We are unable to integrate it to obtain important quantities, such as the posterior mean or probability intervals. However, the **computational methods** invented in the 1950's revolutionized this field. We do have the ability to simulate from this challenging posterior distributions 
 
-### Monte-Carlo methods will be helpful for generating samples from difficult to sample target distributions.
-How? by generating random number from target distributions through **transformation methods**??
+### Monte-Carlo methods will be helpful for generating samples from the target distributions that is difficult to sample.
+How? by generating random number from target distributions through **transformation methods**??????
  - Monte Carlo simulation uses random sampling and statistical modeling to mimic the operations of complex systems. 
    - Monte Carlo models a system as a series of PDF.
    - Monte Carlo repeatedly samples from the PDF.
@@ -260,7 +260,7 @@ How? by generating random number from target distributions through **transformat
 __Integration & Error__
  - Monte Carlo estimation refers to **simulating hypothetical draws** from a probability distribution in order to calculate important quantities such as mean, variance, the probability of some event, etc(all of these calculations involve `integration`, which can be very difficult to compute analytically). So we will find the area of the swimming pool by throwing balls. 
  - But how good is an approximation by Monte-Carlo sampling? Again, we can turn to the central limit theorem, which tells us that the variance of our estimate is controlled in part by our sample size. Increase the number of samples simulated. 
- - Here, `h(θ)` means the posterior distribution. `P(θ)` is its weight.
+ - Here, `h(θ)` is the posterior distribution. `P(θ)` is its weight. Monte Carlo is estimating the function `h(θ)`!
 <img src="https://user-images.githubusercontent.com/31917400/47397900-600e9700-d729-11e8-93e9-ada0d603129b.png" />
 
 ---------------------------------------------------------------------------------------------------------------
