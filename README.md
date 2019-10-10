@@ -253,6 +253,7 @@ How? by generating random number from target distributions through **transformat
 __Integration & Error__
  - Monte Carlo estimation refers to **simulating hypothetical draws** from a probability distribution in order to calculate important quantities such as mean, variance, the probability of some event, etc(all of these calculations involve `integration`, which can be very difficult to compute analytically). So we will find the area of the swimming pool by throwing balls. 
  - But how good is an approximation by Monte-Carlo sampling? Again, we can turn to the central limit theorem, which tells us that the variance of our estimate is controlled in part by our sample size. Increase the number of samples simulated. 
+ - Here, `h(θ)` means the posterior distribution.
 <img src="https://user-images.githubusercontent.com/31917400/47397900-600e9700-d729-11e8-93e9-ada0d603129b.png" />
 
 ---------------------------------------------------------------------------------------------------------------
