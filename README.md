@@ -225,7 +225,7 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
      
 ---------------------------------------------------------------------------------------------------------   
 ## Before saying Monte-Carlo
-### Hierarchical form of the Conjugate model
+### Conjugate model
 <img src="https://user-images.githubusercontent.com/31917400/47272952-c4442600-d584-11e8-947b-0c128e83f9d8.png" />
  
  - The hierarchical representations above show how you could hypothetically simulate data from this model. 
@@ -237,6 +237,13 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
 <img src="https://user-images.githubusercontent.com/31917400/47273757-fe67f480-d591-11e8-8731-9e273af547c2.png" />
 
  - If we can recognize this standard form as being proportional to a common distribution, then our work is done, and we know what our posterior distribution is and we can do **direct simulation from a posterior distribution**. However, if we do not use conjugate priors or if the models are more complicated, then the posterior distribution will not have a standard form that we can recognize.
+ 
+### This is how we sample in the Conjugate model setting.
+ - First, sample from prior.
+ - Feed the sample to the likelihood.
+ - Get the sample from from the likelihood, which is considered as the sample from the posterior. 
+<img src="https://user-images.githubusercontent.com/31917400/66549452-336ead80-eb3b-11e9-91fa-4659af464c95.jpg" />
+
 
 ### Non-Conjugate model !!!!!!!!!!!!!!!!!!!!!!
  - When we optained the posterior but still it's too complex to conceive.   
