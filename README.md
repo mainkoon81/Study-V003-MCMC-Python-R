@@ -238,10 +238,10 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
 
  - If we can recognize this standard form as being proportional to a common distribution, then our work is done, and we know what our posterior distribution is and we can do **direct simulation from a posterior distribution**. However, if we do not use conjugate priors or if the models are more complicated, then the posterior distribution will not have a standard form that we can recognize.
  
-### This is how we sample in the Conjugate model setting.
- - First, sample from prior.
- - Feed the sample to the likelihood.
- - Get the sample from from the likelihood, which is considered as the sample from the posterior. 
+### This is how we sample in the Conjugate model setting
+ - First, sample from the Prior.
+ - Feed the sample from the Prior to the Likelihood and draw the sample from the likelihood.  
+ - Draws from the joint(fed-likelihood), then we can just discard the `parameter sample` and use the `data sample` as samples from their marginal distribution (Evidence). This is called prior predictive distributions.  
 <img src="https://user-images.githubusercontent.com/31917400/66549452-336ead80-eb3b-11e9-91fa-4659af464c95.jpg" />
 
 
