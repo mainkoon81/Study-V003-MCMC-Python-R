@@ -224,8 +224,8 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
      - Jeffreys’ prior has some shortcomings: the prior is improper for many models, which leads to improper posterior.
      
 ---------------------------------------------------------------------------------------------------------   
-## Before saying Monte-Carlo
-### Conjugate model
+### Before saying Monte-Carlo
+## Conjugate model
 <img src="https://user-images.githubusercontent.com/31917400/47272952-c4442600-d584-11e8-947b-0c128e83f9d8.png" />
  
  - The hierarchical representations above show how you could hypothetically simulate data from this model. 
@@ -245,7 +245,7 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
 <img src="https://user-images.githubusercontent.com/31917400/66549452-336ead80-eb3b-11e9-91fa-4659af464c95.jpg" />
 
 
-### Non-Conjugate model !!!!!!!!!!!!!!!!!!!!!!
+## Non-Conjugate model !!!!!!!!!!!!!!!!!!!!!!
  - When we optained the posterior but still it's too complex to conceive.   
  - Suppose we're now going to estimate `μ` and `σ^2`, because they're both `unknown` (If sigma squared were known, the conjugate prior from `μ` would be a `normal distribution`. And if `μ` were known, the conjugate prior we could choose for `σ^2` would be an `inverse gamma`). 
  - In the more general case that we have here(both unknown), the posterior distribution does not appear as a distribution that we can simulate or integrate. We are unable to integrate it to obtain important quantities, such as the posterior mean or probability intervals. However, the **computational methods** invented in the 1950's revolutionized this field. We do have the ability to simulate from this challenging posterior distributions 
