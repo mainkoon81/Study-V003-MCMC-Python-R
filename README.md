@@ -239,6 +239,7 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
  - If we can recognize this standard form as being proportional to a common distribution, then our work is done, and we know what our posterior distribution is and we can do **direct simulation from a posterior distribution**. However, if we do not use conjugate priors or if the models are more complicated, then the posterior distribution will not have a standard form that we can recognize.
 
 ### Non-Conjugate model !!!!!!!!!!!!!!!!!!!!!!
+ - When we optained the posterior but still it's too complex to conceive.   
  - Suppose we're now going to estimate `μ` and `σ^2`, because they're both `unknown` (If sigma squared were known, the conjugate prior from `μ` would be a `normal distribution`. And if `μ` were known, the conjugate prior we could choose for `σ^2` would be an `inverse gamma`). 
  - In the more general case that we have here(both unknown), the posterior distribution does not appear as a distribution that we can simulate or integrate. We are unable to integrate it to obtain important quantities, such as the posterior mean or probability intervals. However, the **computational methods** invented in the 1950's revolutionized this field. We do have the ability to simulate from this challenging posterior distributions 
 
