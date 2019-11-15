@@ -25,6 +25,9 @@ Monte-Carlo methods are methods for `generating random variables` directly or in
  - The use of Monte-Carlo methods to **calculate p-values** has become popular because:
    - Many test statistics do not have a standard asymptotic distribution. Even if a standard asymptotic distribution does exist, it may not be reliable in realistic sample sizes. 
    - In contrast, Monte-Carlo methods can be used to obtain an **Empirical p-value** that approximates the exact p-value without relying on asymptotic distributional theory or exhaustive enumeration. 
+ - Basically, it helps us to approximate a certain area within some rectangle area that we know. 
+ <img src="https://user-images.githubusercontent.com/31917400/68952838-854cc800-07b8-11ea-8145-b0b02248e20f.jpg" />
+
 
 __Example 1> hypothesis testing (in R):__ Contingency table with too small sample_size
 ```
