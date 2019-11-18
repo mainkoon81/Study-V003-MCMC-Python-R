@@ -346,7 +346,7 @@ Therefore, if your secret number is currently 1, the probability that the number
    - it will give `1: 0.1996, 2: 0.2020, 3: 0.1980, 4: 0.1994, 5: 0.2010`. The overall distribution of the visits to the states is approximately equal to the stationary distribution. 
 
 -----------------------------------------------------------------------------------------------------------------
-# MCMC is a journey of `ϕ`. 
+# MCMC is a journey of our parameter `ϕ`. 
 
 ## Each state is a candidate parameter sample. If you simulate a Markov chain for many iterations, and it reaches to the stationary distribution, each state can be used as a Monte Carlo sample of the stationary distribution (`each state -sample- has the same probability distribution`). 
 
