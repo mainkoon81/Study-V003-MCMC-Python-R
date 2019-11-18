@@ -269,7 +269,7 @@ __Integration & Error__
 ---------------------------------------------------------------------------------------------------------------
 # [Markov chain Monte Carlo (MCMC)]
 ## 1. Markov Chain
- - Let's say we can use a chain rule to calculate the probability of the entire sequence. 
+ - Let's say we can use a chain rule to calculate the probability of the **`entire sequence`**. 
  <img src="https://user-images.githubusercontent.com/31917400/47972179-99cc8f80-e091-11e8-9044-9561f334188b.jpg" />
 
  - Markov Chain simplifies this expression by using `Markov_assumption`. In this assumption, given the entire past history, *the probability distribution for the RandomVariable at the next time step only depends on the **current variable**. 
