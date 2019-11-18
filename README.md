@@ -230,7 +230,7 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
      
 ---------------------------------------------------------------------------------------------------------   
 ### Before saying Monte-Carlo
-## Conjugate model
+## Conjugate model and Inference
 <img src="https://user-images.githubusercontent.com/31917400/47272952-c4442600-d584-11e8-947b-0c128e83f9d8.png" />
  
  - The hierarchical representations above show how you could hypothetically simulate data from this model. 
