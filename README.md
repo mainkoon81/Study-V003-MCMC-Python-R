@@ -354,7 +354,7 @@ This is exactly how we are going to `use Markov chains for Bayesian inference`. 
 - > It is important to note that the stationary distribution doesn’t always exist for any given Markov chain. 
 
 ### > Continuous Markov Process
-<img src="https://user-images.githubusercontent.com/31917400/47972178-9933f900-e091-11e8-9b5d-8654b21cea47.jpg" /> That is, the probability distribution for the next state is **Normal** with **variance = 1** and **mean = the current state**. This is often referred to as a “random walk.” Clearly, it is a Markov chain because the transition to the next state Xt+1 only depends on the current state Xt.
+<img src="https://user-images.githubusercontent.com/31917400/47972178-9933f900-e091-11e8-9b5d-8654b21cea47.jpg" /> That is, the probability distribution for the next state is **Normal** with **variance = 1** and **mean = the current state**. This is often referred to as a `“random walk”`. Clearly, it is a Markov chain because the transition to the next state Xt+1 only depends on the current state Xt.
    ```
    n = 100
    x = numeric(n)
