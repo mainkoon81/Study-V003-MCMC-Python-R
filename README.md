@@ -116,12 +116,12 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
 # Scenario_01. No-data? "Estimate data points" (with respect to θ : **Prior Predictive Distribution** for X)
 <img src="https://user-images.githubusercontent.com/31917400/47260255-aa84df00-d4af-11e8-9d2c-eee68bd26b2c.png" />
 
-   - Before observe data points, we compute a prior predictive interval (such that 95% of new observations are expected to fall into it). It's an interval for the `data points` rather than an interval for parameter we've been looking at. Prior predictive intervals are useful because they reveal the `consequences of the θ` at the data (observation) level. See, our predictive distribution of `data points` is **marginal:** `P(x) = S P(θ,x)dθ = S P(x|θ)P(θ)dθ `. 
+   - Before observe data points, we compute a prior predictive interval (such that 95% of new observations are expected to fall into it). It's an interval for the `data points` rather than an interval for parameter we've been looking at. Prior predictive intervals are useful because they reveal the `consequences of the θ` at the data (observation) level. See, our predictive distribution of `data points` is **marginal:** `P(x) = ∫ P(θ,x)dθ = ∫ P(x|θ)P(θ)dθ `. 
    - To find this data point intervals, we first work with `prior` **before we observe any data**. 
    - For example, Bin(n,θ): 
      - Flip a coin 'n' times and count the number of 'H' we see. This, of course, will depend on the coin itself. "What's the probability that it shows up 'H's?" which is referring a `θ` distribution. `X` for the number of 'H's(success), as `X` being the sum of y: `X = SUM(y...)` and as we go from '1 to n' of y which is each individual coin flip(HEAD: y=1, TAIL: y=0)...but now set this aside for a while.  
      - Let's start. As for the prior(θ,θ,θ,θ,...), if we first assume that **all possible coins are equally likely**(all same θ), then `p(θ) = 1 where {0 <= θ <= 1}`, which means the probability of θ: `p(θ)` will flat...over the interval from θ=0 to θ=1. We first assume our prior is `p(θ) = 1`. 
-     - So now go back to `X` and ask "what's our **predictive distribution of X** (for the number of 'H'. of course, `X` can take possible values 0, 1, 2,..up to n). The **marginal**: `P(X) = S P(X|θ)P(θ)dθ = S P(θ,X)dθ` so if n=10, we have 
+     - So now go back to `X` and ask "what's our **predictive distribution of X** (for the number of 'H'. of course, `X` can take possible values 0, 1, 2,..up to n). The **marginal**: `P(X) = ∫ P(X|θ)P(θ)dθ = ∫ P(θ,X)dθ` so if n=10, we have 
      <img src="https://user-images.githubusercontent.com/31917400/47243997-d2127380-d3eb-11e8-87e0-717f9f022b50.png" />
 
      - Because we're interested in X now, it's important that we distinguish between a binomial density and a Bernoulli density. So here we just care about the total count rather than the exact ordering which would be Bernoulli's. But **for most of the analyses we're doing, where we're interested in θ rather than x, the binomial and the Bernoulli are interchangeable** because Binomial distribution is a distribution of sum of i.i.d. Bernoulli random variables and their likelihoods are equivalent, thus we will get the same posterior at the end. But here we care about x for a predicted distribution so we do need to specify that we're looking at **binomial** because we're looking H-counts. 
@@ -143,11 +143,11 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
    - In fact, the uniform distribution is a `Beta(1,1)`, and any beta distribution is conjugate for the Bernoulli distribution.
    - In posterior, the hyper-parameters are transformed: `a + sum(x), b + n - sum(x)` 
    
-# Scenario_02. Don't go with a flat prior! We have some data-point (with respect to θ: **Posterior Predictive Distribution** for X)
+# Scenario_02. We have some data-point. Don't go with a flat prior! (with respect to θ: **Posterior Predictive Distribution** for X)
 <img src="https://user-images.githubusercontent.com/31917400/47260902-f2a9fe80-d4bb-11e8-8c80-6944cbcdf2cf.png" />
  
    - What about after we've observed data? Suppose we observe, after one flip, we got a 'H' the first time. We want to ask, what's our **predicted distribution for the second flip(H or T)**, given that we saw a 'H' on the first flip? 
-   - `P(y2|y1) = S P(θ|y1, y2)dθ = S P(y2|θ,y1)P(θ|y1)dθ = S P(y2|θ)P(θ|y1)dθ`: using posterior distribution instead of prior, and `'y1 and y2' is independent` so conditional is meaningless..so we take y1 out, then..
+   - `P(y2|y1) = ∫ P(θ|y1, y2)dθ = ∫ P(y2|θ,y1)P(θ|y1)dθ = ∫ P(y2|θ)P(θ|y1)dθ`: using posterior distribution instead of prior, and `'y1 and y2' is independent` so conditional is meaningless..so we take y1 out, then..
    <img src="https://user-images.githubusercontent.com/31917400/47248777-bb2c4b00-d404-11e8-9b5d-2c67ff7f3d24.png" />
    
    - We can see here, that the posterior is a combination of the information in the prior and the information in the data. In this case, our prior is like having two data points, one 'H' and one 'T'. Saying we have a uniform prior for θ, is actually equivalent to saying we have observed one 'H' and one 'T'. And then, when we do go ahead and observe one head, it's like we now have seen two heads and one tail, and so our posterior predictive distribution for the second flip, says, if we have two heads and one tail, then we have a probability of two-thirds of getting another head, and a probability of one-third of getting a tail. 
@@ -228,9 +228,7 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
      - Jeffreys’ prior is invariant with respect to one-to-one transformations or the change of scale.
      - Jeffreys’ prior has some shortcomings: the prior is improper for many models, which leads to improper posterior.
      
----------------------------------------------------------------------------------------------------------   
-### Before saying Monte-Carlo
-## Conjugate model and Inference
+## Conjugate method for Inference
 <img src="https://user-images.githubusercontent.com/31917400/47272952-c4442600-d584-11e8-947b-0c128e83f9d8.png" />
  
  - The hierarchical representations above show how you could hypothetically simulate data from this model. 
@@ -249,8 +247,8 @@ print(quantile(x = x, probs = c(0.025, 0.5, 0.975)))
  - Draws from the joint(fed-likelihood), then we can just discard the `parameter sample` and use the `data sample` as samples from their marginal distribution (Evidence). This is called prior predictive distributions.  
 <img src="https://user-images.githubusercontent.com/31917400/66549452-336ead80-eb3b-11e9-91fa-4659af464c95.jpg" />
 
-
-## Non-Conjugate model !!!!!!!!!!!!!!!!!!!!!!
+-------------------------------------------------------------------------------------------------------------
+# Non-Conjugate method for Inference !!!!!!!!!!!!!!!!!!!!!!
  - When we optained the posterior but still it's too complex to conceive.   
  - Suppose we're now going to estimate `μ` and `σ^2`, because they're both `unknown` (If sigma squared were known, the conjugate prior from `μ` would be a `normal distribution`. And if `μ` were known, the conjugate prior we could choose for `σ^2` would be an `inverse gamma`). 
  - In the more general case that we have here(both unknown), the posterior distribution does not appear as a distribution that we can simulate or integrate. We are unable to integrate it to obtain important quantities, such as the posterior mean or probability intervals. However, the **computational methods** invented in the 1950's revolutionized this field. We do have the ability to simulate from this challenging posterior distributions 
