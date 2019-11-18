@@ -346,7 +346,7 @@ Therefore, if your secret number is currently 1, the probability that the number
    - it will give `1: 0.1996, 2: 0.2020, 3: 0.1980, 4: 0.1994, 5: 0.2010`. The overall distribution of the visits to the states is approximately equal to the stationary distribution. 
 
 -----------------------------------------------------------------------------------------------------------------
-# MCMC is a journey of our parameter `ϕ`. 
+# MCMC is a journey of our parameter `θ`. 
 
 ## Each state is a candidate parameter sample. If you simulate a Markov chain for many iterations, and it reaches to the stationary distribution, each state can be used as a Monte Carlo sample of the stationary distribution (`each state -sample- has the same probability distribution`). 
 
@@ -354,7 +354,7 @@ Therefore, if your secret number is currently 1, the probability that the number
 
 This is exactly how we are going to `use Markov chains for Bayesian inference`. In order to simulate from a complicated posterior distribution, we will set up and run a Markov chain **`whose stationary distribution is the posterior distribution`**(each state -sample- follows the same probability distribution). Of course, the stationary distribution doesn’t always exist for any given Markov chain. 
 
-# Let's say `ϕ` is "X" here.
+# Let's say `θ` is "X" here.
 
 ### > Continuous Markov Process
 <img src="https://user-images.githubusercontent.com/31917400/47972178-9933f900-e091-11e8-9b5d-8654b21cea47.jpg" /> That is, the probability distribution for the next state is **Normal** with **variance = 1** and **mean = the current state**. This is often referred to as a `“random walk”`. Clearly, it is a Markov chain because the transition to the next state Xt+1 only depends on the current state Xt.
@@ -377,7 +377,7 @@ However, we can modify it so that it does have a stationary distribution. Let th
 <img src="https://user-images.githubusercontent.com/31917400/48024145-bae7bb80-e137-11e8-8286-379299ba9c1a.jpg" /> That is, the probability distribution for the next state is Normal with **variance** `1` and **mean** equal to `ϕ * current_mean`. As long as ϕ is between −1 and 1(reflecting probability value, weight of the posterior) such as, then the **stationary distribution** will exist which is our MCMC posterior approximation result...so we just found the parameter of our target distribution!  
 <img src="https://user-images.githubusercontent.com/31917400/69074359-1f19ac80-0a27-11ea-9463-13abbb7c0391.jpg" />
 
- - Let’s simulate this chain for ϕ=−0.6.
+ - Let's simulate the example chain for ϕ=−0.6.
 ```
 n = 1500
 x = numeric(n)
