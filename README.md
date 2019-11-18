@@ -372,7 +372,7 @@ The continuous "random walk" example here does not have a stationary distributio
 ### > Stationary Distribution (continuous)
 However, we can modify it so that it does have a stationary distribution. Let the transition distribution be
 <img src="https://user-images.githubusercontent.com/31917400/48024145-bae7bb80-e137-11e8-8286-379299ba9c1a.jpg" /> That is, the probability distribution for the next state is Normal with **variance** `1` and **mean** equal to `ϕ * current_mean`. As long as ϕ is between −1 and 1(reflecting probability value, weight of the posterior) such as, then the **stationary distribution** will exist for this model. 
-<img src="https://user-images.githubusercontent.com/31917400/66575067-3a161880-eb6d-11e9-8edf-42b5e1732371.jpg" />
+<img src="https://user-images.githubusercontent.com/31917400/69070802-b92a2680-0a20-11ea-8bf5-662cdcee0ad9.jpg" />
 
  - Let’s simulate this chain for ϕ=−0.6.
 ```
