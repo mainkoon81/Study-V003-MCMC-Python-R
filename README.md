@@ -345,7 +345,9 @@ Therefore, if your secret number is currently 1, the probability that the number
    ```
    - it will give `1: 0.1996, 2: 0.2020, 3: 0.1980, 4: 0.1994, 5: 0.2010`. The overall distribution of the visits to the states is approximately equal to the stationary distribution. 
 
-## Each state is a sample. As we have just seen, if you simulate a Markov chain for many iterations, **`each state can be used as a Monte Carlo sample of the stationary distribution`**(each state -sample- has the same probability - iid?). 
+## Each state is a sample. If you simulate a Markov chain for many iterations, and it reaches to the stationary distribution, **`each state can be used as a Monte Carlo sample of the stationary distribution`**(each state -sample- has the same probability - iid?). 
+
+# `Stationary distribution! Ok`?
 
 This is exactly how we are going to `use Markov chains for Bayesian inference`. In order to simulate from a complicated posterior distribution, we will set up and run a Markov chain **`whose stationary distribution is the posterior distribution`**(each state -sample- follows the same probability distribution). 
 
