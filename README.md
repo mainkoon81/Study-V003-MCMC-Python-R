@@ -16,7 +16,7 @@
 <img src="https://user-images.githubusercontent.com/31917400/47054860-3d6e0280-d1ac-11e8-948e-da71c188bb54.png" />
 
 # [Intro to Monte-Carlo]
-Monte-Carlo methods are methods for `generating random variables` directly or indirectly from a target distribution, then averaging them out to approximate the taret distribution.  
+Monte-Carlo methods are methods for `generating random variables` directly or indirectly from a target distribution, then averaging them out to approximate the taget distribution.  
  - Basically, it helps us to approximate a certain area within some rectangle area that we know. 
  <img src="https://user-images.githubusercontent.com/31917400/68952838-854cc800-07b8-11ea-8145-b0b02248e20f.jpg" />
  
