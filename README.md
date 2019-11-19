@@ -354,7 +354,9 @@ Therefore, if your secret number is currently 1, the probability that the number
 
 This is exactly how we are going to `use Markov chains for Bayesian inference`. In order to simulate from a complicated posterior distribution, we will set up and run a Markov chain **`whose stationary distribution is the posterior distribution`**(each state -sample- follows the same probability distribution). Of course, the stationary distribution doesn’t always exist for any given Markov chain. 
 
-# Let's say `θ` is "X" here.
+# Let's say `θ` is "X" here. 
+ - the first "X" is a pseudo sample that you randomly pick.
+ - next "X" is a random point nearby
 
 ### > Continuous Markov Process
 <img src="https://user-images.githubusercontent.com/31917400/47972178-9933f900-e091-11e8-9b5d-8654b21cea47.jpg" /> That is, the probability distribution for the next state is **Normal** with **variance = 1** and **mean = the current state**. This is often referred to as a `“random walk”`. Clearly, it is a Markov chain because the transition to the next state Xt+1 only depends on the current state Xt.
@@ -401,8 +403,18 @@ legend("topright", legend="theoretical stationary\ndistribution", col="red", lty
  
 It appears that the chain has reached the stationary distribution. Therefore, we could treat this simulation from the chain like a Monte Carlo sample from the stationary distribution, a normal with mean `0` and variance `1.562`. Because most posterior distributions we will look at are continuous, our Monte Carlo simulations with Markov chains will be similar to this example.
 
-The goal of MCMC:  
- - When `θ ~ P(θ)` posterior, we hypothetically sample from `P(θ)`(via importance/rejection) then approximate `E[P(θ)]`: Expected Posterior(stationary distribution).  
+> ## The goal of MCMC:  
+ - So...we want to learn a crazy posterior distribution `P(θ)`. We want to **sample** from it or **approximate** it.
+   - First, perform a `Random Walk` via **pdf**.
+     - **Once we have a starting pt**, we randomly pick a **nearby pt** and evaluate its probability.
+     - Based on the **probability of the state**, we move the pt. -> `the key`!!! 
+     - If we repeat this enough, it will **`hit every pt in the sample space`** with a frequency that is porportional to its probability. 
+     - **Each hitting is our sample** and this gives a histogram or pdf. 
+   - ## But how to define the **probability of the state** ????
+   
+   
+   
+When `θ ~ P(θ)` posterior, we hypothetically sample from `P(θ)`(via importance/rejection) then approximate `E[P(θ)]`: Expected Posterior(stationary distribution).  
  
 ## 2. Metropolis Hastings
 Metropolis_Hastings algorithm allows us to sample from a **generic probability distribution**(target distribution), even if we don't know the `normalizing constant`(the bottom marginal stuff -the data-probability distribution- in Bayes theorem) because perhaps it is difficult to integrate. To do this, we construct and sample from a `Markov chain` whose **stationary distribution** is the target distribution that we're looking for. 
