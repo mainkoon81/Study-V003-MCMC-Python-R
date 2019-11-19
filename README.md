@@ -410,7 +410,7 @@ It appears that the chain has reached the stationary distribution. Therefore, we
      - Based on the **probability of the state**, we move the pt. -> `the key`!!! 
      - If we repeat this enough, it will **`hit every pt in the sample space`** with a frequency that is porportional to its probability. 
      - **Each hitting is our sample** and this gives a histogram or pdf. 
-   - ## But how to define the **probability of the state** ????
+   - ## But how to define the **`probability as a distribution` of the state** ????
    
    
    
