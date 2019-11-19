@@ -409,7 +409,7 @@ It appears that the chain has reached the stationary distribution. Therefore, we
      - If we repeat this enough, it will **`hit every pt in the sample space`** with a frequency that is porportional to its probability. 
      - **Each hitting is our sample** and this gives a histogram or pdf `P(θ)`. 
    - ## But how to define the **`probability as a distribution`(transitional distribution) of each state** ????
-     - Always Gaussian(c*`previous_x`, 1) ????  
+     - Always Gaussian(c*`previous_θ`, 1) ????  This is the **candidate distribution** `q(θ)`.
 <img src="https://user-images.githubusercontent.com/31917400/69186617-b9095400-0b10-11ea-9381-be00bbb165db.jpg" />
    
 When `θ ~ P(θ)` posterior, we hypothetically sample from `P(θ)`(via importance/rejection) then approximate `E[P(θ)]`: Expected Posterior(stationary distribution).  
