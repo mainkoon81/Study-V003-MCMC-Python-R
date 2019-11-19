@@ -407,11 +407,11 @@ It appears that the chain has reached the stationary distribution. Therefore, we
  - So...we want to learn a crazy posterior distribution `P(θ)`. We want to **sample** from it or **approximate** it.
    - First, perform a `Random Walk` via **pdf**.
      - **Once we have a starting pt**, we randomly pick a **nearby pt** and evaluate its probability.
-     - Based on the **probability of the state**, we move the pt. -> `the key`!!! 
+     - Based on the **probability of the state**(transitional probability), we move the pt. -> `the key`!!! 
      - If we repeat this enough, it will **`hit every pt in the sample space`** with a frequency that is porportional to its probability. 
      - **Each hitting is our sample** and this gives a histogram or pdf. 
-   - ## But how to define the **`probability as a distribution` of the state** ????
-   
+   - ## But how to define the **`probability as a distribution`(transitional distribution) of each state** ????
+     - Always Gaussian(c*`previous_x`, 1) ????  
    
    
 When `θ ~ P(θ)` posterior, we hypothetically sample from `P(θ)`(via importance/rejection) then approximate `E[P(θ)]`: Expected Posterior(stationary distribution).  
