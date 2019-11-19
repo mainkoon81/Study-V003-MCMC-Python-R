@@ -409,7 +409,7 @@ It appears that the chain has reached the stationary distribution. Therefore, we
      - **Once we have a starting pt**, we randomly pick a **nearby pt** and evaluate its probability.
      - Based on the **probability of the state**(transitional probability), we move the pt. -> `the key`!!! 
      - If we repeat this enough, it will **`hit every pt in the sample space`** with a frequency that is porportional to its probability. 
-     - **Each hitting is our sample** and this gives a histogram or pdf. 
+     - **Each hitting is our sample** and this gives a histogram or pdf `P(θ)`. 
    - ## But how to define the **`probability as a distribution`(transitional distribution) of each state** ????
      - Always Gaussian(c*`previous_x`, 1) ????  
    
