@@ -408,6 +408,8 @@ It appears that the chain has reached the stationary distribution. Therefore, we
      - Based on the **probability of the state**(transitional probability), we move the pt. -> `the key`!!! 
      - If we repeat this enough, it will **`hit every pt in the sample space`** with a frequency that is porportional to its probability. 
      - **Each hitting is our sample** and this gives a histogram or pdf `P(θ)`. 
+<img src="https://user-images.githubusercontent.com/31917400/69196747-3fc92b80-0b27-11ea-8868-f3746a989d7b.jpg" />
+     
    - ## But how to define the **`probability as a distribution`(transitional distribution) of each state** ????
      - Always Gaussian(c*`previous_θ`, 1) ????  This is the **candidate distribution** `q(θ)`.
 <img src="https://user-images.githubusercontent.com/31917400/69186617-b9095400-0b10-11ea-9381-be00bbb165db.jpg" />
