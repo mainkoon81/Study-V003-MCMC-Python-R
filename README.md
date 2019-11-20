@@ -419,10 +419,10 @@ When `θ ~ P(θ)` posterior, we hypothetically sample from `P(θ)`(via importanc
 ## 2. Metropolis Hastings
 Metropolis_Hastings algorithm allows us to sample from a **generic probability distribution**(target distribution), even if we don't know the `normalizing constant`(the bottom marginal stuff -the data-probability distribution- in Bayes theorem) because perhaps it is difficult to integrate. To do this, we sample from a **MCMC** whose `stationary distribution` is the target distribution that we're looking for. 
  - It consists of picking an arbitrary starting value and then iteratively accepting or rejecting candidate samples drawn from another distribution, one that is easy to sample. 
- - Let's say we want to produce samples from a target distribution called `P(θ)` which is nasty, but all we have is `P(θ) ∝ g(θ)` where `g(θ)` is `P(θ) w/o the denominator` or **Joint** of course!
+ - Let's say we want to produce samples from a target distribution called `P(θ)` which is nasty, but all we have is `P(θ) ∝ g(θ)` where `g(θ)` is P(θ) w/o the denominator or `g(θ)` is a **Joint** of course!
  - In the end, interestingly, we can plug "`θ`values" sampled form the **"ridiculous `q(θ)`"** into our **joint**`g(θ)` then get `i`th / `i-1`th (proportion) of "`g(θ)output`" to decide the acception or rejection of the "`i`th θ" which eventually build our nasty posterior.  <img src="https://user-images.githubusercontent.com/31917400/69237317-530ee200-0b8d-11ea-9063-460b48146f5e.jpg" />
 
- - However, you still may want to have `q( )` have a **larger variance** than `g( )`, and see some rejection of candidates to be as an assurance that `q( )` is covering the space well. 
+ - However, you still may want to have `q( )` have a **larger variance** than `g( )`, and see some rejection of candidates to be as an assurance that **`q( )` is covering the space well**. 
    - A high acceptance rate for random walk Metropolis-Hastings samplers is not a good thing. If the random walk is taking too small of steps, it will accept candidates often, but will take a very long time to fully explore the posterior distribution. 
    - If the random walk is taking too large of steps, many of its proposals will have low probability and the acceptance rate will be low. That will cause us to waste many of the draws. 
    - Ideally, a random walk sampler should accept somewhere between `23% to 50%` of the candidates proposed. 
