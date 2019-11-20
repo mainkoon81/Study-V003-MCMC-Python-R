@@ -420,7 +420,7 @@ When `θ ~ P(θ)` posterior, we hypothetically sample from `P(θ)`(via importanc
 Metropolis_Hastings algorithm allows us to sample from a **generic probability distribution**(target distribution), even if we don't know the `normalizing constant`(the bottom marginal stuff -the data-probability distribution- in Bayes theorem) because perhaps it is difficult to integrate. To do this, we sample from a **MCMC** whose `stationary distribution` is the target distribution that we're looking for. 
  - It consists of picking an arbitrary starting value and then iteratively accepting or rejecting candidate samples drawn from another distribution, one that is easy to sample. 
  - Let's say we want to produce samples from a target distribution called `P(θ)` which is nasty, but all we have is `P(θ) ∝ g(θ)` where `g(θ)` is `P(θ) w/o the denominator` or something.
- - In the end, interestingly, we can plug "values sampled form `g(θ)`" into our target distribution `P(θ)` then compare `i-1` & `i` proportion to accept or reject the `i`.  
+ - In the end, interestingly, we can plug "values sampled form `g(θ)`" into our nasty target distribution `P(θ)` then get `i` & `i-1`  proportion to accept or reject the `i`.  
  <img src="https://user-images.githubusercontent.com/31917400/48061890-4dc83a80-e1b8-11e8-9d8d-0e7359918875.jpg" />
 
  - However, you still may want to have `q( )` have a larger variance than `P( )`, and see some rejection of candidates to be as an assurance that `q( )` is covering the space well. 
