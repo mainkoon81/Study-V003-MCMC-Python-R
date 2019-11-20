@@ -414,7 +414,7 @@ It appears that the chain has reached the stationary distribution. Therefore, we
      - Always Gaussian(c*`previous_θ`, 1) ????  This is the **proposal distribution** `q(θ)`.
 <img src="https://user-images.githubusercontent.com/31917400/69197100-6045b580-0b28-11ea-82d1-020030e11701.jpg" />
    
-When `θ ~ P(θ)` posterior, we hypothetically sample from `P(θ)`(via importance/rejection) then approximate `E[P(θ)]`: Expected Posterior(stationary distribution).  
+When `θ ~ P(θ)` posterior, we hypothetically sample from `Q(θ)`(via importance/rejection) then approximate `E[P(θ)]`: Expected Posterior(stationary distribution).  
  
 ## 2. Metropolis Hastings
 Metropolis_Hastings algorithm allows us to sample from a **generic probability distribution**(target distribution), even if we don't know the `normalizing constant`(the bottom marginal stuff -the data-probability distribution- in Bayes theorem) because perhaps it is difficult to integrate. To do this, we sample from a **MCMC** whose `stationary distribution` is the target distribution that we're looking for. 
