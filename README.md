@@ -410,7 +410,7 @@ It appears that the chain has reached the stationary distribution. Therefore, we
      - **Each hitting is our sample** and this gives a histogram or pdf `P(θ)`. 
 <img src="https://user-images.githubusercontent.com/31917400/69196747-3fc92b80-0b27-11ea-8868-f3746a989d7b.jpg" />
      
-   - ## But how to define the **`probability as a distribution`(transitional distribution) of each state** ????
+   - ## But how to define the **`probability as a distribution`(transitional distribution) of each state** ???? How to choose ?
      - Always Gaussian(c*`previous_θ`, 1) ????  This is the **proposal distribution** `q(θ)`.
 <img src="https://user-images.githubusercontent.com/31917400/69197100-6045b580-0b28-11ea-82d1-020030e11701.jpg" />
    
@@ -419,10 +419,8 @@ When `θ ~ P(θ)` posterior, we hypothetically sample from `P(θ)`(via importanc
 ## 2. Metropolis Hastings
 Metropolis_Hastings algorithm allows us to sample from a **generic probability distribution**(target distribution), even if we don't know the `normalizing constant`(the bottom marginal stuff -the data-probability distribution- in Bayes theorem) because perhaps it is difficult to integrate. To do this, we sample from a **MCMC** whose `stationary distribution` is the target distribution that we're looking for. 
  - It consists of picking an arbitrary starting value and then iteratively accepting or rejecting candidate samples drawn from another distribution, one that is easy to sample. 
- - Let's say we want to produce samples from a target distribution called `g(θ)` which is nasty, but all we have is `g(θ) ∝ q(θ)` where `q(θ)` is `g(θ) w/o the denominator` or something.
- # R U SURE we dont know the nasty g(θ) ? I'm so confused...
- - In the end, interestingly, we can plug "`θ`values" sampled form `q(θ)`" into our nasty target distribution `g(θ)` then get `i`th / `i-1`th (proportion) of "`g(θ) output`" to decide the acception or rejection of the `i`th θ.  
- <img src="https://user-images.githubusercontent.com/31917400/69237317-530ee200-0b8d-11ea-9063-460b48146f5e.jpg" />
+ - Let's say we want to produce samples from a target distribution called `P(θ)` which is nasty, but all we have is `P(θ) ∝ g(θ)` where `g(θ)` is `P(θ) w/o the denominator` or **Joint** of course!
+ - In the end, interestingly, we can plug "`θ`values" sampled form the **"ridiculous `q(θ)`"** into our **joint**`g(θ)` then get `i`th / `i-1`th (proportion) of "`g(θ)output`" to decide the acception or rejection of the "`i`th θ" which eventually build our nasty posterior.  <img src="https://user-images.githubusercontent.com/31917400/69237317-530ee200-0b8d-11ea-9063-460b48146f5e.jpg" />
 
  - However, you still may want to have `q( )` have a **larger variance** than `g( )`, and see some rejection of candidates to be as an assurance that `q( )` is covering the space well. 
    - A high acceptance rate for random walk Metropolis-Hastings samplers is not a good thing. If the random walk is taking too small of steps, it will accept candidates often, but will take a very long time to fully explore the posterior distribution. 
