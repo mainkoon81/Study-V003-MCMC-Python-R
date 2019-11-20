@@ -411,7 +411,7 @@ It appears that the chain has reached the stationary distribution. Therefore, we
 <img src="https://user-images.githubusercontent.com/31917400/69196747-3fc92b80-0b27-11ea-8868-f3746a989d7b.jpg" />
      
    - ## But how to define the **`probability as a distribution`(transitional distribution) of each state** ????
-     - Always Gaussian(c*`previous_θ`, 1) ????  This is the **candidate distribution** `q(θ)`.
+     - Always Gaussian(c*`previous_θ`, 1) ????  This is the **proposal distribution** `q(θ)`.
 <img src="https://user-images.githubusercontent.com/31917400/69197100-6045b580-0b28-11ea-82d1-020030e11701.jpg" />
    
 When `θ ~ P(θ)` posterior, we hypothetically sample from `P(θ)`(via importance/rejection) then approximate `E[P(θ)]`: Expected Posterior(stationary distribution).  
