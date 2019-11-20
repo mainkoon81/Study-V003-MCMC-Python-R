@@ -421,7 +421,7 @@ Metropolis_Hastings algorithm allows us to sample from a **generic probability d
  - It consists of picking an arbitrary starting value and then iteratively accepting or rejecting candidate samples drawn from another distribution, one that is easy to sample. 
  - Let's say we want to produce samples from a target distribution called `g(θ)` which is nasty, but all we have is `g(θ) ∝ q(θ)` where `q(θ)` is `g(θ) w/o the denominator` or something.
  # R U SURE we dont know the nasty g(θ) ? I'm so confused...
- - In the end, interestingly, we can plug "`θ`values" sampled form `q(θ)`" into our nasty target distribution `g(θ)` then get `i`th / `i-1`th (proportion) of "`g(θ) output`" to decide the acception or rejection of the `i`th.  
+ - In the end, interestingly, we can plug "`θ`values" sampled form `q(θ)`" into our nasty target distribution `g(θ)` then get `i`th / `i-1`th (proportion) of "`g(θ) output`" to decide the acception or rejection of the `i`th θ.  
  <img src="https://user-images.githubusercontent.com/31917400/69237317-530ee200-0b8d-11ea-9063-460b48146f5e.jpg" />
 
  - However, you still may want to have `q( )` have a **larger variance** than `g( )`, and see some rejection of candidates to be as an assurance that `q( )` is covering the space well. 
