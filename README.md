@@ -402,12 +402,12 @@ legend("topright", legend="theoretical stationary\ndistribution", col="red", lty
 It appears that the chain has reached the stationary distribution. Therefore, we could treat this simulation from the chain like a Monte Carlo sample from the stationary distribution, a normal with mean `0` and variance `1.562`. Because most posterior distributions we will look at are continuous, our Monte Carlo simulations with Markov chains will be similar to this example.
 
 > ## The goal of MCMC:  
- - So...we want to learn a crazy posterior distribution `P(θ)`. We want to **sample** from it or **approximate** it.
+ - So...we want to learn a crazy posterior distribution `P(θ|y)`. We want to **sample** from it or **approximate** it.
    - First, perform a `Random Walk` via **pdf**.
      - **Once we have a starting pt**, we randomly pick a **nearby pt** and evaluate its probability.
      - Based on the **probability of the state**(transitional probability), we move the pt. -> `the key`!!! 
      - If we repeat this enough, it will **`hit every pt in the sample space`** with a frequency that is porportional to its probability. 
-     - **Each hitting is our sample** and this gives a histogram or pdf `P(θ)`. 
+     - **Each hitting is our sample** and this gives a histogram or pdf `P(θ|y)`. 
 <img src="https://user-images.githubusercontent.com/31917400/69196747-3fc92b80-0b27-11ea-8868-f3746a989d7b.jpg" />
      
    - ## But how to define the **`probability as a distribution`(transitional distribution) of each state** ???? How to choose ?
