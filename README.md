@@ -414,12 +414,12 @@ It appears that the chain has reached the stationary distribution. Therefore, we
      - Always Gaussian(c*`previous_θ`, 1) ????  This is the **proposal distribution** `q(θ)` which is an envelop in the "Rejection Sampling". 
 <img src="https://user-images.githubusercontent.com/31917400/69197100-6045b580-0b28-11ea-82d1-020030e11701.jpg" />
    
-When `θ ~ P(θ)` posterior, we hypothetically sample from `Q(θ)`(via importance/rejection) then approximate `E[P(θ)]`: Expected Posterior(stationary distribution).  
+When `θ ~ P(θ|y)` posterior, we hypothetically sample from `Q(θ)`(via importance/rejection) then approximate `E[P(θ|y)]`: Expected Posterior(stationary distribution).  
  
 ## 2. Metropolis Hastings
 Metropolis_Hastings algorithm allows us to sample from a **generic probability distribution**(target distribution), even if we don't know the `normalizing constant`(the bottom marginal stuff -the data-probability distribution- in Bayes theorem) because perhaps it is difficult to integrate. To do this, we sample from a **MCMC** whose `stationary distribution` is the target distribution that we're looking for. 
  - It consists of picking an arbitrary starting value and then iteratively accepting or rejecting candidate samples drawn from another distribution, one that is easy to sample. 
- - Let's say we want to produce samples from a target distribution called `P(θ)` which is nasty, but all we have is `P(θ) ∝ g(θ)` where `g(θ)` is P(θ) w/o the denominator or `g(θ)` is a **Joint** of course!
+ - Let's say we want to produce samples from a target distribution called `P(θ|y)` which is nasty, but all we have is `P(θ|y) ∝ g(θ)` where `g(θ)` is P(θ|y) w/o the denominator so `g(θ)` is a **Joint** of course!
  - In the end, interestingly, we can plug "`θ`values" sampled form the **"ridiculous `q(θ)`"** into our **joint**`g(θ)` then get `i`th / `i-1`th (proportion) of "`g(θ)output`" to decide the acception or rejection of the "`i`th θ" which eventually build our nasty posterior.  <img src="https://user-images.githubusercontent.com/31917400/69237317-530ee200-0b8d-11ea-9063-460b48146f5e.jpg" />
 
  - However, you still may want to have `q( )` have a **larger variance** than `g( )`, and see some rejection of candidates to be as an assurance that **`q( )` is covering the space well**. 
