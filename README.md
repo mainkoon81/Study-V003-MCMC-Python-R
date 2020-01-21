@@ -27,6 +27,7 @@ Monte-Carlo methods are methods for `generating random variables` directly or in
  - It also helps us understand probabilities of **extreme events**. 
  - The use of Monte-Carlo methods to **calculate p-values** has become popular because:
    - Many test statistics do not have a standard asymptotic distribution. Even if a standard asymptotic distribution does exist, it may not be reliable in realistic sample sizes. 
+   ## Damn Distribution! F**K off.
    - In contrast, Monte-Carlo methods can be used to obtain an **Empirical p-value** that approximates the exact p-value without relying on asymptotic distributional theory or exhaustive enumeration. 
 
 
