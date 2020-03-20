@@ -538,12 +538,12 @@ A disadvantage of the Metropolis-Hastings is the dependence of finding a **good 
 Hey, if you were to uniformly sample X, each value would have the same likelihood of being sampled. In order to sample X in a manner which will retain the distribution f(x), some sampling technique must be used which takes into account the **varied likelihoods** for each range of f(x). Our slice sampling, in its simplest form, samples uniformly from underneath the curve f(x) **without the need to reject any points**! 
 <img src="https://user-images.githubusercontent.com/31917400/77159423-3f24af80-6a9d-11ea-8c25-9a9d1207fa85.jpg" />
 
-Steps:
- - Choose a starting value **![formula](https://render.githubusercontent.com/render/math?math=\x_0)** for which **f(![formula](https://render.githubusercontent.com/render/math?math=\x_0))** > 0.
- - Sample a y value uniformly between **0** and **f(![formula](https://render.githubusercontent.com/render/math?math=\x_0))**.
- - **Draw a horizontal line** across the curve at this y position.
- - Sample a point (x, y) from the line segments within the curve.
- - Repeat from step 2 using the **new x** value.
+__General Steps:__
+ - [Step 1] Choose a starting value **![formula](https://render.githubusercontent.com/render/math?math=\x_0)** for which **f(![formula](https://render.githubusercontent.com/render/math?math=\x_0))** > 0.
+ - [Step 2] Sample a y value uniformly between **0** and **f(![formula](https://render.githubusercontent.com/render/math?math=\x_0))**.
+ - [Step 3] **Draw a horizontal line** across the curve at this y position.
+ - [Step 4] Sample a point (x, y) from the line segments within the curve.
+ - [Step 5] Repeat from step 2 using the **new x** value.
 
 
 
