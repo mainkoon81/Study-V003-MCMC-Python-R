@@ -540,9 +540,10 @@ Hey, if you were to uniformly sample X, each value would have the same likelihoo
 
 __General Steps:__
  - [Step 1] Choose a starting value **![formula](https://render.githubusercontent.com/render/math?math=\x_0)** for which **f(![formula](https://render.githubusercontent.com/render/math?math=\x_0))** > 0.
- - [Step 2] Sample a y value uniformly between **0** and **f(![formula](https://render.githubusercontent.com/render/math?math=\x_0))**.
- - [Step 3] **Draw a horizontal line** across the curve at this y position.
- - [Step 4] Sample a point (x, y) from the line segments within the curve.
+ - [Step 2] Sample a `u` value(height) uniformly between **0** and **f(![formula](https://render.githubusercontent.com/render/math?math=\x_0))**.
+ - [Step 3] **Draw a horizontal line** across the curve at this `u`(height) position.
+ - [Step 4] Sample a point (x, `u`) from the line segments within the curve.
+   - that means.. Sample the next x ~ **Unif(-z, z)**, where **z** is the **inverse PDF** evaluated at `u`
  - [Step 5] Repeat from [step 2] using the **new x** value.
 
 But it is problematic for multi-modal distributions, where the slice may consist of multiple discontinuous parts. It is often possible to use a form of **rejection sampling** to overcome this, where we sample from an envelop. 
