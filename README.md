@@ -530,4 +530,26 @@ curve(0.017*exp(lg(x, n, ybar)), from=-1.0, to=3.0, add=TRUE, col="blue")
 
  - These results are encouraging, but they are preliminary. We still need to investigate more formally whether our Markov chain has converged to the stationary distribution. Obtaining posterior samples using the Metropolis-Hastings algorithm can be time-consuming and require some fine-tuning, as we’ve just seen. The good news is that we can rely on software to do most of the work for us.
 
-# JAGS....
+--------------------------------------------------------------------------------------------------
+## Slice Sampling
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
