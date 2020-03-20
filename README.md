@@ -533,7 +533,7 @@ curve(0.017*exp(lg(x, n, ybar)), from=-1.0, to=3.0, add=TRUE, col="blue")
 
 --------------------------------------------------------------------------------------------------
 ## 3. Slice Sampling
-A disadvantage of the Metropolis-Hastings is the dependence of finding a **good proposal distribution** that involves `setting step-size parameters` of such a distribution to appropriate values. Such a **parameter tuning** requires to make a good trade-off between `too low step-sizes` leading to a random walk and `too high step-sizes` leading to high rejection rates. **Slice sampling** is an MCMC technique that tries to overcome this problem by **adjusting the step-size more automatically**. 
+A disadvantage of the Metropolis-Hastings is the dependence of finding a **good proposal distribution** that involves **setting step-size parameters** of such a distribution to appropriate values. Such a **`parameter tuning`** requires to make a good trade-off between `too low step-sizes` leading to a random walk and `too high step-sizes` leading to high rejection rates. **slice sampling** is an MCMC technique that tries to overcome this problem by **adjusting the step-size more automatically**. As it adaptively chooses the `magnitude of changes made in prior steps`, **slice sampling** is more efficient than basic Metropolis algorithms. 
 
 
 
