@@ -416,7 +416,8 @@ It appears that the chain has reached the stationary distribution. Therefore, we
 <img src="https://user-images.githubusercontent.com/31917400/69197100-6045b580-0b28-11ea-82d1-020030e11701.jpg" />
    
 When `θ ~ P(θ|y)` posterior, we hypothetically sample from `Q(θ)`(via importance/rejection) then approximate `E[P(θ|y)]`: Expected Posterior(stationary distribution).  
- 
+
+------------------------------------------------------------------------------------------------------------
 ## 2. Metropolis Hastings
 Metropolis_Hastings algorithm allows us to sample from a **generic probability distribution**(target distribution), even if we don't know the `normalizing constant`(the bottom marginal stuff -the data-probability distribution- in Bayes theorem) because perhaps it is difficult to integrate. To do this, we sample from a **MCMC** whose `stationary distribution` is the target distribution that we're looking for. 
  - It consists of picking an arbitrary starting value and then iteratively accepting or rejecting candidate samples drawn from another distribution, one that is easy to sample. 
@@ -531,8 +532,8 @@ curve(0.017*exp(lg(x, n, ybar)), from=-1.0, to=3.0, add=TRUE, col="blue")
  - These results are encouraging, but they are preliminary. We still need to investigate more formally whether our Markov chain has converged to the stationary distribution. Obtaining posterior samples using the Metropolis-Hastings algorithm can be time-consuming and require some fine-tuning, as we’ve just seen. The good news is that we can rely on software to do most of the work for us.
 
 --------------------------------------------------------------------------------------------------
-## Slice Sampling
-
+## 3. Slice Sampling
+A disadvantage of the Metropolis-Hastings is the dependence of finding a **good proposal distribution** that involves `setting step-size parameters` of such a distribution to appropriate values. Such a **parameter tuning** requires to make a good trade-off between `too low step-sizes` leading to a random walk and `too high step-sizes` leading to high rejection rates. **Slice sampling** is an MCMC technique that tries to overcome this problem by **adjusting the step-size more automatically**. 
 
 
 
