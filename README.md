@@ -543,7 +543,7 @@ __General Steps:__
  - [Step 2] Sample a y value uniformly between **0** and **f(![formula](https://render.githubusercontent.com/render/math?math=\x_0))**.
  - [Step 3] **Draw a horizontal line** across the curve at this y position.
  - [Step 4] Sample a point (x, y) from the line segments within the curve.
- - [Step 5] Repeat from step 2 using the **new x** value.
+ - [Step 5] Repeat from [step 2] using the **new x** value.
 
 
 
