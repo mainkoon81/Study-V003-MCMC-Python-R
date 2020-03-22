@@ -591,7 +591,7 @@ __Example in Insurance Loss__
 
 Start with the representation of the common density f(![formula](https://render.githubusercontent.com/render/math?math=y_i)) for the iid sample ![formula](https://render.githubusercontent.com/render/math?math=\y_i=log(x_i)) which are log of **insurance loss** variable.  
 
-f(![formula](https://render.githubusercontent.com/render/math?math=y_i))(predictive?) is a countably infinite **mixture of normal** densities(likelihood) with **`random weights`**(DP prior: proportion) from the stick-breaking rule and **`random mean & variance pairs`**(DP prior: location) iid from the base measure ![formula](https://render.githubusercontent.com/render/math?math=G_0). This particular representation of course suggests that **there are infinitely many parameters**!!!   
+f(![formula](https://render.githubusercontent.com/render/math?math=y_i)) as a predictive function? is a countably infinite **mixture of normal** densities(likelihood) with **`random weights`**(DP prior: proportion) from the stick-breaking rule and **`random mean & variance pairs`**(DP prior: location) iid from the base measure ![formula](https://render.githubusercontent.com/render/math?math=G_0). This particular representation of course suggests that **there are infinitely many parameters**!!!   
 
 
 
