@@ -597,6 +597,7 @@ posterior computation for the Dirichlet process mixture model is not straightfor
  - The most important feature of this representation is that given **U** = `u`(random prob), since the **ξ-sequence** is decreasing, there can be only finitely many values of `d`(random index?) for which the above density is positive. Consequently, **U** effectively "slices" the generally infinite collection of possible values of **D** to a finite collection! 
  - Using the **"Beta(1,α)"** prior for the ![formula](https://render.githubusercontent.com/render/math?math=\v_j) and the **"![formula](https://render.githubusercontent.com/render/math?math=\G_0)"** prior for ![formula](https://render.githubusercontent.com/render/math?math=\mu_j,\sigma^2_j), we can now construct a Gibbs sampler for our posterior of the model parameters+latent variables.  <img src="https://user-images.githubusercontent.com/31917400/77257354-a5f7c380-6c6b-11ea-9d03-bfea7cead150.jpg" /> This version of the slice sampler is called the "independent slice-efficient" algorithm, and this calculation can be done analytically for our choice of the ξ-sequence. 
 
+### For this Gibbs Sampling...
 
 
 
