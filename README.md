@@ -589,13 +589,9 @@ But it is problematic for multi-modal distributions, where the slice may consist
 
 __Example in Insurance Loss__
 
-Start with the representation of the common density f(![formula](https://render.githubusercontent.com/render/math?math=y_i)) for the iid sample ![formula](https://render.githubusercontent.com/render/math?math=\y_i=log(x_i)) which are log of **insurance loss** variable.  
+Start with the representation of the common density **f(![formula](https://render.githubusercontent.com/render/math?math=y_i))** for the iid sample ![formula](https://render.githubusercontent.com/render/math?math=\y_i=log(x_i)) which are log of **insurance loss** variable.  
 
-f(![formula](https://render.githubusercontent.com/render/math?math=y_i)) as a predictive function? is a countably infinite **mixture of normal** densities(likelihood) with **`random weights`**(DP prior: proportion) from the stick-breaking rule and **`random mean & variance pairs`**(DP prior: location) iid from the base measure ![formula](https://render.githubusercontent.com/render/math?math=G_0). This particular representation of course suggests that **there are infinitely many parameters**!!!   
-
-
-
-
+**f(![formula](https://render.githubusercontent.com/render/math?math=y_i))** as a "predictive function for DPM"? is a countably infinite **mixture of normal** densities(likelihood) with **`"random" weights`**(DP prior: proportion) from the stick-breaking rule and **`"random" mean & variance pairs`**(DP prior: location) iid from the base measure ![formula](https://render.githubusercontent.com/render/math?math=G_0). This particular representation of course suggests that **there are infinitely many parameters**!!! Of course it's a DPMixture! The DPM posterior is of course supported on the set of mixtures? with **at most** `n` distinct mean & variance pairs and `n` proportions, if we have a data size `n`. So computing the DPM posterior boils down to finding a way to handle the **finite** but **varying number of unknown** model parameters `such that the corresponding Markov chain has the correct stationary distribution`.   
 
 
 
