@@ -621,9 +621,9 @@ We need several inputs:
 So.. after a sufficient number of burn-in iterations, we have the output: size "M" of samples
 <img src="https://user-images.githubusercontent.com/31917400/77353975-defe6980-6d39-11ea-9566-26bcf7925102.jpg" />
 
-A key point is that ![formula](https://render.githubusercontent.com/render/math?math=j^\m) (cluster size?) is not the same in each sample; that is, the order of the mixture is adaptive and determined by data. So we can draw a histogram of the ![formula](https://render.githubusercontent.com/render/math?math=j^m) values, m=1,...,M, to visualize the posterior distribution for the mixture order to assess the complexity of the **underlying predictive distribution**. 
+A key point is that ![formula](https://render.githubusercontent.com/render/math?math=j^\m) (components size) is not the same in each sample; that is, the order of the mixture is adaptive and determined by data. So we can draw a histogram of the ![formula](https://render.githubusercontent.com/render/math?math=j^m) values, m=1,...,M, to visualize the **posterior** for the mixture order to assess the complexity of the **underlying `predictive distribution`**. <img src="https://user-images.githubusercontent.com/31917400/77355903-34884580-6d3d-11ea-880f-100c03e5b39d.jpg" />
 
-
+### Final Predictive Distribution
 
 
 
