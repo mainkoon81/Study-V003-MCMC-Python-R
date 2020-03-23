@@ -625,8 +625,8 @@ A key point is that ![formula](https://render.githubusercontent.com/render/math?
 
 ### Final Predictive Distribution
 There are a couple of ways to summarize the predictive distribution from our output. 
- - The first starts with getting a sample from the posterior then plug them into <img src="https://user-images.githubusercontent.com/31917400/77366077-29d6ac00-6d4f-11ea-89be-c1eb55b5293b.jpg" /> then approximate the **predictive distribution** by averaging the output of above over m=1,...,M. 
- - The second, which is more versatile, is to get a Monte Carlo sample from the predictive distribution itself. At iteration "m", **sample**![formula](https://render.githubusercontent.com/render/math?math=(log(x))^\m) from <img src="https://user-images.githubusercontent.com/31917400/77367144-6f947400-6d51-11ea-931f-7f296ada2166.jpg" /> 
+ - [A] The first starts with getting a sample from the posterior then plug them into <img src="https://user-images.githubusercontent.com/31917400/77366077-29d6ac00-6d4f-11ea-89be-c1eb55b5293b.jpg" /> then approximate the **predictive distribution** by averaging the output of above over m=1,...,M. 
+ - [B] The second, which is more versatile, is to get a Monte Carlo sample from the predictive distribution itself. At iteration "m", **sample** ![formula](https://render.githubusercontent.com/render/math?math=log(x)^\m) from <img src="https://user-images.githubusercontent.com/31917400/77367144-6f947400-6d51-11ea-931f-7f296ada2166.jpg" /> 
    
 
 
