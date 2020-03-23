@@ -611,7 +611,7 @@ We need several inputs:
        <img src="https://user-images.githubusercontent.com/31917400/77317935-0c302500-6d04-11ea-9816-20b3bfcaa4fe.jpg" />
    
  - 3> **ξ-sequence** 
-   - Consider one of the options presented in the independent slice-efficient algorithm of Kalli et al, in particular, ![formula](https://render.githubusercontent.com/render/math?math=\xi_j=(1-k)k^\j-1), where k ∈ (0,1) is to be specified...recommend k=0.5 as a good default value, which is what we use in our implementation. With this choice of **ξ-sequence**, it is possible to identify the quantity `J` analytically: <img src="https://user-images.githubusercontent.com/31917400/77319529-e0fb0500-6d06-11ea-9168-0619a17b1e42.jpg" />
+   - Consider one of the options presented in the independent slice-efficient algorithm of Kalli et al, in particular, ![formula](https://render.githubusercontent.com/render/math?math=\xi_j=(1-k)k^\j-1), where k ∈ (0,1) is to be specified...recommend k=0.5 as a good default value, which is what we use in our implementation. With this choice of **ξ-sequence**, it is possible to identify the quantity `J` analytically: <img src="https://user-images.githubusercontent.com/31917400/77319704-30d9cc00-6d07-11ea-8746-61fce6d3c4c8.jpg" />
 
 
 
