@@ -599,18 +599,18 @@ posterior computation for the Dirichlet process mixture model is not straightfor
 
 ### Before start this Gibbs Sampling...
 We need several inputs: 
- - 1. **α** in DP(α, ![formula](https://render.githubusercontent.com/render/math?math=\G_0))
+ - **α** in DP(α, ![formula](https://render.githubusercontent.com/render/math?math=\G_0))
    - Give some properties of the posterior. For example, smaller ? values of α encourage the posterior for f(Y) to be supported on more complex mixtures(more diverse mixture of normals..?)
    - Here, fixing `α = 1` is a reasonable default choice that works well..
    
- - 2. **![formula](https://render.githubusercontent.com/render/math?math=\G_0)** in DP(α, ![formula](https://render.githubusercontent.com/render/math?math=\G_0))
+ - **![formula](https://render.githubusercontent.com/render/math?math=\G_0)** in DP(α, ![formula](https://render.githubusercontent.com/render/math?math=\G_0))
    -  In terms of computation, ![formula](https://render.githubusercontent.com/render/math?math=\G_0) appears in the slice sampler algorithm only in **Step 1**, so we want to choose ![formula](https://render.githubusercontent.com/render/math?math=\G_0) so that this step is relatively simple. Here, taking to be ![formula](https://render.githubusercontent.com/render/math?math=\G_0) the joint distribution of (μ, σ2) corresponding to..
      - ![formula](https://render.githubusercontent.com/render/math?math=\mu~\N(m,s^2))
      - ![formula](https://render.githubusercontent.com/render/math?math=1/\sigma^2~Gamma(a,b))
      - The values of the hyperparameters can be selected by the actuary but, to avoid application-specific considerations here, we make the following "default" (some data-dependent) choices:
        <img src="https://user-images.githubusercontent.com/31917400/77317935-0c302500-6d04-11ea-9816-20b3bfcaa4fe.jpg" />
    
- - 3. **ξ-sequence** 
+ - **ξ-sequence** 
    - Consider one of the options presented in the independent slice-efficient algorithm of Kalli et al, in particular, ![formula](https://render.githubusercontent.com/render/math?math=\xi_j=(1-k)k^\j-1), where k ∈ (0,1) is to be specified...recommend k=0.5 as a good default value, which is what we use in our implementation. With this choice of **ξ-sequence**, it is possible to identify the quantity `J` analytically: <img src="https://user-images.githubusercontent.com/31917400/77319704-30d9cc00-6d07-11ea-8746-61fce6d3c4c8.jpg" />
 
 ```
