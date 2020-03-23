@@ -595,9 +595,24 @@ Start with the representation of the common density **f(![formula](https://rende
 ### However...
 posterior computation for the Dirichlet process mixture model is not straightforward...so the trick proposed for the mixture model is what is called a **slice sampler**. The basic idea behind the slice-sampling is to introduce latent variables (U, D) such that the joint model for **f(Y, `U`,`D`)** has a density: <img src="https://user-images.githubusercontent.com/31917400/77256820-6ed3e300-6c68-11ea-81cd-b6183ba2c7ee.jpg" />
  - The most important feature of this representation is that given **U** = `u`(random prob), since the **ξ-sequence** is decreasing, there can be only finitely many values of `d`(random index?) for which the above density is positive. Consequently, **U** effectively "slices" the generally infinite collection of possible values of **D** to a finite collection! 
- - Using the **"Beta(1,α)"** prior for the ![formula](https://render.githubusercontent.com/render/math?math=\v_j) and the **"![formula](https://render.githubusercontent.com/render/math?math=\G_0)"** prior for ![formula](https://render.githubusercontent.com/render/math?math=\mu_j,\sigma^2_j), we can now construct a Gibbs sampler for our posterior of the model parameters+latent variables.  <img src="https://user-images.githubusercontent.com/31917400/77257354-a5f7c380-6c6b-11ea-9d03-bfea7cead150.jpg" /> This version of the slice sampler is called the "independent slice-efficient" algorithm, and this calculation can be done analytically for our choice of the ξ-sequence. 
+ - Using the **"Beta(1,α)"** prior for the ![formula](https://render.githubusercontent.com/render/math?math=\v_j) and the **"![formula](https://render.githubusercontent.com/render/math?math=\G_0)"** prior for ![formula](https://render.githubusercontent.com/render/math?math=\mu_j,\sigma^2_j), we can now construct a Gibbs sampler for our posterior of the model parameters+latent variables.  <img src="https://user-images.githubusercontent.com/31917400/77257354-a5f7c380-6c6b-11ea-9d03-bfea7cead150.jpg" /> This version of the slice sampler is called the "independent slice-efficient" algorithm.
 
-### For this Gibbs Sampling...
+### Before start this Gibbs Sampling...
+We need several inputs: 
+ - 1> **α** in DP(α, ![formula](https://render.githubusercontent.com/render/math?math=\G_0))
+   - Give some properties of the posterior. For example, smaller ? values of α encourage the posterior distribution for f to be supported on more complex mixtures(more diverse mixture of normals..)
+   - Here, fixing `α = 1` is a reasonable default choice that works well..
+   
+ - 2> **![formula](https://render.githubusercontent.com/render/math?math=\G_0)** in DP(α, ![formula](https://render.githubusercontent.com/render/math?math=\G_0))
+   -  In terms of computation, ![formula](https://render.githubusercontent.com/render/math?math=\G_0) appears in the slice sampler algorithm only in **Step 1**, so we want to choose ![formula](https://render.githubusercontent.com/render/math?math=\G_0) so that this step is relatively simple. Here, taking to be ![formula](https://render.githubusercontent.com/render/math?math=\G_0) the joint distribution of (μ,σ2) corresponding to..
+     - ![formula](https://render.githubusercontent.com/render/math?math=\mu~\N(m,s^2))
+     - ![formula](https://render.githubusercontent.com/render/math?math=1/\sigma^2~Gamma(a,b))
+     - The values of the hyperparameters can be selected by the actuary but, to avoid application-specific considerations here, we make the following "default" (some data-dependent) choices:
+       <img src="https://user-images.githubusercontent.com/31917400/77317935-0c302500-6d04-11ea-9816-20b3bfcaa4fe.jpg" />
+   
+ - 3> **ξ-sequence** 
+   - Forthe ξ-sequence, consider one of the options presented in the independent slice-efficient algorithm of Kallietal., in particular, ξj = (1−κ)κ j−1, j =1,2,..., where κ ∈ (0,1) is to be specified. 
+   - Kalli et al. recommend κ =0.5 as a good default value, which is what we use in our implementation. With this choice of ξ-sequence, it is possible to identify the quantity J analytically
 
 
 
