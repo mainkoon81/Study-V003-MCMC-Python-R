@@ -587,7 +587,7 @@ if __name__ == '__main__':
 ```
 But it is problematic for multi-modal distributions, where the slice may consist of multiple discontinuous parts. It is often possible to use a form of **rejection sampling** to overcome this, where we sample from an envelop. 
 
-### Example in Insurance Loss
+### Example in the Insurance Loss Analysis
 Start with the representation of the common density **f(![formula](https://render.githubusercontent.com/render/math?math=y_i))** for the iid sample ![formula](https://render.githubusercontent.com/render/math?math=\y_i=log(x_i)) which are log of **insurance loss** variable. The question is always...`Hyperparameter`:**How many Gaussian components are required to explain the data?** `Parameter`:**How would each mixing coefficient be?** `Parameter`:**What are the parameter values for each Gaussian component?**
 
 Plus, note that, in the predictive distribution, the main information in our interest would be the CTE(Conditional Tail Expectation). This quantity acts as a measure of the **heaviness of the tail**, which is relevant for assessing risk.
