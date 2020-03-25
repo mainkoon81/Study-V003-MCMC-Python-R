@@ -618,16 +618,20 @@ We need several inputs:
 
 ```
 
-### Output
-So.. after a sufficient number of burn-in iterations, we have the output: size "M" of samples
+### A bunch of parameters
+So.. after a sufficient number of burn-in iterations with Gibbs Sampler, we have the output: size "M" of samples
 <img src="https://user-images.githubusercontent.com/31917400/77353975-defe6980-6d39-11ea-9566-26bcf7925102.jpg" />
 
-A key point is that ![formula](https://render.githubusercontent.com/render/math?math=j^\m) (components size) is not the same in each sample; that is, the order of the mixture is adaptive and determined by data. So we can draw a histogram of the ![formula](https://render.githubusercontent.com/render/math?math=j^m) values, m=1,...,M, to visualize the **posterior** for the mixture order to assess the complexity of the **underlying `predictive distribution`**. <img src="https://user-images.githubusercontent.com/31917400/77414070-54108400-6db8-11ea-954f-e01d7c036c92.jpg" />
+A key point is that ![formula](https://render.githubusercontent.com/render/math?math=j^\m) (components size) is not the same in each sample; that is, the order of the mixture is adaptive and determined by data. So we can draw a histogram of the ![formula](https://render.githubusercontent.com/render/math?math=j^m) values, m=1,...,M, to visualize the **posterior** for the mixture order to assess the complexity of the **underlying `predictive distribution`**. 
 
 ### Final Predictive Distribution
 There are a couple of ways to summarize the predictive distribution from our posterior output. 
- - [A] The first plugging a sample from the posterior into <img src="https://user-images.githubusercontent.com/31917400/77366077-29d6ac00-6d4f-11ea-89be-c1eb55b5293b.jpg" /> then approximate the **predictive distribution** by averaging the output of above over m=1,...,M. 
- - [B] The second, which is more versatile, is to directly get a sample from the **predictive distribution** itself. At iteration "m", **sample** ![formula](https://render.githubusercontent.com/render/math?math=log(x)^\m) from <img src="https://user-images.githubusercontent.com/31917400/77367144-6f947400-6d51-11ea-931f-7f296ada2166.jpg" /> 
+ - [A] The first, which is more versatile, is to directly get a sample from the **predictive distribution** itself. At iteration "m", **sample** ![formula](https://render.githubusercontent.com/render/math?math=log(x)^\m) from <img src="https://user-images.githubusercontent.com/31917400/77367144-6f947400-6d51-11ea-931f-7f296ada2166.jpg" />
+ 
+ - [B] The second, plugging a sample from the posterior into <img src="https://user-images.githubusercontent.com/31917400/77366077-29d6ac00-6d4f-11ea-89be-c1eb55b5293b.jpg" /> then approximate the **predictive distribution** by averaging the output of above over m=1,...,M. <img src="https://user-images.githubusercontent.com/31917400/77414070-54108400-6db8-11ea-954f-e01d7c036c92.jpg" />
+ 
+ 
+
    
 
 
