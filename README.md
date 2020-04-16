@@ -156,7 +156,7 @@ __Q. So..for Binomial Likelihood, why choose "Beta" as a prior?__ how to elicit 
 ### posterior mean & sample size
  - The effective sample size(`a+b`) gives you an idea of how much data you would need to make sure that you're prior doesn't have much influence on your posterior. If `a+b` is small compared to `sample_size: n` (non-informative prior), then the posterior will largely just be driven by the data `X`. If `a+b` is large relative to `sample_size: n` (informative prior), then your posterior will be largely driven by the prior `θ`. 
  - posterior_mean is `(prior_weight*prior_mean) + (data_weight*data_weight)`
- <img src="https://user-images.githubusercontent.com/31917400/47261034-aca26a00-d4be-11e8-897a-a9270ac5d2cb.png" />
+ <img src="https://user-images.githubusercontent.com/31917400/79454841-d1a86800-7fe3-11ea-864b-0b5633235471.png" />
  <img src="https://user-images.githubusercontent.com/31917400/47261080-c09a9b80-d4bf-11e8-84ef-0f8910747894.png" />
 
 ### Find posterior
