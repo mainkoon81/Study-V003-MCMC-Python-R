@@ -376,7 +376,7 @@ The continuous "random walk" example here does not have a stationary distributio
 ### > Stationary Distribution (continuous)
 However, we can modify it so that it does have a stationary distribution. Let the transition distribution be
 <img src="https://user-images.githubusercontent.com/31917400/48024145-bae7bb80-e137-11e8-8286-379299ba9c1a.jpg" /> That is, the probability distribution for the next state is Normal with **variance** `1` and **mean** equal to `ϕ * current_mean`. As long as ϕ is between −1 and 1(reflecting probability value, weight of the posterior) such as, then the **stationary distribution** will exist which is our MCMC posterior approximation result...so we just found the parameter of our target distribution!  
-<img src="https://user-images.githubusercontent.com/31917400/69074359-1f19ac80-0a27-11ea-9463-13abbb7c0391.jpg" />
+<img src="https://user-images.githubusercontent.com/31917400/81320117-94864180-9088-11ea-8b41-8c10ccb20733.jpg" />
 
  - Let's simulate the example Random Walk chain for ϕ=−0.6.
 ```
